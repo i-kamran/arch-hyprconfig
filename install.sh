@@ -30,6 +30,23 @@ echo
 echo "Installing AUR utilities..."
 ./install_aur_utils.sh
 
+# Copy wallpaper to .config
+cp -r "$(dirname "$0")/wallpapers" ~/.config
+
+# Stow config
+echo
+echo "Applying configurations with stow..."
+
+stow -d "$(dirname "$0")/configs" --adopt -t ~/.config . 
+
+
+print_green "Configuration applied with stow."
+
+
+
+
+
+
 echo
 echo
 print_green "#############################"

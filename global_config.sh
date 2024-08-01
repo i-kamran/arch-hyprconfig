@@ -17,9 +17,9 @@ AUR_HELPERS=("paru" "yay")
 #######################
 ### Pacman Packages ###
 ########################
-PACKAGES=("vim" "neovim" "firefox" "fastfetch" "btop")
+PACKAGES=("vim" "neovim" "firefox" "fastfetch" "btop" "stow" "tldr" "man")
 
 ####################
 ### AUR Packages ###
 ####################
-AUR_PACKAGES=("visual-studio-code-bin")
+AUR_PACKAGES=("visual-studio-code-bin" "ttf-ms-fonts" "hyrpland" "hyprpaper")
