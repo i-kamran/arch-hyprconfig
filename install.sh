@@ -2,61 +2,36 @@
 
 # Source the global configuration
 source "$(dirname "$0")/global_config.sh"
+source "$(dirname "$0")/global_functions.sh"
 
-# Function to check if a package is installed
-pkg_installed() {
-    pacman -Q "$1" &>/dev/null
-}
 
-# Function to install a package
-install_package() {
-    local pkg="$1"
-    if ! pkg_installed "$pkg"; then
-        if [[ "$pkg" == "visual-studio-code-bin" ]]; then
-            $AUR_HELPER -S --noconfirm "$pkg"
-        else
-            sudo pacman -S --noconfirm "$pkg"
-        fi
-    else
-        echo "$pkg is already installed."
-    fi
-}
+# Installing git if not installed
+if ! pkg_installed "git"; then
+  install_package "git"
+else 
+  print_green "Git is already installed."
+fi
+
+# Install zsh
+./install_zsh.sh
 
 # Install utilities
-echo "Installing utilities..."
-./install_utils.sh
+echo
+echo "Installing pacman packages..."
+./install_pkgs.sh
 
 # Install AUR helper
+echo
 echo "Installing AUR helper..."
 ./install_aur_helper.sh
 
-# Install editors
-install_editors() {
-    echo "Available editors:"
-    for i in "${!EDITORS[@]}"; do
-        echo "$((i + 1)). ${EDITORS[$i]}"
-    done
+# Install AUR utilities
+echo
+echo "Installing AUR utilities..."
+./install_aur_utils.sh
 
-    read -p "Do you want to install all editors? (y/n): " install_all
-
-    if [[ $install_all =~ ^[Yy]$ ]]; then
-        for editor in "${EDITORS[@]}"; do
-            install_package "$editor"
-        done
-    else
-        for editor in "${EDITORS[@]}"; do
-            read -p "Do you want to install $editor? (y/n): " choice
-            if [[ $choice =~ ^[Yy]$ ]]; then
-                install_package "$editor"
-            fi
-        done
-    fi
-}
-
-# Get the selected AUR helper
-AUR_HELPER=$(cat /tmp/selected_aur_helper)
-
-echo "Installing editors..."
-install_editors
-
-echo "Installation complete!"
+echo
+echo
+print_green "#############################"
+print_green "### INSTALATION COMPLETE! ###"
+print_green "#############################"
