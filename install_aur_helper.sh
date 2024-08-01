@@ -2,6 +2,8 @@
 
 # Source the global configuration
 source "$(dirname "$0")/global_config.sh"
+source "$(dirname "$0")/global_functions.sh"
+
 
 install_aur_helper() {
     local aurhlpr="$1"
@@ -36,25 +38,35 @@ install_aur_helper() {
     [ -z "$(ls -A "$cloneDir")" ] && rmdir "$cloneDir"
 }
 
-# Display available AUR helpers
-echo "Available AUR helpers:"
-for i in "${!AUR_HELPERS[@]}"; do
-    echo "$((i + 1)). ${AUR_HELPERS[$i]}"
-done
+prompt_user_selection() {
+    # Display available AUR helpers
+    echo "Available AUR helpers:"
+    for i in "${!AUR_HELPERS[@]}"; do
+        echo "$((i + 1)). ${AUR_HELPERS[$i]}"
+    done
 
-# Prompt user for selection
-read -p "Enter the number of the AUR helper to install: " choice
+    # Prompt user for selection
+    read -p "Enter the number of the AUR helper to install: " choice
+    choice=${choice:-1}
 
-# Validate the choice
-if [[ "$choice" -ge 1 && "$choice" -le "${#AUR_HELPERS[@]}" ]]; then
-    selected_helper="${AUR_HELPERS[$((choice - 1))]}"
-    if ! command -v "$selected_helper" &>/dev/null; then
-        install_aur_helper "$selected_helper"
+    # Validate the choice
+    if [[ "$choice" -ge 1 && "$choice" -le "${#AUR_HELPERS[@]}" ]]; then
+        selected_helper="${AUR_HELPERS[$((choice - 1))]}"
+        if ! command -v "$selected_helper" &>/dev/null; then
+            install_aur_helper "$selected_helper"
+        else
+            print_green "$selected_helper is already installed."
+            echo "$selected_helper" > /tmp/selected_aur_helper
+        fi
     else
-        echo "$selected_helper is already installed."
-        echo "$selected_helper" > /tmp/selected_aur_helper
+        print_red "Invalid choice. Exiting."
+        exit 1
     fi
-else
-    echo "Invalid choice. Exiting."
-    exit 1
-fi
+}
+
+# Main script execution
+prompt_user_selection
+
+echo
+print_green "########################################"
+print_green "AUR helper installation complete!"
