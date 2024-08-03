@@ -1,0 +1,28 @@
+# Mako configuration file (~/.config/mako/config)
+
+font=JetBrains Mono 11
+
+background-color=#1F1F1EF7
+
+text-color=#eceff4
+
+border-color=#434347
+border-size=1
+border-radius=10
+
+default-timeout=5000
+
+anchor=top-right
+margin=0,10,0,0
+
+padding=15,15
+
+
+width=350
+
+markup=1
+
+actions=1
+
+
+format=<b>%s</b>\n%b
