@@ -30,11 +30,6 @@ echo
 echo "Installing AUR utilities..."
 ./install_aur_utils.sh
 
-# Copy wallpaper to .config
-cp -r "$(dirname "$0")/wallpapers" ~/.config
-# Copy rofi theme into /usr/share
-cp -r "$(dirname "$0")/themes"
-
 # Stow config
 echo
 echo "Applying configurations with stow..."
