@@ -32,6 +32,8 @@ echo "Installing AUR utilities..."
 
 # Copy wallpaper to .config
 cp -r "$(dirname "$0")/wallpapers" ~/.config
+# Copy rofi theme into /usr/share
+cp -r "$(dirname "$0")/themes"
 
 # Stow config
 echo
@@ -44,8 +46,13 @@ print_green "Configuration applied with stow."
 
 
 
-
-
+echo "Enabling services."
+systemctl --user enable pipewire.service
+systemctl --user start pipewire.service
+systemctl --user start wireplumber
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
+sudo systemctl enable sddm.service
 
 echo
 echo
