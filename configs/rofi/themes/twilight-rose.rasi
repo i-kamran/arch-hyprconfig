@@ -1,8 +1,6 @@
 /*
  * ROFI color theme
- *
- *
- * Modified by: ikmrn
+ * Theme Name: Twilight Rose
  * User: ikmrn
  * Copyright: ikmrn
  */
@@ -24,8 +22,8 @@ window {
 	width: 60%;
 	height: 70%;
 	border-radius: 10px;
-  border-color: @baseLight
-  border: 1px
+  border-color: @baseLight;
+  border: 1px;
 }
 
 mainbox {
