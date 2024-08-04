@@ -1,0 +1,63 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["custom/launcher", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["battery", "network", "pulseaudio", "backlight", "tray"],
+  "workspaces": {
+    "format": "{icon} "
+  },
+
+  "clock": {
+    "format": "{:%Y-%m-%d | %H:%M}"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "󰂄 {capacity}%",
+    "format-full": "󰂏 {capacity}%",
+    "format-charging": "󰂏 {capacity}%",
+    "format-plugged": "󰂏 {capacity}%",
+    "format-alt": "{time} {icon}"
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": " ⚠ ",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    "format": "  {volume}% {icon}",
+    "format-muted": " {volume}% {icon}",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "~/.config/waybar/scripts/volume.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/volume.sh down"
+  },
+  "backlight": {
+    "format": "  {percent}%",
+    "format-disconnected": "N/A",
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down"
+  },
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "rofi -show drun",
+    "on-click-right": "killall rofi"
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+    "show-passive-items": true,
+    "include-apps": ["blueman-applet", "nm-applet", "custom-wlogout"],
+    "icon-map": {
+      "blueman-applet": "󰂯",
+      "nm-applet": "󰖩",
+      "custom-wlogout": "⏻"
+    }
+  }
+}

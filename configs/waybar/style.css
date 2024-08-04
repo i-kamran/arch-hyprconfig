@@ -1,0 +1,74 @@
+/* Waybar style configuration */
+* {
+  font-family: "JetBrainsMono Nerd Font", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: rgba(31, 31, 30, 0);
+  color: #ebe5d5;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background-color: rgba(31, 31, 30, 0.7);
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 7px 5px 0px;
+}
+
+.module {
+  color: #ebe5d5;
+  margin: 0 7px;
+}
+
+#workspaces button {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 0 5px;
+  margin: 0 2px;
+  border-radius: 8px;
+}
+
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#workspaces button.active {
+  background-color: #d68f8f;
+}
+
+#workspaces button.urgent {
+  background-color: #b69fbd;
+}
+
+#clock {
+  font-weight: bold;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #1f1f1e;
+  color: #b9edb4;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #1f1f1e;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #f77777;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border-radius: 20px;
+  padding: 0 10px;
+}
