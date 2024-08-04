@@ -35,6 +35,7 @@ echo
 echo "Applying configurations with stow..."
 
 stow -d "$(dirname "$0")/configs" --adopt -t ~/.config . 
+stow -d "$(dirname "$0")" --adopt -t ~/ .zshrc 
 
 
 print_green "Configuration applied with stow."
