@@ -17,9 +17,19 @@ AUR_HELPERS=("paru" "yay")
 #######################
 ### Pacman Packages ###
 ########################
-PACKAGES=("vim" "neovim" "firefox" "fastfetch" "btop" "stow" "tldr" "man" "grim" "slurp" "cliphist" "waybar" "mako" "polkit-gnome" "pamixer" "pavucontrol" "brightnessctl" "bluez" "bluez-utils" "blueman" "network-manager-applet" "gvfs" "thunar-archive-plugin" "file-roller" "starship" "lxappearance" "xfce4-settings pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber") 
-
+PACKAGES=(
+    # Utilities
+    "firefox" "hyprland" "stow"  "mako" "waybar" "pamixer" "pavucontrol" "gvfs" "file-roller" "sddm" "qt5" "qt6" "hyprpaper"
+    # Clipboard
+    "grim" "slurp" "cliphist"
+    # Bluetooth & Wi-Fi
+    "bluez" "bluez-utils" "blueman" "network-manager-applet"
+    # Volume and Brightness
+    "brightnessctl" "pipewire" "pipewire-pulse" "pipewire-alsa" "pipewire-jack" "wireplumber"
+    # Misc
+    "tldr" "man" "fastfetch" "btop" "starship" "telegram-desktop" "ttf-jet-brains-mono-nerd"
+)  
 ####################
 ### AUR Packages ###
 ####################
-AUR_PACKAGES=("visual-studio-code-bin" "ttf-ms-fonts" "hyrpland" "hyprpaper" "rofi-lbonn-wayland-git" "wlogout-git" "xdg-desktop-portal-hyprland-git")
+AUR_PACKAGES=("visual-studio-code-bin" "ttf-ms-fonts" "rofi-lbonn-wayland-git" "wlogout-git" "xdg-desktop-portal-hyprland-git")
