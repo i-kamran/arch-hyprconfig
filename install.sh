@@ -51,7 +51,7 @@ sudo systemctl enable sddm.service
 
 echo
 print_green "########################################"
-print_green "Zsh installation complete!"
+print_green "Services are enabled"
 
 echo
 echo
