@@ -4,7 +4,6 @@
 source "$(dirname "$0")/global_config.sh"
 source "$(dirname "$0")/global_functions.sh"
 
-
 # Installing git if not installed
 if ! pkg_installed "git"; then
   install_package "git"
@@ -34,13 +33,13 @@ echo "Installing AUR utilities..."
 echo
 echo "Applying configurations with stow..."
 
-stow -d "$(dirname "$0")/configs" --adopt -t ~/.config . 
-stow -d "$(dirname "$0")" --adopt -t ~/ .zshrc 
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+stow -d "$script_dir/configs" --adopt -t ~/.config . 
+echo "$script_dir/configs"
+stow -d "$script_dir/zshrc" --adopt -t ~/ .
 
 print_green "Configuration applied with stow."
-
-
 
 echo "Enabling services."
 systemctl --user enable pipewire.service
@@ -49,6 +48,10 @@ systemctl --user start wireplumber
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 sudo systemctl enable sddm.service
+
+echo
+print_green "########################################"
+print_green "Zsh installation complete!"
 
 echo
 echo
