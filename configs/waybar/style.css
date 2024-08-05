@@ -1,7 +1,7 @@
 /* Waybar style configuration */
 * {
   font-family: "JetBrainsMono Nerd Font", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 window#waybar {
