@@ -70,9 +70,25 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search copyfile copybuffer dirhistory history) 
 
 source $ZSH/oh-my-zsh.sh
+source <(fzf --zsh)
+eval "$(zoxide init zsh)"
+
+cl() {
+    if [ -z "$1" ]; then
+        echo "Usage: cl <filename>"
+        return 1
+    fi
+
+    local filename="${1%.c}"
+
+    clang -o "$filename" "$1"
+}
+spellcheck() {
+    echo "$1" | tr ' ' '\n' | aspell list | fzf
+}
 
 # User configuration
 
@@ -98,7 +114,26 @@ source $ZSH/oh-my-zsh.sh
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
-#
+
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias c="code"
+alias t="touch"
+alias cx="clear"
+alias n="nvim"
+
+alias zshconfig="code ~/.zshrc"
+alias in='nvim $(fzf -m --preview="bat --color=always {}")'
+alias sudoin='sudo nvim $(fzf -m --preview="bat --color=always {}")'
+alias re="source ~/.zshrc"
+
+# zsh essentials
+HISTFILE=".histfile"             # Save 5000 lines of history
+HISTSIZE=5000
+SAVEHIST=5000
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
