@@ -11,9 +11,6 @@ else
   print_green "Git is already installed."
 fi
 
-# Install zsh
-./install_zsh.sh
-
 # Install utilities
 echo
 echo "Installing pacman packages..."
@@ -37,7 +34,6 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 stow -d "$script_dir/configs" --adopt -t ~/.config . 
 echo "$script_dir/configs"
-stow -d "$script_dir/zshrc" --adopt -t ~/ .
 
 print_green "Configuration applied with stow."
 
@@ -53,8 +49,10 @@ echo
 print_green "########################################"
 print_green "Services are enabled"
 
+# Install zsh
+./install_zsh.sh
 echo
 echo
 print_green "#############################"
-print_green "### INSTALATION COMPLETE! ###"
+print_green "### INSTALLATION COMPLETE! ###"
 print_green "#############################"
