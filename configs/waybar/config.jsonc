@@ -2,12 +2,11 @@
   "layer": "top",
   "position": "top",
   "modules-left": ["custom/launcher", "hyprland/workspaces"],
-  "modules-center": ["clock"],
-  "modules-right": ["battery", "network", "pulseaudio", "backlight", "tray"],
+  "modules-center": ["clock", "custom/wlogout"],
+  "modules-right": ["battery", "network", "pulseaudio", "backlight"],
   "workspaces": {
     "format": "{icon} "
   },
-
   "clock": {
     "format": "{:%Y-%m-%d | %H:%M}"
   },
@@ -22,13 +21,14 @@
     "format-plugged": "󰂏 {capacity}%",
     "format-alt": "{time} {icon}"
   },
+
   "network": {
     "format-wifi": "  {signalStrength}%",
     "format-ethernet": "{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr}",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": " ⚠ ",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "on-click": "~/.config/waybar/scripts/wifi-menu.sh",
+    "return-type": "json"
   },
   "pulseaudio": {
     "format": "  {volume}% {icon}",
@@ -49,15 +49,10 @@
     "on-click": "rofi -show drun",
     "on-click-right": "killall rofi"
   },
-  "tray": {
-    "icon-size": 21,
-    "spacing": 10,
-    "show-passive-items": true,
-    "include-apps": ["blueman-applet", "nm-applet", "custom-wlogout"],
-    "icon-map": {
-      "blueman-applet": "󰂯",
-      "nm-applet": "󰖩",
-      "custom-wlogout": "⏻"
-    }
-  }
+  "custom/wlogout": {
+    "format": "⏻",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+  
 }
