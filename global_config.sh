@@ -19,7 +19,8 @@ AUR_HELPERS=("paru" "yay")
 ########################
 PACKAGES=(
     # Utilities
-    "firefox" "hyprland" "stow"  "mako" "waybar" "pamixer" "pavucontrol" "gvfs" "file-roller" "sddm" "qt5" "qt6" "hyprpaper"
+    "firefox" "hyprland" "stow" "wget" "fzf" "mako" "waybar" "pamixer" "pavucontrol" 
+    "gvfs" "file-roller" "sddm" "qt5" "qt6" "hyprpaper"
     # Clipboard
     "grim" "slurp" "cliphist"
     # Bluetooth & Wi-Fi
@@ -27,9 +28,13 @@ PACKAGES=(
     # Volume and Brightness
     "brightnessctl" "pipewire" "pipewire-pulse" "pipewire-alsa" "pipewire-jack" "wireplumber"
     # Misc
-    "tldr" "man" "fastfetch" "btop" "starship" "telegram-desktop" "ttf-jet-brains-mono-nerd"
-)  
+    "bat" "tldr" "man" "fastfetch" "btop" "starship" "telegram-desktop" "zoxide" 
+    "ttf-jet-brains-mono-nerd" "aspell"
+)
+
 ####################
 ### AUR Packages ###
 ####################
-AUR_PACKAGES=("visual-studio-code-bin" "ttf-ms-fonts" "rofi-lbonn-wayland-git" "wlogout-git" "xdg-desktop-portal-hyprland-git")
+
+AUR_PACKAGES=("visual-studio-code-bin" "ttf-ms-fonts" "rofi-lbonn-wayland-git" 
+    "wlogout-git" "xdg-desktop-portal-hyprland-git")
