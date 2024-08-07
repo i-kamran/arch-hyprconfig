@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Script to move noi.AppImage and create desktop entry
+# Script to copy noi.AppImage and create desktop entry
 
 source "$(dirname "$0")/global_functions.sh"
 
-echo "Moving Applications directory to ~/Applications"
+echo "Copying Applications directory to ~/Applications"
 # Create Applications directory in home if it doesn't exist
 mkdir -p ~/Applications
 
-# Move the Applications directory from the current directory to ~/Applications
+# Copy the Applications directory from the current directory to ~/Applications
 if [ -d "Applications" ]; then
-  mv Applications ~/Applications/
-  echo "Moved Applications directory to ~/Applications/"
+  cp -r Applications ~/Applications/
+  echo "Copied Applications directory to ~/Applications/"
 else
   echo "No Applications directory found in the current directory"
 fi
