@@ -3,7 +3,7 @@
   "position": "top",
   "modules-left": ["custom/launcher", "hyprland/workspaces"],
   "modules-center": ["clock", "custom/wlogout"],
-  "modules-right": ["battery", "network", "pulseaudio", "backlight"],
+  "modules-right": ["custom/noi", "custom/telegram", "battery", "network", "pulseaudio", "backlight"],
   "workspaces": {
     "format": "{icon} "
   },
@@ -54,5 +54,14 @@
     "on-click": "wlogout",
     "tooltip": false
   },
-  
+  "custom/noi": {
+    "format": "󱕜 ",
+    "on-click": "gtk-launch noi.desktop",
+    "tooltip": false
+  },
+  "custom/telegram": {
+    "format": "   |",
+    "on-click": "telegram-desktop",
+    "tooltip": false
+  } 
 }
