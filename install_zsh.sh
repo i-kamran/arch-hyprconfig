@@ -28,12 +28,11 @@ if [[ "$install_choice" =~ ^[Yy]$ ]]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+    chsh -s $(which zsh)
+    echo
+    print_green "########################################"
+    print_green "Zsh installation complete!"
 else
     echo "Skipping oh-my-zsh installation."
 fi
 
-
-chsh -s $(which zsh)
-echo
-print_green "########################################"
-print_green "Zsh installation complete!"
