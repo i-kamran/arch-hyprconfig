@@ -50,10 +50,16 @@ print_green "########################################"
 print_green "Services are enabled"
 
 # Apply themes
+echo "Applying themes"
 ./apply_themes.sh
+
+# GPU
+echo "Installing Intel Graphics"
+./install_intell_gpu.sh
 
 # Install zsh
 ./install_zsh.sh
+
 echo
 echo
 print_green "#############################"
