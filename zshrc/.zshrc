@@ -127,13 +127,13 @@ alias sudoin='sudo nvim $(fzf -m --preview="bat --color=always {}")'
 alias re="source ~/.zshrc"
 
 # zsh essentials
-HISTFILE=".histfile"             # Save 5000 lines of history
+HISTFILE=$HOME/.histfile        # Save 5000 lines of history
 HISTSIZE=5000
 SAVEHIST=5000
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
-setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+# setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
 setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
 setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
