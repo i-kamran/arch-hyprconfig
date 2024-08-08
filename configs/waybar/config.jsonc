@@ -2,13 +2,14 @@
   "layer": "top",
   "position": "top",
   "modules-left": ["custom/launcher", "hyprland/workspaces"],
-  "modules-center": ["clock", "custom/wlogout"],
+  "modules-center": ["custom/update", "clock", "custom/wlogout"],
   "modules-right": ["custom/noi", "custom/telegram", "battery", "network", "pulseaudio", "backlight"],
   "workspaces": {
     "format": "{icon} "
   },
   "clock": {
-    "format": "{:%Y-%m-%d | %H:%M}"
+    "format": "{:%Y-%m-%d | %H:%M}",
+    "tooltip":false
   },
   "battery": {
     "states": {
@@ -62,6 +63,11 @@
   "custom/telegram": {
     "format": "   |",
     "on-click": "telegram-desktop",
+    "tooltip": false
+  },
+  "custom/update": {
+    "format": "󰅢 ",
+    "on-click": "~/.config/waybar/scripts/update.sh",
     "tooltip": false
   } 
 }
