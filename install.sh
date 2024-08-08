@@ -49,9 +49,8 @@ echo
 print_green "########################################"
 print_green "Services are enabled"
 
-# Apply themes and move Applications
+# Apply themes
 ./apply_themes.sh
-./move_applications.sh
 
 # Install zsh
 ./install_zsh.sh
