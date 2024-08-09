@@ -51,7 +51,8 @@ print_green "Services are enabled"
 
 # Apply themes
 echo "Applying themes"
-./apply_themes.sh
+kvantummanager --set LayanDark
+papirus-folders --theme Papirus-Dark -C cat-mocha-teal
 
 # GPU
 echo "Installing Intel Graphics"
