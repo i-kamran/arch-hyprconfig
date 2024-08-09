@@ -20,7 +20,7 @@ AUR_HELPERS=("paru" "yay")
 PACKAGES=(
     # Utilities
     "firefox" "hyprland" "stow" "wget" "fzf" "mako" "waybar" "pamixer" "pavucontrol" 
-    "gvfs" "file-roller" "sddm" "hyprpaper" "fuse"
+    "gvfs" "file-roller" "sddm" "hyprpaper" "fuse" "kitty"
     # Theme
     "kvantum" "papirus-icon-theme" "qt6" "qt6ct"
     # Clipboard
