@@ -26,16 +26,12 @@ echo
 echo "Installing AUR utilities..."
 ./install_aur_utils.sh
 
-# Stow config
+# Configs and Services
 echo
-echo "Applying configurations with stow..."
+echo "Copying configs"
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-stow -d "$script_dir/configs" --adopt -t ~/.config . 
-echo "$script_dir/configs"
-
-print_green "Configuration applied with stow."
+sudo cp -rT "$script_dir/configs/" ~/.config
 
 echo "Enabling services."
 systemctl --user enable pipewire.service
@@ -54,9 +50,6 @@ echo "Applying themes"
 kvantummanager --set LayanDark
 papirus-folders --theme Papirus-Dark -C cat-mocha-teal
 
-# GPU
-echo "Installing Intel Graphics"
-./install_intell_gpu.sh
 
 # Install zsh
 ./install_zsh.sh
