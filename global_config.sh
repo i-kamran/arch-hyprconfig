@@ -20,9 +20,9 @@ AUR_HELPERS=("paru" "yay")
 PACKAGES=(
     # Utilities
     "firefox" "hyprland" "stow" "wget" "fzf" "mako" "waybar" "pamixer" "pavucontrol" 
-    "gvfs" "file-roller" "sddm" "hyprpaper" "fuse" "kitty" "polkit-kde-agent" 
+    "gvfs" "sddm" "hyprpaper" "fuse" "kitty" "polkit-kde-agent" 
     "qt5-wayland" "qt6-wayland" "qt6ct" "dolphin" "xdg-desktop-portal-hyprland"
-    "wireplumber" "brightnessctl"
+    "archlinux-xdg-menu" "brightnessctl"
     # Theme
     "kvantum" "papirus-icon-theme"
     # Clipboard
@@ -39,4 +39,4 @@ PACKAGES=(
 ####################
 
 AUR_PACKAGES=("visual-studio-code-bin" "ttf-ms-fonts" "rofi-lbonn-wayland-git" 
-    "wlogout-git" "deepin-gtk-theme" "plasma6-themes-layan-git" "papirus-folders-catppuccin-git" )
+    "wlogout-git" "noi-desktop-bin" "deepin-gtk-theme" "plasma6-themes-layan-git" "papirus-folders-catppuccin-git" )
