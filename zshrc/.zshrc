@@ -70,11 +70,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search copyfile copybuffer dirhistory history) 
+plugins=(git sudo zsh-autosuggestions zsh-syntax-highlighting web-search copyfile copybuffer dirhistory history) 
 
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
-eval "$(zoxide init zsh)"
 
 cl() {
     if [ -z "$1" ]; then
@@ -137,3 +136,8 @@ setopt SHARE_HISTORY             # Share history between all sessions.
 # setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
 setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
 setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+PATH=~/.console-ninja/.bin:$PATH
+
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
