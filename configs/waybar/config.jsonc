@@ -57,7 +57,7 @@
   },
   "custom/noi": {
     "format": "󱕜 ",
-    "on-click": "gtk-launch noi.desktop",
+    "on-click": "noi-desktop",
     "tooltip": false
   },
   "custom/telegram": {
