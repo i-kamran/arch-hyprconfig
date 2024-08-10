@@ -49,6 +49,7 @@ print_green "Services are enabled"
 echo "Applying themes"
 kvantummanager --set LayanDark
 papirus-folders --theme Papirus-Dark -C cat-mocha-teal
+./install_sddm_theme.sh
 
 
 # Install zsh
