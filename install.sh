@@ -31,7 +31,8 @@ echo
 echo "Copying configs"
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-sudo cp -rT "$script_dir/configs/" ~/.config
+cp -r "$script_dir/configs/hypr" "$HOME/.config"
+stow -d "$script_dir/configs/" --adopt -t "$HOME/.config" .
 
 echo "Enabling services."
 systemctl --user enable pipewire.service
@@ -40,6 +41,7 @@ systemctl --user start wireplumber
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 sudo systemctl enable sddm.service
+XDG_MENU_PREFIX=arch- kbuildsycoca6
 
 echo
 print_green "########################################"
@@ -52,7 +54,7 @@ papirus-folders --theme Papirus-Dark -C cat-mocha-teal
 ./install_sddm_theme.sh
 
 
-# Install zsh
+# hydeInstall zsh
 ./install_zsh.sh
 
 echo
