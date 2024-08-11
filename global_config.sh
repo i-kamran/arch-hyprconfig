@@ -33,6 +33,7 @@ PACKAGES=(
     "waybar"                          # Highly customizable Wayland bar for Sway and Hyprland
     "hyprpaper"                       # Wallpaper utility for Hyprland
     "xdg-desktop-portal-hyprland"     # XDG desktop portal backend for Hyprland
+    "archlinux-xdg-menu"              # XDG menu for arch, enables 'open with' in dolphin
 
     #########################
     ### Utilities & Tools ###
@@ -153,7 +154,7 @@ AUR_PACKAGES=(
     ############################
     ### Desktop Environments ###
     ############################
-    "noi-desktop-bin"                 # NOi desktop environment installer
+    "noi-desktop-bin"                 # Noi desktop environment installer
     "deepin-gtk-theme"                # Deepin GTK theme
 
     #####################
@@ -161,4 +162,5 @@ AUR_PACKAGES=(
     #####################
     "plasma6-themes-layan-git"        # Layan theme for Plasma 6
     "papirus-folders-catppuccin-git"  # Papirus folders Catppuccin theme
+    "layan-gtk-theme-git"             # Layan theme for gtk
 )
