@@ -1,3 +1,5 @@
+#!/bin/bash
+
 systemctl --user enable pipewire.service
 systemctl --user enable pipewire.service
 sudo systemctl enable bluetooth.service
@@ -7,8 +9,6 @@ echo "Applying themes"
 papirus-folders --theme Papirus-Dark -C cat-mocha-teal
 
 # Apply sddm theme
-#!/bin/bash
-
 THEME="/usr/share/sddm/themes/sddm-astronaut-theme"
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -23,3 +23,8 @@ sudo sed -i 's/FormPosition="center"/FormPosition="right"/' "$THEME/theme.conf"
 
 # Use sed to replace the Background line with the new wallpaper path
 sudo sed -i 's|^Background=.*|Background="wallpapers/ox.jpg"|' "$THEME/theme.conf"
+
+
+# Make kitty default terminal in dolphin
+FILE="$HOME/.config/kdeglobals"
+echo -e "[General]\nTerminalApplication=kitty" | tee -a "$FILE"
