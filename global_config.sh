@@ -22,7 +22,7 @@ PACKAGES=(
     "firefox" "hyprland" "stow" "wget" "fzf" "mako" "waybar" "pamixer" "pavucontrol" 
     "gvfs" "sddm" "hyprpaper" "fuse" "kitty" "polkit-kde-agent" 
     "qt5-wayland" "qt6-wayland" "qt6ct" "dolphin" "xdg-desktop-portal-hyprland"
-    "archlinux-xdg-menu" "brightnessctl"
+    "archlinux-xdg-menu" "brightnessctl" "kservice5"
     # Theme
     "kvantum" "papirus-icon-theme"
     # Clipboard
