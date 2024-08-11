@@ -31,7 +31,7 @@ echo
 echo "Copying configs"
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cp -r "$script_dir/configs/hypr" "$HOME/.config"
+cp -r "$script_dir/configs/"* "$HOME/.config"
 
 echo "Enabling services."
 
@@ -41,7 +41,7 @@ echo
 print_green "########################################"
 print_green "Services are enabled"
 
-
+./mount.sh
 
 # Install zsh
 ./install_zsh.sh
