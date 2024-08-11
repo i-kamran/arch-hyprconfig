@@ -12,8 +12,7 @@ install_aur_helper() {
     # Create Clone directory if it doesn't exist
     if [ ! -d "$cloneDir" ]; then
         mkdir "$cloneDir"
-        echo -e "[Desktop Entry]\nIcon=default-folder-git" > "$cloneDir/.directory"
-        echo "~/Clone directory created..."
+        echo "$HOME/Clone directory created..."
     else
         rm -rf "$cloneDir/${aurhlpr}"
     fi
@@ -34,8 +33,7 @@ install_aur_helper() {
 
     # Cleanup
     cd
-    rm -rf "$cloneDir/${aurhlpr}"
-    [ -z "$(ls -A "$cloneDir")" ] && rmdir "$cloneDir"
+    rm -rf "$cloneDir"
 }
 
 prompt_user_selection() {
@@ -46,7 +44,7 @@ prompt_user_selection() {
     done
 
     # Prompt user for selection
-    read -p "Enter the number of the AUR helper to install: " choice
+    read -p "Enter the number of the AUR helper to install (Deafault=1): " choice
     choice=${choice:-1}
 
     # Validate the choice
