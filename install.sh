@@ -32,29 +32,18 @@ echo "Copying configs"
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cp -r "$script_dir/configs/hypr" "$HOME/.config"
-stow -d "$script_dir/configs/" --adopt -t "$HOME/.config" .
 
 echo "Enabling services."
-systemctl --user enable pipewire.service
-systemctl --user start pipewire.service
-systemctl --user start wireplumber
-sudo systemctl enable bluetooth.service
-sudo systemctl start bluetooth.service
-sudo systemctl enable sddm.service
-XDG_MENU_PREFIX=arch- kbuildsycoca6
+
+./services_and_themes.sh
 
 echo
 print_green "########################################"
 print_green "Services are enabled"
 
-# Apply themes
-echo "Applying themes"
-kvantummanager --set LayanDark
-papirus-folders --theme Papirus-Dark -C cat-mocha-teal
-./install_sddm_theme.sh
 
 
-# hydeInstall zsh
+# Install zsh
 ./install_zsh.sh
 
 echo

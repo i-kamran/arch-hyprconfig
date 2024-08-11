@@ -23,7 +23,7 @@ if [[ "$install_choice" =~ ^[Yy]$ ]]; then
     echo "oh-my-zsh installed."
     # Configs
     script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-    stow -d "$script_dir/zshrc" --adopt -t "$HOME" .
+    cp $script_dir/zshrc/.zshrc" "$HOME"
     echo "Installing plugings."
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
