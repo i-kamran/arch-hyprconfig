@@ -4,6 +4,9 @@
 source "$(dirname "$0")/global_config.sh"
 source "$(dirname "$0")/global_functions.sh"
 
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
 # Installing git if not installed
 if ! pkg_installed "git"; then
   install_package "git"
@@ -30,7 +33,6 @@ echo "Installing AUR utilities..."
 echo
 echo "Copying configs"
 
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cp -r "$script_dir/configs/"* "$HOME/.config"
 
 echo "Enabling services."
@@ -46,8 +48,12 @@ print_green "Services are enabled"
 # Install zsh
 ./install_zsh.sh
 
+# Add Custom scripts
+
+make_executable "add_personal_dict_aspell.sh" "$script_dir/configs"
+
 echo
 echo
-print_green "#############################"
+print_green "##############################"
 print_green "### INSTALLATION COMPLETE! ###"
-print_green "#############################"
+print_green "##############################"
