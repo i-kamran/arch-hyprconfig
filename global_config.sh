@@ -41,6 +41,7 @@ PACKAGES=(
     "ark"                             # KDE archive manager
     "gwenview"                        # KDE image viewer and organizer with basic editing capabilities
     "stow"                            # Symlink manager for dotfiles
+    "mpv"                             # Media player for the command line
     "wget"                            # Utility for downloading files from the web
     "fzf"                             # Command-line fuzzy finder
     "pamixer"                         # PulseAudio mixer command-line interface
@@ -115,6 +116,7 @@ PACKAGES=(
     ### Miscellaneous ###
     #####################
     "aspell"                          # Spell checker
+    "aspell-en"                       # English dictionary for aspell
     "telegram-desktop"                # Telegram messaging app desktop client
 
     ###########################
