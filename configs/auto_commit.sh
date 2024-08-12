@@ -1,36 +1,70 @@
 #!/bin/bash
 
+# Function to print usage instructions
+print_usage() {
+    echo "Usage: ./auto_commit.sh [-n] [-l] <commit_message> <file1> [<file2> ...]"
+    echo "Options:"
+    echo "  -n     Skip typo-checking and commit directly"
+    echo "  -e     Open editor to write a commit message"
+    echo "  -l     Allow commit only if commit message length is more than 50 characters"
+    echo "Script located at $0"
+    exit 1
+}
+
 # Check if at least one file name is provided
 if [ $# -lt 2 ]; then
-    echo "Usage: $0 <commit_message> <file1> [<file2> ...]"
-    exit 1
+    print_usage
 fi
 
-# Get the commit message from the first argument
-commit_message=$1
-shift  # Remove the commit message from the arguments list
+# Parse command-line options
+skip_typo_check=false
+skip_length_check=false
+open_editor=false
 
-# Initialize a flag for non-existent files
-non_existent_flag=false
-
-# Check if provided files exist
-for file_name in "$@"; do
-    if [ ! -e "$file_name" ]; then
-        echo -e "\e[31mError: File '$file_name' does not exist.\e[0m"
-        non_existent_flag=true
-    fi
+while getopts ":nle" opt; do
+    case $opt in
+        n)
+            skip_typo_check=true
+            ;;
+        l)
+            skip_length_check=true
+            ;;
+        e)
+            open_editor=true
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG"
+            print_usage
+            ;;
+    esac
 done
 
-# If there are non-existent files, exit with an error code
-if [ "$non_existent_flag" = true ]; then
-    exit 1
+# Shift the options so that they are not included in the subsequent arguments
+shift $((OPTIND - 1))
+
+# Get the commit message from the arguments
+commit_message="$1"
+echo "$commit_message"
+shift  # Remove the commit message from the arguments list
+
+# Check for typos in the commit message using aspell if not skipped
+if [ "$skip_typo_check" = false ]; then
+    if echo "$commit_message" | aspell list | grep .; then
+        echo -e "\e[31mError: Potential typo found in the commit message.\e[0m"
+        echo "Please review and retype your commit message."
+        exit 1
+    fi
 fi
 
-# Check for typos in the commit message using aspell
-if echo "$commit_message" | aspell list | grep .; then
-    echo -e "\e[31mError: Potential typo found in the commit message.\e[0m"
-    echo "Please review and retype your commit message."
-    exit 1
+# Check commit message length if length check flag is set
+char_count=${#commit_message}
+
+if [ "$skip_length_check" = false ]; then
+    if [ "$char_count" -gt 50 ]; then
+        echo -e "\e[31mError: Commit message should be less than 50 characters.\e[0m"
+        echo "Character count: $char_count"
+        exit 1
+    fi
 fi
 
 # Run git commands for each file
@@ -39,7 +73,12 @@ for file_name in "$@"; do
 done
 
 # Commit all changes with the specified message
-git commit -m "$commit_message"
+if [ "$open_editor" = true ]; then
+    git commit -m "$commit_message" -e
+else
+    git commit -m "$commit_message"
+fi
 
-# Print "Changes committed successfully." in green
-echo -e "\e[32mChanges committed successfully.\e[0m"
+# Print "Changes committed successfully." in green along with character count if length check flag is set
+
+echo -e "\e[32mChanges committed successfully. Character count: $char_count\e[0m"

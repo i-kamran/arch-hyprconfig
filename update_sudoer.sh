@@ -1,13 +1,12 @@
 #!/bin/bash
 
 # Variables
-SCRIPT_PATH="$HOME/.config/waybar/scripts/update.sh"
 USERNAME="$(whoami)"
-SUDOERS_FILE="/etc/sudoers"
+SUDOERS_FILE="/etc/sudoers.d/pacman_sudoer"
 
-# Function to add entry to sudoers
-add_sudoers_entry() {
-    echo "$USERNAME ALL=(ALL) NOPASSWD: $SCRIPT_PATH" | sudo tee -a "$SUDOERS_FILE" > /dev/null
+# Create the sudoers.d file with pacman entry
+add_pacman_sudoer_entry() {
+    echo "$USERNAME ALL=(ALL) NOPASSWD: /usr/bin/pacman" | sudo tee "$SUDOERS_FILE" > /dev/null
 }
 
 # Function to check sudoers syntax
@@ -16,12 +15,12 @@ check_sudoers() {
 }
 
 # Add entry and check syntax
-add_sudoers_entry
+add_pacman_sudoer_entry
 
 if check_sudoers; then
-    echo "Entry added to sudoers successfully."
+    echo "Pacman entry added to sudoers successfully."
 else
-    # If the syntax check fails, remove the last added entry
-    sudo sed -i "\|$SCRIPT_PATH|d" "$SUDOERS_FILE"
-    echo "Syntax check failed. Entry not added."
+    # If the syntax check fails, remove the sudoers file
+    sudo rm -f "$SUDOERS_FILE"
+    echo "Syntax check failed. Sudoers entry removed."
 fi
