@@ -3,13 +3,21 @@
   "position": "top",
   "modules-left": ["custom/launcher", "hyprland/workspaces"],
   "modules-center": ["custom/update", "clock", "custom/wlogout"],
-  "modules-right": ["custom/noi", "custom/telegram", "battery", "network", "pulseaudio", "backlight"],
+  "modules-right": [
+    "custom/wallpaper",
+    "custom/noi",
+    "custom/telegram",
+    "battery",
+    "network",
+    "pulseaudio",
+    "backlight"
+  ],
   "workspaces": {
     "format": "{icon} "
   },
   "clock": {
     "format": "{:%Y-%m-%d | %H:%M}",
-    "tooltip":false
+    "tooltip": false
   },
   "battery": {
     "states": {
@@ -56,9 +64,9 @@
     "tooltip": false
   },
   "custom/noi": {
-    "format": "󱕜 ",
+    "format": " ",
     "on-click": "noi-desktop",
-    "tooltip": false
+    "tooltip-format": "Noi AI"
   },
   "custom/telegram": {
     "format": "   |",
@@ -69,5 +77,10 @@
     "format": "󰅢 ",
     "on-click": "~/.config/waybar/scripts/update.sh",
     "tooltip": false
-  } 
+  },
+  "custom/wallpaper": {
+    "format": " ",
+    "on-click": "~/.config/change_wallpaper.sh",
+    "tooltip": "Change wallpaper"
+  }
 }

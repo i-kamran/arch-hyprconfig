@@ -88,11 +88,12 @@ spellcheck() {
 # export ARCHFLAGS="-arch $(uname -m)"
 
 # Personal aliases
-alias c="code"                           # Open VS Code
-alias t="touch"                          # Create a new file
-alias cx="clear"                         # Clear terminal
-alias n="nvim"                           # Open Neovim
-alias cs="~/.config/auto_commit.sh"
+alias c="code"                                                         # Open VS Code
+alias t="touch"                                                        # Create a new file
+alias cx="clear"                                                       # Clear terminal
+alias n="nvim"                                                         # Open Neovim
+alias cs="~/.config/auto_commit.sh"                                    # Auto commit 
+alias chwp="~/.config/change_wallpaper.sh"
 
 # Zsh configuration management
 alias zshconfig="code ~/.zshrc"                                        # Edit Zsh configuration
