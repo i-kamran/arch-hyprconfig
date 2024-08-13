@@ -12,10 +12,13 @@ response=${response:-Y}
 if [[ "$response" =~ ^[Yy]$ ]]; then
   # Create .config directory symlinks with stow
   echo "Creating symlinks with stow."
-  stow -d "$configs_dir" --adopt -t ~/.config .config
+  stow -d "$configs_dir" --adopt -t "$HOME/.config" .config
 
   # Create home directory symlinks with stow
-  stow -d "$configs_dir" --adopt -t ~ home
+  stow -d "$configs_dir" --adopt -t "$HOME" home
+
+  # Create home directory symlinks with stow
+  stow -d "$main_dir" --adopt -t "$HOME/.config" utility-scripts
 
   echo
   print_green "########################################"
