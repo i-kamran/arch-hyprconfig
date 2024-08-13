@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Source the global configuration
-source "$(dirname "$0")/global_config.sh"
-source "$(dirname "$0")/global_functions.sh"
+source "$(dirname "$0")/packages.sh"
+source "$(dirname "$0")/functions.sh"
 
 
 install_aur_helper() {
