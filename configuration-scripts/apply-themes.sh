@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+main_dir="$(dirname "$script_dir")"
+source "$main_dir/install-scripts/functions.sh"
+
+
 echo "Applying themes"
 papirus-folders --theme Papirus-Dark -C cat-mocha-teal
 
@@ -23,3 +29,7 @@ sudo sed -i 's|^Background=.*|Background="wallpapers/ox.jpg"|' "$THEME/theme.con
 # Make kitty default terminal in dolphin
 FILE="$HOME/.config/kdeglobals"
 echo -e "[General]\nTerminalApplication=kitty" | tee -a "$FILE"
+
+echo
+print_green "########################################"
+print_green "Themes are applied"

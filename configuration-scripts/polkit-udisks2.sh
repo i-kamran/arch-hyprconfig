@@ -1,5 +1,9 @@
 #!/bin/bash
 
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+main_dir="$(dirname "$script_dir")"
+source "$main_dir/install-scripts/functions.sh"
+
 # Define the file path
 FILE="/etc/polkit-1/rules.d/drive.rules"
 

@@ -88,11 +88,11 @@ spellcheck() {
 # export ARCHFLAGS="-arch $(uname -m)"
 
 # Personal aliases
-alias c="code"                           # Open VS Code
-alias t="touch"                          # Create a new file
-alias cx="clear"                         # Clear terminal
-alias n="nvim"                           # Open Neovim
-alias cs="~/.config/auto_commit.sh"      # Auto commit 
+alias c="code"                                                         # Open VS Code
+alias t="touch"                                                        # Create a new file
+alias cx="clear"                                                       # Clear terminal
+alias n="nvim"                                                         # Open Neovim
+alias cs="~/.config/auto_commit.sh"                                    # Auto commit 
 alias chwp="~/.config/change_wallpaper.sh" 
 
 
@@ -103,20 +103,20 @@ alias sudoin='sudo nvim $(fzf -m --preview="bat --color=always {}")'   # Edit fi
 alias re="source ~/.zshrc"                                             # Reload Zsh configuration
 
 # History settings
-HISTFILE=$HOME/.histfile                 # Save 5000 lines of history
+HISTFILE=$HOME/.histfile                                               # Save 5000 lines of history
 HISTSIZE=5000
 SAVEHIST=5000
-setopt BANG_HIST                         # Treat '!' specially in history expansion
-setopt EXTENDED_HISTORY                  # Write history in detailed format
-setopt INC_APPEND_HISTORY                # Append to history file immediately
-setopt SHARE_HISTORY                     # Share history across all sessions
-setopt HIST_IGNORE_DUPS                  # Ignore duplicate entries
-setopt HIST_IGNORE_ALL_DUPS              # Remove older duplicate entries
-setopt HIST_IGNORE_SPACE                 # Ignore commands starting with a space
+setopt BANG_HIST                                                       # Treat '!' specially in history expansion
+setopt EXTENDED_HISTORY                                                # Write history in detailed format
+setopt INC_APPEND_HISTORY                                              # Append to history file immediately
+setopt SHARE_HISTORY                                                   # Share history across all sessions
+setopt HIST_IGNORE_DUPS                                                # Ignore duplicate entries
+setopt HIST_IGNORE_ALL_DUPS                                            # Remove older duplicate entries
+setopt HIST_IGNORE_SPACE                                               # Ignore commands starting with a space
 
 # Custom PATH for additional binaries
 PATH=~/.console-ninja/.bin:$PATH
 
 # Initialize additional tools
-eval "$(starship init zsh)"              # Starship prompt
-eval "$(zoxide init --cmd cd zsh)"       # Zoxide for directory navigation
+eval "$(starship init zsh)"                                            # Starship prompt
+eval "$(zoxide init --cmd cd zsh)"                                     # Zoxide for directory navigation

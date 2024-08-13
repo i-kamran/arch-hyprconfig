@@ -32,6 +32,7 @@ if [[ "$install_choice" =~ ^[Yy]$ ]]; then
     print_green "########################################"
     print_green "Zsh installation complete!"
 else
-    echo "Skipping oh-my-zsh installation."
+    print_green "########################################"
+    print_green "Skipping oh-my-zsh installation."
 fi
 
