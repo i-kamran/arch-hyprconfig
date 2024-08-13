@@ -1,10 +1,12 @@
 #!/bin/bash
 
 # Source the global configuration
-source "$(dirname "$0")/global_config.sh"
-source "$(dirname "$0")/global_functions.sh"
+source "$(dirname "$0")/install-scripts/packages.sh"
+source "$(dirname "$0")/install-scripts/functions.sh"
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+install_scripts_dir="$script_dir/install-scripts"
+config_scripts_dir="$script_dir/configuration-scripts"
 
 
 # Installing git if not installed
@@ -17,40 +19,42 @@ fi
 # Install utilities
 echo
 echo "Installing pacman packages..."
-./install_pkgs.sh
+make_exec_and_run "$install_scripts_dir/pacman-pkg-install.sh"
+
 
 # Install AUR helper
 echo
 echo "Installing AUR helper..."
-./install_aur_helper.sh
+make_exec_and_run "$install_scripts_dir/aur-helper-install.sh"
 
-# Install AUR utilities
+# Install AUR packages
 echo
-echo "Installing AUR utilities..."
-./install_aur_utils.sh
-
-# Configs and Services
-echo
-echo "Copying configs"
-
-cp -r "$script_dir/configs/"* "$HOME/.config"
-
-echo "Enabling services."
-
-./services_and_themes.sh
-
-echo
-print_green "########################################"
-print_green "Services are enabled"
-
-./mount.sh
+echo "Installing AUR packages..."
+make_exec_and_run "$install_scripts_dir/aur-pkg-install.sh"
 
 # Install zsh
+echo
+echo "Installing zsh and oh-my-zsh packages..."
 ./install_zsh.sh
+make_exec_and_run "$install_scripts_dir/zsh-install.sh"
 
-# Add Custom scripts
+# Enable Services
+echo
+echo "Enabling services."
+make_exec_and_run "$config_scripts_dir/enable-services.sh"
 
-make_executable "add_personal_dict_aspell.sh" "$script_dir/configs"
+# Polkit Udisks2
+echo
+echo "Adding polkit rule to mount disks."
+make_exec_and_run "$config_scripts_dir/polkit-udisks2.sh"
+
+# Copy configs 
+echo
+echo "Copying configs"
+make_exec_and_run "$config_scripts_dir/copy-configs.sh"
+
+
+ #"add_personal_dict_aspell.sh" "$script_dir/configs"
 
 echo
 echo
