@@ -35,7 +35,6 @@ make_exec_and_run "$install_scripts_dir/aur-pkg-install.sh"
 # Install zsh
 echo
 echo "Installing zsh and oh-my-zsh packages..."
-./install_zsh.sh
 make_exec_and_run "$install_scripts_dir/zsh-install.sh"
 
 # Enable Services
@@ -58,20 +57,15 @@ echo
 echo "Copying configs"
 make_exec_and_run "$config_scripts_dir/apply-themes.sh"
 
-# Create symlinks with stow
-echo
-echo "Copying configs"
-make_exec_and_run "$config_scripts_dir/stow.sh"
-
 # Copy utility-scripts 
 echo
 echo "Copying configs"
 make_exec_and_run "$config_scripts_dir/copy-util-scripts.sh"
 
-
-
-
- #"add_personal_dict_aspell.sh" "$script_dir/configs"
+# Create symlinks with stow
+echo
+echo "Copying configs"
+make_exec_and_run "$config_scripts_dir/stow.sh"
 
 echo
 echo
