@@ -62,40 +62,47 @@ print_red() {
 
 # Function: run_script
 # Arguments:
-#   $1 - The name of the script to run.
-#   $2 - The directory where the script is located.
+#   $1 - The full path to the script to run.
 # Description:
 #   It checks if the target script exists and runs it.
 run_script() {
-  local script="$1"
-  local directory="$2"
+  local script_path="$1"
   
   # Check if the script file exists
-  if [[ ! -f "$directory/$script" ]]; then
-    echo "Script not found: $directory/$script"
+  if [[ ! -f "$script_path" ]]; then
+    echo "Script not found: $script_path"
     return 1
   fi
   
   # Execute the script
-  "$directory/"./"$script"
+  "$script_path"
 }
 
 # Function: make_executable
 # Arguments:
-#   $1 - The name of the script to run.
-#   $2 - The directory where the script is located.
+#   $1 - The full path to the script.
 # Description:
 #   It checks if the target script exists and makes it executable.
 make_executable() {
-  local script="$1"
-  local directory="$2"
+  local script_path="$1"
   
   # Check if the script file exists
-  if [[ ! -f "$directory/$script" ]]; then
-    echo "Script not found: $directory/$script"
+  if [[ ! -f "$script_path" ]]; then
+    echo "Script not found: $script_path"
     return 1
   fi
 
   # Make the script executable
-  chmod +x "$directory/$script"
+  chmod +x "$script_path"
+}
+
+# Function: make_exec_and_run
+# Arguments:
+#   $1 - The full path to the script.
+# Description:
+#   It checks if the target script exists, makes it executable and runs it. 
+make_exec_and_run() {
+  local script_path="$1"
+  make_executable "$script_path"
+  run_script "$script_path"
 }
