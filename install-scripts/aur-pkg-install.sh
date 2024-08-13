@@ -43,4 +43,4 @@ install_aur_packages
 
 echo
 print_green "########################################"
-print_green "Aur packages installation complete!"
+print_green "AUR packages installation complete!"

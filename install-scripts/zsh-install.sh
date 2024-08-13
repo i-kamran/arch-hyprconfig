@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source "$(dirname "$0")/global_functions.sh"
+source "$(dirname "$0")/functions.sh"
 
 # Prompt the user with a default option of 'Y'
-read -p "Do you want to install oh-my-zsh? (Y/n): " install_choice
+read -p "Do you want to install zsh and oh-my-zsh? (Y/n): " install_choice
 install_choice=${install_choice:-Y}
 
 
@@ -27,9 +27,8 @@ if [[ "$install_choice" =~ ^[Yy]$ ]]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     chsh -s $(which zsh)
-    cp "$script_dir/zshrc/.zshrc" "$HOME"
+
     echo
-    
     print_green "########################################"
     print_green "Zsh installation complete!"
 else

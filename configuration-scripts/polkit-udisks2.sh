@@ -22,3 +22,7 @@ echo "$CONTENT" | sudo tee "$FILE" > /dev/null
 
 
 echo "Content added to $FILE successfully."
+
+echo
+print_green "########################################"
+print_green "Rule is added"
