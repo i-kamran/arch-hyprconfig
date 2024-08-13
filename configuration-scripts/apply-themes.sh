@@ -16,7 +16,7 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 sudo git clone https://github.com/keyitdev/sddm-astronaut-theme.git "$THEME"
 sudo cp /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
 
-sudo cp -r "$script_dir/configs/wallpapers" "$THEME/wallpapers/"
+sudo cp -r "$main_dir/configs/.config/wallpapers" "$THEME/wallpapers/"
 echo "[Theme]
 Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
 

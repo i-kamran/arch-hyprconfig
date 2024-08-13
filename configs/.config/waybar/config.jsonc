@@ -80,7 +80,7 @@
   },
   "custom/wallpaper": {
     "format": " ",
-    "on-click": "~/.config/change_wallpaper.sh",
-    "tooltip": "Change wallpaper"
+    "on-click": "~/.config/change-wallpaper.sh",
+    "tooltip-format": "Change wallpaper"
   }
 }
