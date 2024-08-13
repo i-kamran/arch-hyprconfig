@@ -31,7 +31,7 @@ PACKAGES=(
     "hyprland"                        # Dynamic tiling Wayland compositor
     "mako"                            # Lightweight notification daemon for Wayland
     "waybar"                          # Highly customizable Wayland bar for Sway and Hyprland
-    "hyprpaper"                       # Wallpaper utility for Hyprland
+    "swww"                            # Wallpaper utility for Hyprland
     "xdg-desktop-portal-hyprland"     # XDG desktop portal backend for Hyprland
     "archlinux-xdg-menu"              # XDG menu for arch, enables 'open with' in dolphin
 
