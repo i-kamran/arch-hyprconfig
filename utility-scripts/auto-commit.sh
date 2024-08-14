@@ -1,5 +1,13 @@
 #!/bin/bash
 
+##########################
+### Auto Commit Script ###
+##########################
+
+# This tool automates the git commit process with customizable options.
+# It supports skipping typo-checking, length checking, and opening an editor for commit messages.
+# Use it to easily add and commit files with a specific commit message
+
 # Function to print usage instructions
 print_usage() {
     echo "Usage: ./auto_commit.sh [-n] [-l] <commit_message> <file1> [<file2> ...]"

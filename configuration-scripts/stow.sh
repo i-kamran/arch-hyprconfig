@@ -1,5 +1,14 @@
 #!/bin/bash
 
+##############################
+### Config Symlink Creator ###
+##############################
+
+# This script creates symbolic links for configuration files using stow.
+# It prompts you to confirm whether to create symlinks for configurations
+# in the `.config` directory and home directory. Ensure the stow and
+# the relevant configuration directories are properly set up before running.
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_dir="$(dirname "$script_dir")"
 configs_dir="$main_dir/configs"

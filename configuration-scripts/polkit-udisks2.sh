@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#################################
+### Polkit Rule Configuration ###
+########################$########
+
+# This script adds a specific Polkit rule to allow members of the "wheel" group
+# to mount filesystems without needing a password. It checks if the target file 
+# exists, creates it if necessary, and appends the rule to the file.
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_dir="$(dirname "$script_dir")"
 source "$main_dir/install-scripts/functions.sh"

@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#############################
+### Utility Scripts Setup ###
+#############################
+
+# This script sets up utility scripts by making them executable and copying 
+# them to the appropriate configuration directory. It ensures that all utility 
+# scripts are ready to use in your environment.
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_dir="$(dirname "$script_dir")"
 utility_scripts_dir="$main_dir/utility-scripts"

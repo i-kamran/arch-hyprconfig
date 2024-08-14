@@ -1,5 +1,14 @@
 #!/bin/bash
 
+###################################
+### Zsh and Oh-My-Zsh Installer ###
+###################################
+
+# This script installs Zsh and Oh-My-Zsh on your system.
+# It will prompt you to confirm the installation.
+# If confirmed, it installs Zsh (if not already installed),
+# sets up Oh-My-Zsh, and installs essential plugins.
+
 source "$(dirname "$0")/functions.sh"
 
 # Prompt the user with a default option of 'Y'

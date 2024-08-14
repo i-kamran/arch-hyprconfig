@@ -1,5 +1,12 @@
 #!/bin/bash
 
+################################
+### System Services Enabler  ###
+################################
+
+# This script enables essential system services, including Pipewire, Bluetooth, 
+# and SDDM.
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_dir="$(dirname "$script_dir")"
 source "$main_dir/install-scripts/functions.sh"

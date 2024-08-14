@@ -1,5 +1,13 @@
 #!/bin/bash
 
+##############################
+### AUR Packages Installer ###
+##############################
+
+# This script installs packages from the AUR using a selected AUR helper.
+# It will prompt you to choose whether to install all available packages
+# or select individual ones
+
 # Source the global configuration
 source "$(dirname "$0")/packages.sh"
 source "$(dirname "$0")/functions.sh"

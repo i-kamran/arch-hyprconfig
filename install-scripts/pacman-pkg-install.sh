@@ -1,5 +1,14 @@
 #!/bin/bash
 
+############################
+### Package Installation ###
+############################
+
+# This script helps you install a list of packages.
+# You can choose to install all packages at once or select
+# individual packages for installation. It uses the global
+# configuration from the specified files for package details.
+
 # Source the global configuration
 source "$(dirname "$0")/packages.sh"
 source "$(dirname "$0")/functions.sh"

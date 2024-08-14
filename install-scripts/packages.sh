@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#############################
-### Global Configuration  ###
-#############################
+########################
+### Global Packages  ###
+########################
 
 # This configuration file defines which AUR helpers,
 # code editors, and other tools will be installed.

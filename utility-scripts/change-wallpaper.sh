@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#########################
+### Wallpaper Rotator ###
+#########################
+
+# This script sets a new wallpaper from a specified directory.
+# It cycles through wallpapers, keeping track of the last one used.
+# If the swww daemon isn't running, the script will start it.
+# The transition effect for the wallpaper is customizable.
+
 # Set the wallpaper directory
 WALLPAPER_DIR="$HOME/.config/wallpapers"
 INDEX_FILE="$HOME/.config/.last_wallpaper_index"
@@ -35,7 +44,6 @@ WALLPAPER="${WALLPAPERS[$NEXT_INDEX]}"
 # Check if swww daemon is running, if not start it
 if ! pgrep -x "swww-daemon" > /dev/null; then
     swww-daemon
-    sleep 1  
 fi
 
 # Set the wallpaper

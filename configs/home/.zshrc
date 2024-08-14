@@ -92,8 +92,8 @@ alias c="code"                                                         # Open VS
 alias t="touch"                                                        # Create a new file
 alias cx="clear"                                                       # Clear terminal
 alias n="nvim"                                                         # Open Neovim
-alias cs="~/.config/auto_commit.sh"                                    # Auto commit script
-alias chwp="~/.config/change_wallpaper.sh"                             # Script to change wallpaper
+alias cs="~/.config/auto-commit.sh"                                    # Auto commit script
+alias chwp="~/.config/change-wallpaper.sh"                             # Script to change wallpaper
 alias addw="~/.config/aspell-add-word.sh"                              # Script to add words into personal aspell dict
 
 

@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###############################
+### Add Personal Dictionary ###
+###############################
+
+# This script adds words to a personal dictionary used by aspell.
+# It initializes the dictionary file if it doesn't exist and updates
+# the word count accordingly. Use it to easily add multiple words to
+# your personal dictionary for spell checking.
 
 print_usage() {
   echo "Usage ./add_personal_dict_aspell.sh <word> [<word> ...]"

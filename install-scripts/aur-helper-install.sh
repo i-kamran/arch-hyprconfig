@@ -1,5 +1,14 @@
 #!/bin/bash
 
+###############################
+### AUR Helper Installation ###
+###############################
+
+# This script helps you install an AUR helper on Arch Linux.
+# Choose from a list of available helpers, and the script will
+# handle cloning, building, and installing it for you.
+# If the helper is already installed, it'll let you know and skip the installation.
+
 # Source the global configuration
 source "$(dirname "$0")/packages.sh"
 source "$(dirname "$0")/functions.sh"

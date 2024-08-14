@@ -1,5 +1,17 @@
 #!bin/bash
 
+########################
+### Global Functions ###
+########################
+
+# This script contains utility functions for managing packages and scripts.
+# It includes functions to:
+# - Check if a package is installed
+# - Install packages using pacman or an AUR helper
+# - Print messages in green or red
+# - Run and manage scripts
+
+
 # Function: pkg_installed
 # Arguments:
 #   $1 - The name of the package to check.
