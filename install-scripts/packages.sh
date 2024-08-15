@@ -111,6 +111,7 @@ PACKAGES=(
     ### Fonts ###
     #############
     "ttf-jetbrains-mono-nerd"         # Nerd font patched version of JetBrains Mono
+    "ttf-monsterrat"                  # Google Montserrat font
 
     #####################
     ### Miscellaneous ###
