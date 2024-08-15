@@ -1,5 +1,14 @@
 #!/bin/bash
 
+############################
+### System Update Script ###
+############################
+
+# This script updates an Arch or Arch-based system. It logs the update process, checks 
+# for the system's compatibility, identifies the AUR helper (paru or yay), counts 
+# available updates, performs the update, and notifies the user of the status.
+
+
 # Define the log file location and maximum size in bytes (e.g., 10 MB)
 log_file="$HOME/.config/system_update.log"
 max_size=$((10 * 1024 * 1024))  # 10 MB

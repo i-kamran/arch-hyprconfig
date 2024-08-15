@@ -1,4 +1,11 @@
 #!/bin/bash
+#############################
+### Volume Control Script ###
+#############################
+
+# This script adjusts the system volume using `pactl` and plays a sound notification.
+# It takes an argument ("up" or "down") to increase or decrease the volume by a set step.
+# It ensures the volume does not exceed a defined limit when increasing.
 
 STEP=5
 LIMIT=200

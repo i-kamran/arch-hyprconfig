@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###########################
+### Theme Configuration ###
+###########################
+
+# This script applies various themes and configurations to the system.
+# It sets the Papirus-Dark theme for folder icons, applies the sddm-astronaut-theme
+# to SDDM, updates the SDDM configuration, and sets Kitty as the default terminal in Dolphin.
+
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_dir="$(dirname "$script_dir")"

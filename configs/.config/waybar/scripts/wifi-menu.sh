@@ -1,5 +1,21 @@
 #!/bin/bash
 
+##########################
+### Network Management ###
+##########################
+
+# This script manages WiFi connections using `nmcli` and `rofi`.
+# It lists available networks, allows the user to select and connect to a network, 
+# and prompts for a password if necessary. It also provides an option to refresh 
+# the list of networks.
+
+# Functions:
+# - `get_networks`: Retrieves and sorts available WiFi networks.
+# - `connect_to_network`: Connects to a selected network with or without a password.
+# - `refresh_networks`: Refreshes the list of available networks.
+# - `main`: Main function to handle network selection and connection process.
+
+
 function get_networks() {
     nmcli -f SSID,SIGNAL,SECURITY device wifi list | tail -n +2 | sed 's/^ *//g' | sort -k2 -nr
 }
@@ -48,8 +64,6 @@ function main() {
             fi
             ;;
     esac
-
-  
 }
 
 main
