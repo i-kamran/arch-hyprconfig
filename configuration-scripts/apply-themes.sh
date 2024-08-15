@@ -31,7 +31,7 @@ Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
 sudo sed -i 's/FormPosition="center"/FormPosition="right"/' "$THEME/theme.conf"
 
 # Use sed to replace the Background line with the new wallpaper path
-sudo sed -i 's|^Background=.*|Background="wallpapers/ox.jpg"|' "$THEME/theme.conf"
+sudo sed -i 's|^Background=.*|Background="wallpapers/oxxaca-TNdTGcexUNY-unsplash.jpg"|' "$THEME/theme.conf"
 
 
 # Make kitty default terminal in dolphin
