@@ -62,8 +62,10 @@
     {
       "type": "cpu",
       "key": " ├  ",
-      "keyColor": "yellow"
+      "keyColor": "yellow",
+      "temp": true
     },
+
     {
       "type": "gpu",
       "key": " ├ 󰢮 ",
@@ -96,7 +98,8 @@
     },
     "break",
     {
-      "type": "colors"
+      "type": "colors",
+      "symbol": "circle"
     },
     "break"
   ]
