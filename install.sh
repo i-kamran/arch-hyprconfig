@@ -62,6 +62,11 @@ echo
 echo "Copying configs"
 make_exec_and_run "$config_scripts_dir/copy-util-scripts.sh"
 
+# Add kbuildsycoca service 
+echo
+echo "Add kbuildsycoca service"
+make_exec_and_run "$config_scripts_dir/add-kbuildsycoca-service.sh"
+
 # Create symlinks with stow
 echo
 echo "Copying configs"
