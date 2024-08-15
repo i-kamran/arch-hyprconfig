@@ -10,7 +10,7 @@
 	baseLight: #DDFFD9;
 	baseRosy: #B58577;
 	baseGrey: #6F8695;
-	baseOrange: #B02E0C; 
+	baseOrange: #BD5B22; 
 	spacing: 0;
 	background-color: transparent;
 	transparency: "real";

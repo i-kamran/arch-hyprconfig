@@ -1,8 +1,8 @@
 # Mako configuration file (~/.config/mako/config)
 
-font=JetBrains Mono 11
+font=JetBrainsMono Nerd Font 11
 
-background-color=#1F1F1EF7
+background-color=#1F1F1EF5
 
 text-color=#eceff4
 
