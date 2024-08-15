@@ -67,6 +67,11 @@ echo
 echo "Add kbuildsycoca service"
 make_exec_and_run "$config_scripts_dir/add-kbuildsycoca-service.sh"
 
+# Add kbuildsycoca service 
+echo
+echo "Add wayland support for Noi"
+make_exec_and_run "$config_scripts_dir/noi-wayland-support.sh"
+
 # Create symlinks with stow
 echo
 echo "Copying configs"
