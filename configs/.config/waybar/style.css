@@ -15,8 +15,8 @@ window#waybar {
 .modules-center,
 .modules-right {
   background-color: rgba(76, 76, 76, 0.7);
-  border-radius: 10px;
-  padding: 4px 10px;
+  border-radius: 14px;
+  padding: 2px 8px;
   margin: 6px 4px 0px;
 }
 
@@ -25,12 +25,15 @@ window#waybar {
   margin: 0 7px;
 }
 
+#workspaces button label {
+  font-size: 10px;
+}
 #workspaces button {
   background-color: transparent;
   color: #ffffff;
-  padding: 0 5px;
+  padding: 0 4px;
   margin: 0 2px;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 #workspaces button:hover {
@@ -71,4 +74,12 @@ window#waybar {
   animation-direction: alternate;
   border-radius: 20px;
   padding: 0 10px;
+}
+
+#tray menu * {
+  min-height: 16px;
+}
+
+#tray menu separator {
+  min-height: 10px;
 }

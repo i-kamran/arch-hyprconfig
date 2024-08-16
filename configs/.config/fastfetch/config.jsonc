@@ -12,18 +12,18 @@
     },
     {
       "type": "kernel",
-      "key": " ├  ",
+      "key": "    ",
       "keyColor": "cyan"
     },
     {
       "type": "packages",
       "format": "{} (pacman)",
-      "key": " ├ 󰏖 ",
+      "key": " 󰏖   ",
       "keyColor": "cyan"
     },
     {
       "type": "shell",
-      "key": " └  ",
+      "key": "    ",
       "keyColor": "cyan"
     },
     "break",
@@ -34,22 +34,22 @@
     },
     {
       "type": "wmtheme",
-      "key": " ├ 󰉼",
+      "key": " 󰉼  ",
       "keyColor": "red"
     },
     {
       "type": "icons",
-      "key": " ├ 󰀻 ",
+      "key": " 󰀻   ",
       "keyColor": "red"
     },
     {
       "type": "terminal",
-      "key": " ├  ",
+      "key": "    ",
       "keyColor": "red"
     },
     {
       "type": "terminalfont",
-      "key": " └  ",
+      "key": "    ",
       "keyColor": "red"
     },
 
@@ -61,39 +61,39 @@
     },
     {
       "type": "cpu",
-      "key": " ├  ",
+      "key": "    ",
       "keyColor": "yellow",
       "temp": true
     },
 
     {
       "type": "gpu",
-      "key": " ├ 󰢮 ",
+      "key": " 󰢮   ",
       "keyColor": "yellow"
     },
     {
       "type": "memory",
-      "key": " ├ 󰑭 ",
+      "key": " 󰑭   ",
       "keyColor": "yellow"
     },
     {
       "type": "swap",
-      "key": " ├ 󰓡 ",
+      "key": " 󰓡   ",
       "keyColor": "yellow"
     },
     {
       "type": "disk",
-      "key": " ├ 󰋊 ",
+      "key": " 󰋊   ",
       "keyColor": "yellow"
     },
     {
       "type": "uptime",
-      "key": " ├ 󰅐 ",
+      "key": " 󰅐   ",
       "keyColor": "yellow"
     },
     {
       "type": "display",
-      "key": " └ 󰍹 ",
+      "key": " 󰍹   ",
       "keyColor": "yellow"
     },
     "break",
