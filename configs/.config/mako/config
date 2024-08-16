@@ -24,5 +24,8 @@ markup=1
 
 actions=1
 
+icons = true
+icon_size = 32
+
 
 format=<b>%s</b>\n%b
