@@ -38,6 +38,9 @@ sudo sed -i 's|^Background=.*|Background="wallpapers/oxxaca-TNdTGcexUNY-unsplash
 FILE="$HOME/.config/kdeglobals"
 echo -e "[General]\nTerminalApplication=kitty" | tee -a "$FILE"
 
+# Apply gnome themes
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+
 echo
 print_green "########################################"
 print_green "Themes are applied"
