@@ -6,7 +6,6 @@
   "modules-right": [
     "tray",
     "battery",
-    "network",
     "pulseaudio",
     "backlight",
     "custom/wallpaper"
