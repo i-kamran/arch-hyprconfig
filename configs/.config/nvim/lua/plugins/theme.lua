@@ -1,4 +1,5 @@
 -- ~/.config/nvim/lua/plugins/theme.lua
+
 local mocha = require("catppuccin.palettes").get_palette "mocha"
 
 return {
