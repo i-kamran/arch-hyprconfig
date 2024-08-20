@@ -20,7 +20,7 @@ return {
               subtext0 = "#D9D5C7",
               subtext1 = "#BFBCB0",
               blue     = "#8DACE2",
-              green    = "#A5D685",
+              green    = "#A1CC85",
               yellow   = "#F2DEA6",
               red      = "#E67373",
               lavander = "#DCB8E6",

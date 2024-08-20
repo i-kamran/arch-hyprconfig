@@ -3,31 +3,32 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     local colors = {
-      black        = '#282828',
-      white        = '#ebdbb2',
-      red          = '#fb4934',
-      green        = '#b8bb26',
-      blue         = '#83a598',
-      yellow       = '#fe8019',
+      black        = '#282a2e',
+      white        = '#E6DFCA',
+      red          = '#F77777',
+      aqua         = '#ABEDE4',
+      yellow       = '#EDD282',
+      orange       = '#E68A5C',
       gray         = '#a89984',
       darkgray     = '#3c3836',
       lightgray    = '#504945',
+      purple       = '#DCB8E6'
     }
 
     -- Define your custom theme
     local custom_theme = {
       normal = {
-        a = {bg = colors.gray, fg = colors.black, gui = 'bold'},
+        a = {bg = colors.purple, fg = colors.black, gui = 'bold'},
         b = {bg = colors.lightgray, fg = colors.white},
         c = {bg = colors.darkgray, fg = colors.gray}
       },
       insert = {
-        a = {bg = colors.blue, fg = colors.black, gui = 'bold'},
+        a = {bg = colors.yellow, fg = colors.black, gui = 'bold'},
         b = {bg = colors.lightgray, fg = colors.white},
         c = {bg = colors.lightgray, fg = colors.white}
       },
       visual = {
-        a = {bg = colors.yellow, fg = colors.black, gui = 'bold'},
+        a = {bg = colors.orange, fg = colors.black, gui = 'bold'},
         b = {bg = colors.lightgray, fg = colors.white},
         c = {bg = colors.darkgray, fg = colors.black}
       },
@@ -37,7 +38,7 @@ return {
         c = {bg = colors.black, fg = colors.white}
       },
       command = {
-        a = {bg = colors.green, fg = colors.black, gui = 'bold'},
+        a = {bg = colors.aqua, fg = colors.black, gui = 'bold'},
         b = {bg = colors.lightgray, fg = colors.white},
         c = {bg = colors.darkgray, fg = colors.black}
       },
