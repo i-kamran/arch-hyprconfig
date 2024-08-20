@@ -55,6 +55,9 @@ PACKAGES=(
     "bat"                             # Cat clone with syntax highlighting and Git integration
     "tldr"                            # Simplified and community-driven man pages
     "man"                             # Man pages, the manual documentation reader
+    "ripgrep"                         # Ripgrep is a recursive line-oriented search tool
+    "zip"                             # Package and compress (archive) files into a Zip archive
+    "unzip"                           # Extract files/directories from Zip archives
 
     #######################
     ### Display Manager ###
@@ -124,6 +127,8 @@ PACKAGES=(
     ### Dev Tools & Editors ###
     ###########################
     "neovim"                          # Modern text editor, designed for extensibility and embeddability
+    "nodejs"                          # Server-side JavaScript platform
+    "npm"                             # JavaScript and Node.js package manager
 
     #################
     ### Intel GPU ###
