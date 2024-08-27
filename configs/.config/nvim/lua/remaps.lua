@@ -62,23 +62,9 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)    -- Open Git status
 vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>") -- Get diff from left side
 vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>") -- Get diff from right side
 
--- LSP Hover Toggle (Floating Window)
-local function toggle_hover()
-  -- Check if there is an existing floating window
-  for _, win in pairs(vim.api.nvim_list_wins()) do
-    local config = vim.api.nvim_win_get_config(win)
-    if config.relative ~= "" then
-      vim.api.nvim_win_close(win, true)
-      return
-    end
-  end
-  -- If no floating window exists, show hover
-  vim.lsp.buf.hover()
-end
-
 -- LSP Keymaps
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-vim.keymap.set("n", "K", toggle_hover, { noremap = true, silent = true })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
@@ -92,3 +78,8 @@ vim.keymap.set("n", "<leader>m", "<CMD>TSJToggle<CR>")
 
 -- Trouble
 vim.keymap.set("n", "<leader>xX", "<CMD>Trouble diagnostics toggle<CR>")
+
+-- inc-rename
+vim.keymap.set("n", "<leader>rn", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })

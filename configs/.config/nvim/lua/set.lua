@@ -32,6 +32,6 @@ vim.opt.updatetime = 50
 vim.cmd [[
   augroup ColorColumn
     autocmd!
-    autocmd BufEnter * if &filetype != 'netrw' && &filetype != '' | setlocal colorcolumn=80 | else | setlocal colorcolumn=0 | endif
+    autocmd BufEnter * if &filetype != 'netrw' && &filetype != '' && &modifiable == 1 | setlocal colorcolumn=80 | else | setlocal colorcolumn=0 | endif
   augroup END
 ]]
