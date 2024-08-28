@@ -7,6 +7,6 @@ return {
         opts = {},
         config = function()
             require("ibl").setup()
-        end
+        end,
     },
 }

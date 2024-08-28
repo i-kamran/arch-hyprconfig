@@ -6,4 +6,3 @@ return {
         "MunifTanjim/nui.nvim",
     },
 }
-
