@@ -19,7 +19,7 @@ end)
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>res", "<cmd>LspRestart<CR>") -- Restart LSP
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>x", "<CMD>!chmod +x %<CR>", { silent = true })
 
 -- Moving Lines in Visual Mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move selected line down
@@ -52,7 +52,11 @@ vim.keymap.set("n", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>")
 vim.keymap.set("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>")
 
 -- Search and Replace
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- Replace word under cursor
+vim.keymap.set(
+    "n",
+    "<leader>s",
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
+) -- Replace word under cursor
 
 -- Undo Tree Toggle
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -77,9 +81,18 @@ vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>") 
 vim.keymap.set("n", "<leader>m", "<CMD>TSJToggle<CR>")
 
 -- Trouble
-vim.keymap.set("n", "<leader>xX", "<CMD>Trouble diagnostics toggle<CR>")
+vim.keymap.set("n", "<leader>xz", "<CMD>Trouble diagnostics toggle<CR>")
 
 -- inc-rename
 vim.keymap.set("n", "<leader>rn", function()
-  return ":IncRename " .. vim.fn.expand("<cword>")
+    return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
+
+-- flash
+vim.keymap.set({ "n", "x", "o" }, "s", function()
+    require("flash").jump()
+end, { desc = "Flash" })
+
+vim.keymap.set({ "n", "x", "o" }, "S", function()
+    require("flash").treesitter()
+end, { desc = "Flash Treesitter" })
