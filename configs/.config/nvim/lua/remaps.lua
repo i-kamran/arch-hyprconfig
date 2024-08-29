@@ -96,3 +96,7 @@ end, { desc = "Flash" })
 vim.keymap.set({ "n", "x", "o" }, "S", function()
     require("flash").treesitter()
 end, { desc = "Flash Treesitter" })
+
+-- git-signs
+vim.keymap.set("n", "<leader>gp", "<CMD>Gitsigns preview_hunk<CR>")
+vim.keymap.set("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>")

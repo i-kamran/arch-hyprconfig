@@ -17,7 +17,7 @@ source $HOME/.config/zsh/aliases.zsh
 
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 
 ###############
 ### Plugins ###
