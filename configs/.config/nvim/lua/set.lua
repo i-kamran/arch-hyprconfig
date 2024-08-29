@@ -28,10 +28,30 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true
 
 vim.cmd [[
   augroup ColorColumn
     autocmd!
     autocmd BufEnter * if &filetype != 'netrw' && &filetype != '' && &modifiable == 1 | setlocal colorcolumn=80 | else | setlocal colorcolumn=0 | endif
+  augroup END
+]]
+vim.cmd [[
+  augroup CommitMessageSettings
+    autocmd!
+    autocmd FileType gitcommit setlocal colorcolumn=50 spell spelllang=en_us
+  augroup END
+]]
+
+vim.cmd [[
+  augroup SpellChecking
+    autocmd!
+    " Enable spell checking for commit messages
+    autocmd BufRead,BufNewFile COMMIT_EDITMSG setlocal spell spelllang=en_us
+    autocmd FileType gitcommit setlocal spell spelllang=en_us
+
+    " Enable spell checking for other specific filetypes (e.g., markdown)
+    autocmd FileType markdown setlocal spell spelllang=en_us
   augroup END
 ]]
