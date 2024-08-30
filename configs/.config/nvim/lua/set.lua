@@ -34,14 +34,15 @@ vim.opt.spell = true
 vim.cmd([[
   augroup ColorColumn
     autocmd!
-    autocmd BufEnter * if &filetype != 'netrw' && &filetype != '' && &modifiable == 1 | setlocal colorcolumn=80 | else | setlocal colorcolumn=0 | endif
+    autocmd BufEnter * if &filetype != 'gitcommit' && &filetype != 'netrw' && &filetype != '' && &modifiable == 1 | setlocal colorcolumn=80 | else | setlocal colorcolumn=0| endif
   augroup END
 ]])
--- vim.cmd([[
---   augroup CommitMessageSettings
---     autocmd!
---     autocmd FileType gitcommit setlocal colorcolumn=50 spell spelllang=en_us
---     autocmd FileType NeogitCommitMessage setlocal colorcolumn=50 spell spelllang=en_us
---     autocmd FileType markdown setlocal spell spelllang=en_us
---   augroup END
--- ]])
+
+vim.cmd([[
+  augroup Commit
+    autocmd!
+    autocmd BufEnter * if &filetype == 'gitcommit' | setlocal colorcolumn=50 spell spelllang=en_us | endif
+    autocmd  Filetype NeogitCommitMessage setlocal colorcolumn=50 spell spelllang=en_us
+
+  augroup END
+]])
