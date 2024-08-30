@@ -46,47 +46,42 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz") -- Previous location list a
 
 -- Tmux Integration Keymaps
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>")
-vim.keymap.set("n", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>")
-vim.keymap.set("n", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>")
-vim.keymap.set("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C-h>", vim.cmd.NvimTmuxNavigateLeft)
+vim.keymap.set("n", "<C-j>", vim.cmd.NvimTmuxNavigateDown)
+vim.keymap.set("n", "<C-k>", vim.cmd.NvimTmuxNavigateUp)
+vim.keymap.set("n", "<C-l>", vim.cmd.NvimTmuxNavigateRight)
 
 -- Search and Replace
-vim.keymap.set(
-    "n",
-    "<leader>s",
-    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
-) -- Replace word under cursor
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- Replace word under cursor
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 
 -- Undo Tree Toggle
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- Git Integration Keymaps
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)    -- Open Git status
-vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>") -- Get diff from left side
-vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>") -- Get diff from right side
+vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit) -- Open Git status
+vim.keymap.set("n", "<leader>gC", "<CMD>Neogit commit<CR>")
+vim.keymap.set("n", "<leader>gt", "<CMD>Telescope git_branches<CR>")
+vim.keymap.set("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>")
+vim.keymap.set("n", "<leader>gB", "<CMD>Gitsigns preview_hunk<CR>")
+vim.keymap.set("n", "<leader>gps", "<CMD>Neogit push<CR>")
+vim.keymap.set("n", "<leader>gpl", "<CMD>Neogit pull<CR>")
 
 -- LSP Keymaps
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<C-f>", vim.lsp.buf.format)
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 
 -- Snippets
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>") -- Insert Go error handling snippet
 
 -- Treesj
-vim.keymap.set("n", "<leader>m", "<CMD>TSJToggle<CR>")
+vim.keymap.set("n", "<leader>m", vim.cmd.TSJToggle)
 
 -- Trouble
 vim.keymap.set("n", "<leader>xz", "<CMD>Trouble diagnostics toggle<CR>")
-
--- inc-rename
-vim.keymap.set("n", "<leader>rn", function()
-    return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true })
 
 -- flash
 vim.keymap.set({ "n", "x", "o" }, "s", function()
@@ -97,6 +92,3 @@ vim.keymap.set({ "n", "x", "o" }, "S", function()
     require("flash").treesitter()
 end, { desc = "Flash Treesitter" })
 
--- git-signs
-vim.keymap.set("n", "<leader>gp", "<CMD>Gitsigns preview_hunk<CR>")
-vim.keymap.set("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>")
