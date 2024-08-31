@@ -59,13 +59,13 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- Git Integration Keymaps
-vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit) -- Open Git status
-vim.keymap.set("n", "<leader>gC", "<CMD>Neogit commit<CR>")
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git) -- Open Git status
+vim.keymap.set("n", "<leader>gC", "<CMD>Git commit<CR>")
 vim.keymap.set("n", "<leader>gt", "<CMD>Telescope git_branches<CR>")
 vim.keymap.set("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>")
 vim.keymap.set("n", "<leader>gB", "<CMD>Gitsigns preview_hunk<CR>")
-vim.keymap.set("n", "<leader>gps", "<CMD>Neogit push<CR>")
-vim.keymap.set("n", "<leader>gpl", "<CMD>Neogit pull<CR>")
+vim.keymap.set("n", "<leader>gps", "<CMD>Git push<CR>")
+vim.keymap.set("n", "<leader>gpl", "<CMD>Git pull<CR>")
 
 -- LSP Keymaps
 vim.keymap.set("n", "<C-f>", vim.lsp.buf.format)
