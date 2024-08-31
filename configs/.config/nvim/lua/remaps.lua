@@ -74,9 +74,6 @@ vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
--- Snippets
-vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>") -- Insert Go error handling snippet
-
 -- Treesj
 vim.keymap.set("n", "<leader>m", vim.cmd.TSJToggle)
 
@@ -92,3 +89,6 @@ vim.keymap.set({ "n", "x", "o" }, "S", function()
     require("flash").treesitter()
 end, { desc = "Flash Treesitter" })
 
+-- Snippets
+vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>") -- Insert Go error handling snippet
+vim.api.nvim_set_keymap('n', '<leader>nt', ':lua InsertYAMLTemplate()<CR>', { noremap = true, silent = true })

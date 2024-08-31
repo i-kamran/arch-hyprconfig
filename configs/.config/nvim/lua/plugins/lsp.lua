@@ -34,6 +34,7 @@ return {
                 "cssls",
                 "html",
                 "pyright",
+                "marksman"
             },
             auto_install = true,
             handlers = {
@@ -42,9 +43,9 @@ return {
                         capabilities = capabilities,
                     })
                 end,
-                require("lspconfig").tsserver.setup({
-                    capabilities = capabilities,
-                }),
+                -- require("lspconfig").tsserver.setup({
+                --     capabilities = capabilities,
+                -- }),
 
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
