@@ -34,7 +34,8 @@ return {
                 "cssls",
                 "html",
                 "pyright",
-                "marksman"
+                "marksman",
+                "bashls",
             },
             auto_install = true,
             handlers = {
@@ -51,6 +52,19 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup({
                         capabilities = capabilities,
+                    })
+                end,
+                ["bashls"] = function()
+                    require("lspconfig").bashls.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            bash = {
+                                lint = {
+                                    enabled = true,
+                                    command = "shellcheck",
+                                },
+                            },
+                        },
                     })
                 end,
             },

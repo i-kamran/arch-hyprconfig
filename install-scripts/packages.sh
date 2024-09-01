@@ -129,7 +129,7 @@ PACKAGES=(
     "neovim"                          # Modern text editor, designed for extensibility and embeddability
     "nodejs"                          # Server-side JavaScript platform
     "npm"                             # JavaScript and Node.js package manager
-
+    "shellcheck"                      # Shell script static analysis tool
     #################
     ### Intel GPU ###
     #################

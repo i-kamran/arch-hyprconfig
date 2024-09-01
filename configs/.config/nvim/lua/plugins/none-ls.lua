@@ -20,6 +20,7 @@ return {
                 -- Linters
                 "eslint_d",
                 "flake8",
+                "shellcheck"
             },
             automatic_setup = true,
         })
@@ -37,6 +38,7 @@ return {
                 require("none-ls.diagnostics.flake8"),
 
                 null_ls.builtins.completion.spell,
+                null_ls.builtins.diagnostics.shellcheck,
             },
         })
     end,
