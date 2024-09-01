@@ -93,6 +93,14 @@ echo
 echo "Copying configs"
 make_exec_and_run "$config_scripts_dir/stow.sh"
 
+# Install tmux
+echo
+make_exec_and_run "$config_scripts_dir/tmux-install.sh"
+
+# Install npm packages
+echo
+make_exec_and_run "$config_scripts_dir/npm-packages-install.sh"
+
 echo
 echo
 print_green "##############################"
