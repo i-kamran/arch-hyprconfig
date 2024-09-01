@@ -70,12 +70,12 @@ make_exec_and_run "$config_scripts_dir/copy-configs.sh"
 
 # Apply themes 
 echo
-echo "Copying configs"
+echo "Apply themes"
 make_exec_and_run "$config_scripts_dir/apply-themes.sh"
 
 # Copy utility-scripts 
 echo
-echo "Copying configs"
+echo "Copying utility scripts"
 make_exec_and_run "$config_scripts_dir/copy-util-scripts.sh"
 
 # Add kbuildsycoca service 
@@ -95,11 +95,11 @@ make_exec_and_run "$config_scripts_dir/stow.sh"
 
 # Install tmux
 echo
-make_exec_and_run "$config_scripts_dir/tmux-install.sh"
+make_exec_and_run "$install_scripts_dir/tmux-install.sh"
 
 # Install npm packages
 echo
-make_exec_and_run "$config_scripts_dir/npm-packages-install.sh"
+make_exec_and_run "$install_scripts_dir/npm-packages-install.sh"
 
 echo
 echo
