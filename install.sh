@@ -8,6 +8,18 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 install_scripts_dir="$script_dir/install-scripts"
 config_scripts_dir="$script_dir/configuration-scripts"
 
+# Update
+sudo pacman -Sy
+# Pacman configs
+sudo sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 5\nILoveCandy/' /etc/pacman.conf
+sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+
+# Update mirror list with fastest servers
+echo "Updating mirror list with fastest servers"
+sudo pacman -S reflector
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+sudo reflector --verbose --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+sudo pacman -Sy
 
 # Installing git if not installed
 if ! pkg_installed "git"; then
