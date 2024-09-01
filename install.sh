@@ -15,11 +15,15 @@ sudo sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 5\nILoveCandy/' /etc/
 sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
 
 # Update mirror list with fastest servers
-echo "Updating mirror list with fastest servers"
-sudo pacman -S reflector
-sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-sudo reflector --verbose --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-sudo pacman -Sy
+read -p "Do you want to update mirror list with fastest servers? (Y/n): " choice
+choice=${choice:-Y}
+if [[ $choice =~ ^[Yy]$ ]]; then
+  echo "Updating mirror list with fastest servers"
+  install_package "reflector"
+  sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+  sudo reflector --verbose --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+  sudo pacman -Sy
+fi
 
 # Installing git if not installed
 if ! pkg_installed "git"; then

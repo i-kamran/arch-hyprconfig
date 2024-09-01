@@ -13,9 +13,7 @@ read -p "Do you want to install tmux with configs? (Y/n) " install_choice
 install_choice=${install_choice:-Y}
 
 if [[ $install_choice =~ ^[Yy]$ ]]; then
-    # Install tmux
     install_package "tmux"
-   
     # Clone the TPM repository if it doesn't already exist
     if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
         git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
@@ -27,7 +25,6 @@ if [[ $install_choice =~ ^[Yy]$ ]]; then
 
     # Check if the plugin directory and theme file exist
     if [ -d "$HOME/.tmux/plugins/tmux/themes" ] && [ -f "$HOME/.config/tmux/mocha.tmuxtheme" ]; then
-        # Copy the theme file if it exists
         cp "$HOME/.config/tmux/mocha.tmuxtheme" "$HOME/.tmux/plugins/tmux/themes/catppuccin_mocha.tmuxtheme"
         echo "Theme file copied successfully."
     else

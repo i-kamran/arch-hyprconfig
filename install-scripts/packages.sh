@@ -114,7 +114,7 @@ PACKAGES=(
     ### Fonts ###
     #############
     "ttf-jetbrains-mono-nerd"         # Nerd font patched version of JetBrains Mono
-    "ttf-monsterrat"                  # Google Montserrat font
+    "ttf-montserrat"                  # Google Montserrat font
 
     #####################
     ### Miscellaneous ###
@@ -130,6 +130,7 @@ PACKAGES=(
     "nodejs"                          # Server-side JavaScript platform
     "npm"                             # JavaScript and Node.js package manager
     "shellcheck"                      # Shell script static analysis tool
+
     #################
     ### Intel GPU ###
     #################
