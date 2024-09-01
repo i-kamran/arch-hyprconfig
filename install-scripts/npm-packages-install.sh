@@ -9,6 +9,7 @@ source "$(dirname "$0")/functions.sh"
 
 NPM_PACKAGES=(
 "eslint_d"              # JS static analysis tool
+"async"                 # Module to work with async JS
 )
 
 read -p "Do you want to install npm packages? (Y/n) " install_choice
