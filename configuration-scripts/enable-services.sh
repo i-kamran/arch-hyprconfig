@@ -15,6 +15,10 @@ systemctl --user enable pipewire.service
 sudo systemctl enable bluetooth.service
 sudo systemctl enable sddm.service
 
+# Change power key behavior to suspend
+sudo sed -i -e "s/^#HandlePowerKey=poweroff/HandlePowerKey=suspend/" \
+    -e 's/^#HandlePowerKeyLongPress=ignore/HandlePowerKeyLongPress=poweroff/' \
+    -e 's/^#HandleLidSwitch=/HandleLidSwitch=/' /etc/systemd/logind.conf
 echo
 print_green "########################################"
 print_green "Services are enabled"
