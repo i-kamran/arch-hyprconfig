@@ -34,6 +34,7 @@ PACKAGES=(
     "swww"                            # Wallpaper utility for Hyprland
     "xdg-desktop-portal-hyprland"     # XDG desktop portal backend for Hyprland
     "archlinux-xdg-menu"              # XDG menu for arch, enables 'open with' in dolphin
+    "rofi-wayland"                    # Window switcher, application launcher, and dmenu replacement (Wayland)
 
     #########################
     ### Utilities & Tools ###
@@ -157,7 +158,6 @@ AUR_PACKAGES=(
     ############################
     ### Wayland & Compositor ###
     ############################
-    "rofi-lbonn-wayland-git"          # Window switcher, application launcher, and dmenu replacement (Wayland)
     "wlogout-git"                     # A logout menu for Wayland and X11
 
     ############################
