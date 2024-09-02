@@ -29,6 +29,10 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
   # Create home directory symlinks with stow
   stow -d "$main_dir" --adopt -t "$HOME/.config" utility-scripts
 
+  # Copy stow script
+  cp "$main_dir/configuration-scripts/stow.sh" "$HOME/.config/stow.sh"
+
+  echo "$main_dir/configuration-"
   echo
   print_green "########################################"
   print_green "Symlinks created"
