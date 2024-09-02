@@ -29,6 +29,8 @@ PACKAGES=(
     ### Wayland & Compositor ###
     ############################
     "hyprland"                        # Dynamic tiling Wayland compositor
+    "hypridle"                        # Hyprland idle daemon
+    "hyprlock"                        # Hyprland screen lock utility
     "mako"                            # Lightweight notification daemon for Wayland
     "waybar"                          # Highly customizable Wayland bar for Sway and Hyprland
     "swww"                            # Wallpaper utility for Hyprland
