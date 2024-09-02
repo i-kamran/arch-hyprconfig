@@ -1,0 +1,18 @@
+[user]
+    name = ikmrn
+    email = ibragimovkmrn@gmail.com
+
+[core]
+    autocrlf = input
+    eol = lf
+    editor = nvim
+
+[alias]
+    st = status
+    co = checkout
+    ci = commit
+    br = branch
+    lg = log --oneline --graph --all
+
+[init]
+    defaultBranch = main
