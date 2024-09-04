@@ -61,6 +61,7 @@ PACKAGES=(
     "ripgrep"                         # Ripgrep is a recursive line-oriented search tool
     "zip"                             # Package and compress (archive) files into a Zip archive
     "unzip"                           # Extract files/directories from Zip archives
+    "less"                            # Utility to read file contents
 
     #######################
     ### Display Manager ###
@@ -77,6 +78,8 @@ PACKAGES=(
     ### File Manager ###
     ####################
     "dolphin"                         # KDE file manager
+    "thunar"                          # Xfce file manager
+    "tumbler"                         # Generates thumbnails for thunar
 
     #######################
     ### KDE Integration ###
@@ -151,6 +154,7 @@ AUR_PACKAGES=(
     ### Dev Tools & Editors ###
     ###########################
     "visual-studio-code-bin"          # Binary release of Visual Studio Code
+    "noi-desktop-bin"                 # Noi desktop environment installer
 
     #############
     ### Fonts ###
@@ -161,12 +165,6 @@ AUR_PACKAGES=(
     ### Wayland & Compositor ###
     ############################
     "wlogout-git"                     # A logout menu for Wayland and X11
-
-    ############################
-    ### Desktop Environments ###
-    ############################
-    "noi-desktop-bin"                 # Noi desktop environment installer
-    "deepin-gtk-theme"                # Deepin GTK theme
 
     #####################
     ### Plasma Themes ###

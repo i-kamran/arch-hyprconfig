@@ -18,7 +18,7 @@ install_choice=${install_choice:-Y}
 
 if [[ $install_choice =~ ^[Yy] ]] && pkg_installed "npm"; then
     for pkg in "${NPM_PACKAGES[@]}"; do
-      npm install -g "$pkg"
+      sudo npm install -g "$pkg"
     done
 else
     echo "Installation skipped or npm is not installed."
