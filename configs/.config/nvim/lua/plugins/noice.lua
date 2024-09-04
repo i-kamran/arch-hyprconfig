@@ -8,6 +8,7 @@ return {
 		-- OPTIONAL:
 		-- "rcarriga/nvim-notify",
 	},
+  config = function()
 	require("noice").setup({
 		routes = {
 			{
@@ -15,5 +16,6 @@ return {
 				filter = { event = "msg_showmode" },
 			},
 		},
-	}),
+	})
+end
 }
