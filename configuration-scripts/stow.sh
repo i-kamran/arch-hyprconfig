@@ -8,6 +8,7 @@
 # It prompts you to confirm whether to create symlinks for configurations
 # in the `.config` directory and home directory. Ensure the stow and
 # the relevant configuration directories are properly set up before running.
+# Additionally, add the stow script path to the Zsh configuration file
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_dir="$(dirname "$script_dir")"
@@ -29,8 +30,8 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
   # Create home directory symlinks with stow
   stow -d "$main_dir" --adopt -t "$HOME/.config" utility-scripts
 
-  # Copy stow script
-  cp "$main_dir/configuration-scripts/stow.sh" "$HOME/.config/stow.sh"
+  # Add stow script path
+  sed -i "s|stowconf=\"stow.sh\"|stowconf=\"$script_dir/stow.sh\"|" "$main_dir/configs/.config/zsh/aliases.zsh"
 
   echo "$main_dir/configuration-"
   echo
