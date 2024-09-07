@@ -45,7 +45,7 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz") -- Next location list and c
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz") -- Previous location list and center screen
 
 -- Tmux Integration Keymaps
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-t>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<C-h>", vim.cmd.NvimTmuxNavigateLeft)
 vim.keymap.set("n", "<C-j>", vim.cmd.NvimTmuxNavigateDown)
 vim.keymap.set("n", "<C-k>", vim.cmd.NvimTmuxNavigateUp)
