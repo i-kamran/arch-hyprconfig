@@ -30,7 +30,7 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 -- "gopls",
-                "tsserver",
+                -- "ts_ls",
                 "cssls",
                 "html",
                 "pyright",
@@ -44,7 +44,7 @@ return {
                         capabilities = capabilities,
                     })
                 end,
-                -- require("lspconfig").tsserver.setup({
+                -- require("lspconfig").ts_ls.setup({
                 --     capabilities = capabilities,
                 -- }),
 
