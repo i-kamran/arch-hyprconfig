@@ -24,7 +24,7 @@ ENABLE_CORRECTION="true"
 ###############
 
 plugins=(git sudo zsh-autosuggestions zsh-syntax-highlighting web-search 
-copyfile copybuffer dirhistory history)
+copyfile copybuffer dirhistory history copypath)
 
 
 ############
@@ -39,3 +39,5 @@ source <(fzf --zsh)
 # Initialize additional tools
 eval "$(starship init zsh)"             # Starship prompt
 eval "$(zoxide init --cmd cd zsh)"      # Zoxide for directory navigation
+
+PATH=~/.console-ninja/.bin:$PATH
