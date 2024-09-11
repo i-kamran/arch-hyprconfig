@@ -9,14 +9,26 @@
 
 source "$(dirname "$0")/functions.sh"
 
-read -p "Do you want to install tmux with configs? (Y/n) " install_choice
-install_choice=${install_choice:-Y}
-
-if [[ $install_choice =~ ^[Yy]$ ]]; then
-    install_package "tmux"
+response_timer 10 "Do you want to install tmux with configs? (Y/n) " response
+response=${response:-Y}
+success=true
+if [[ $response =~ ^[Yy]$ ]]; then
+    if install_package "tmux"; then
+        print_green "Tmux installed successfully."
+    else
+        print_red "Failed to install tmux. Continuing with script, but some features may not work."
+        success=false
+    fi
     # Clone the TPM repository if it doesn't already exist
     if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-        git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+      if git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"; then
+        print_green "TPM repository cloned successfully."
+      else
+        print_red "Failed to clone TPM repository. Continuing with script, but plugin installation may fail."
+            success=false
+      fi
+      else
+        print_green "TPM repository already exists."
     fi
 
     # Install plugins
@@ -26,14 +38,19 @@ if [[ $install_choice =~ ^[Yy]$ ]]; then
     # Check if the plugin directory and theme file exist
     if [ -d "$HOME/.tmux/plugins/tmux/themes" ] && [ -f "$HOME/.config/tmux/mocha.tmuxtheme" ]; then
         cp "$HOME/.config/tmux/mocha.tmuxtheme" "$HOME/.tmux/plugins/tmux/themes/catppuccin_mocha.tmuxtheme"
-        echo "Theme file copied successfully."
+        print_green "Theme file copied successfully."
     else
-        echo "The required directories or files do not exist yet. Ensure that TPM plugins are installed properly."
+        print_red "The required directories or files do not exist yet. Ensure that TPM plugins are installed properly."
+        success=false
     fi
 
 fi
 
 echo
-print_green "########################################"
-print_green "Tmux installation script has finished."
+if $success; then
+  print_green "Tmux installation script has finished successfully."
+else
+  print_green "########################################"
+  print_green "Tmux installation script has finished."
+fi
 

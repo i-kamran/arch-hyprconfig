@@ -33,7 +33,7 @@ install_aur_helper() {
 
     # Check the result of the makepkg command
     if [ $? -eq 0 ]; then
-        echo "${aurhlpr} AUR helper installed..."
+        print_green "${aurhlpr} AUR helper installed..."
         echo "$aurhlpr" > /tmp/selected_aur_helper
     else
         echo "${aurhlpr} installation failed..."
@@ -53,12 +53,12 @@ prompt_user_selection() {
     done
 
     # Prompt user for selection
-    response_timer 10 "Enter the number of the AUR helper to install (Default=1): " choice
-    choice=${choice:-1}
+    response_timer 10 "Enter the number of the AUR helper to install (Default=1): " response
+    response=${response:-1}
 
-    # Validate the choice
-    if [[ "$choice" -ge 1 && "$choice" -le "${#AUR_HELPERS[@]}" ]]; then
-        selected_helper="${AUR_HELPERS[$((choice - 1))]}"
+    # Validate the response
+    if [[ "$response" -ge 1 && "$response" -le "${#AUR_HELPERS[@]}" ]]; then
+        selected_helper="${AUR_HELPERS[$((response - 1))]}"
         if ! command -v "$selected_helper" &>/dev/null; then
             install_aur_helper "$selected_helper"
         else

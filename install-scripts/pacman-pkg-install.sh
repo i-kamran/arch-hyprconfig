@@ -19,16 +19,16 @@ install_packages() {
         echo "$((i + 1)). ${PACKAGES[$i]}"
     done
 
-    read -p "Do you want to install all packages? (Y/n): " install_all
-    install_all=${install_all:-Y}
+    response_timer 10 "Do you want to install all packages? (Y/n): " response
+    response=${response:-Y}
 
-    if [[ $install_all =~ ^[Yy]$ ]]; then
+    if [[ $response =~ ^[Yy]$ ]]; then
         for pkg in "${PACKAGES[@]}"; do
             install_package "$pkg"
         done
     else
         for pkg in "${PACKAGES[@]}"; do
-            read -p "Do you want to install $pkg? (Y/n): " choice
+            response_timer 10 "Do you want to install $pkg? (Y/n): " choice
             choice=${choice:-Y}
             if [[ $choice =~ ^[Yy]$ ]]; then
                 install_package "$pkg"

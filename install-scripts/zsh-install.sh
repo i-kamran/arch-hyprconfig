@@ -12,12 +12,12 @@
 source "$(dirname "$0")/functions.sh"
 
 # Prompt the user with a default option of 'Y'
-read -p "Do you want to install zsh and oh-my-zsh? (Y/n): " install_choice
-install_choice=${install_choice:-Y}
+response_timer 10 "Do you want to install zsh and oh-my-zsh? (Y/n): " response
+response=${response:-Y}
 
 
 # Install oh-my-zsh if user chose 'Y' or pressed Enter
-if [[ "$install_choice" =~ ^[Yy]$ ]]; then
+if [[ "$response" =~ ^[Yy]$ ]]; then
     # Install zsh if not installed
     shell="zsh"
     if ! pkg_installed $shell; then

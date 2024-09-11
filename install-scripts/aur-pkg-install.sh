@@ -29,19 +29,19 @@ install_aur_packages() {
         echo "$((i + 1)). ${AUR_PACKAGES[$i]}"
     done
 
-    read -p "Do you want to install all packages? (Y/n): " install_all
-    install_all=${install_all:-Y}
+    response_timer 10 "Do you want to install all packages? (Y/n): " response
+    response=${response:-Y}
 
-    if [[ $install_all =~ ^[Yy]$ ]]; then
+    if [[ $response =~ ^[Yy]$ ]]; then
         for pkg in "${AUR_PACKAGES[@]}"; do
-          install_aur_package $pkg $selected_helper
+          install_aur_package "$pkg" "$selected_helper"
         done
     else
       for pkg in "${AUR_PACKAGES[@]}"; do
-        read -p "Do you want to install $pkg? (Y/n): " choice
-        choice=${choice:-Y}
-        if [[ $choice =~ ^[Yy]$ ]]; then
-          install_aur_package $pkg $selected_helper
+        response_timer 10 "Do you want to install $pkg? (Y/n): " response
+        response=${response:-Y}
+        if [[ $response =~ ^[Yy]$ ]]; then
+          install_aur_package "$pkg" "$selected_helper"
         fi
       done
     fi
