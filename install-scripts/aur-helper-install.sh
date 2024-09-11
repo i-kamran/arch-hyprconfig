@@ -37,7 +37,6 @@ install_aur_helper() {
         echo "$aurhlpr" > /tmp/selected_aur_helper
     else
         echo "${aurhlpr} installation failed..."
-        exit 1
     fi
 
     # Cleanup
@@ -67,7 +66,6 @@ prompt_user_selection() {
         fi
     else
         print_red "Invalid choice. Exiting."
-        exit 1
     fi
 }
 
