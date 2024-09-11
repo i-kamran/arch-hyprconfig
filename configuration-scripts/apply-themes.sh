@@ -33,9 +33,10 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if sudo git clone https://github.com/keyitdev/sddm-astronaut-theme.git "$THEME" &&
   sudo cp /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/ &&
   sudo cp -r "$main_dir/configs/.config/wallpapers" "$THEME/wallpapers/" &&
-  echo "[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee /etc/sddm.conf &&
+  printf "[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee /etc/sddm.conf &&
   sudo sed -i 's/FormPosition="center"/FormPosition="right"/' "$THEME/theme.conf" &&
   sudo sed -i 's|^Background=.*|Background="wallpapers/oxxaca-TNdTGcexUNY-unsplash.jpg"|' "$THEME/theme.conf"; then
+  echo
     print_green "sddm-astronaut-theme applied successfully."
 else
     print_red "Failed to apply sddm-astronaut-theme."
