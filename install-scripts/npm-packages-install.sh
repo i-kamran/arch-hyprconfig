@@ -31,6 +31,7 @@ install_npm_packages() {
 
 # Check if npm is installed and if user wants to proceed
 if [[ $response =~ ^[Yy] ]] && pkg_installed "npm"; then
+    install_npm_packages
     if $success; then
         print_green "########################################"
         print_green "NPM packages installation complete!"
