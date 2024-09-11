@@ -15,9 +15,9 @@ sudo sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 5\nILoveCandy/' /etc/
 sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
 
 # Update mirror list with fastest servers
-read -p "Do you want to update mirror list with fastest servers? (Y/n): " choice
-choice=${choice:-Y}
-if [[ $choice =~ ^[Yy]$ ]]; then
+response_timer 10 "Do you want to update mirror list with fastest servers? (Y/n): " response
+response=${response:-Y}
+if [[ $response =~ ^[Yy]$ ]]; then
   echo "Updating mirror list with fastest servers"
   install_package "reflector"
   sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
@@ -92,6 +92,11 @@ make_exec_and_run "$config_scripts_dir/noi-wayland-support.sh"
 echo
 echo "Copying configs"
 make_exec_and_run "$config_scripts_dir/stow.sh"
+
+# Add dolphin config
+echo
+echo "Configuring dolphin"
+make_exec_and_run "$config_scripts_dir/dolphin-config.sh"
 
 # Install tmux
 echo
