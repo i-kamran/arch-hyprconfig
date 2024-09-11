@@ -53,7 +53,7 @@ prompt_user_selection() {
     done
 
     # Prompt user for selection
-    read -p "Enter the number of the AUR helper to install (Deafault=1): " choice
+    response_timer 10 "Enter the number of the AUR helper to install (Default=1): " choice
     choice=${choice:-1}
 
     # Validate the choice

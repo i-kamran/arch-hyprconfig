@@ -10,7 +10,7 @@
 # - Install packages using pacman or an AUR helper
 # - Print messages in green or red
 # - Run and manage scripts
-
+# - Time user response
 
 # Function: pkg_installed
 # Arguments:
@@ -44,7 +44,7 @@ install_package() {
 install_aur_package() {
   local pkg="$1"
   local selected_helper="$2"
-  if ! pkg_installed $pkg; then
+  if ! pkg_installed "$pkg"; then
     $selected_helper -S --noconfirm "$pkg"
     echo "$pkg installed."
   else
@@ -117,4 +117,28 @@ make_exec_and_run() {
   local script_path="$1"
   make_executable "$script_path"
   run_script "$script_path"
+}
+
+# Function: timer
+# Arguments:
+#   $1 - The number of seconds for the countdown timer.
+#   $2 - The message to display while waiting for input.
+# Description:
+#   The timer function runs a countdown, capturing user input in response; 
+#   if time expires, response remains unset
+response_timer() {
+    set +e
+    unset response
+    local seconds=$1
+    local msg=$2
+    while [[ ${seconds} -ge 0 ]]; do
+        echo -ne "\r ${msg} (${seconds}) : "
+        if read -r -t 1 -n 1 response; then
+            break
+        fi
+        ((seconds--))
+    done
+    export response
+    echo ""
+    set -e
 }
