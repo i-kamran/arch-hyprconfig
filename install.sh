@@ -93,6 +93,10 @@ echo
 echo "Copying configs"
 make_exec_and_run "$config_scripts_dir/stow.sh"
 
+# Create fstab enties
+echo "Add devices to fstab"
+make_exec_and_run "$config_scripts_dir/fstab.sh"
+
 # Add dolphin config
 echo
 echo "Configuring dolphin"
