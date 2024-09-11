@@ -78,8 +78,8 @@ PACKAGES=(
     ### File Manager ###
     ####################
     "dolphin"                         # KDE file manager
-    "thunar"                          # Xfce file manager
-    "tumbler"                         # Generates thumbnails for thunar
+    # "thunar"                          # Xfce file manager
+    # "tumbler"                         # Generates thumbnails for thunar
 
     #######################
     ### KDE Integration ###

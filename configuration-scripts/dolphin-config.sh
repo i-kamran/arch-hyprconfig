@@ -14,8 +14,7 @@ install_dir="$(dirname "$script_dir")/install-scripts"
 source "$install_dir/functions.sh"
 
 if [ ! -f "$FILE" ]; then
-  print_red "The file $FILE does not exist"
-  exit 1
+    touch "$FILE"
 fi
 
 if grep -q "^\[Icons\]" "$FILE"; then
@@ -26,7 +25,6 @@ if grep -q "^\[Icons\]" "$FILE"; then
       print_green "Papirus-Dark icon theme is added"
     else
       print_red "Failed to add icon theme"
-      exit 1
     fi
   fi
 else 
