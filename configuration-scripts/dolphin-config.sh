@@ -6,11 +6,11 @@
 
 # This script ensures that the '[Icons]' section in the Dolphin configuration file
 # contains the 'Theme=Papirus-Dark' line.
+
 FILE="$HOME/.config/dolphinrc"
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 install_dir="$(dirname "$script_dir")/install-scripts"
-
 source "$install_dir/functions.sh"
 
 if [ ! -f "$FILE" ]; then
