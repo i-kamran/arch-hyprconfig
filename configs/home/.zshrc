@@ -8,7 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 source $HOME/.config/zsh/env.zsh
 source $HOME/.config/zsh/aliases.zsh
-source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/functions.zsh
+source $HOME/.config/zsh/history.zsh
 
 
 ###############
