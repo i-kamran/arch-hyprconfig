@@ -37,6 +37,7 @@ copyfile copybuffer dirhistory history copypath)
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 
+bindkey '^Y' autosuggest-accept
 # Initialize additional tools
 eval "$(starship init zsh)"             # Starship prompt
 eval "$(zoxide init --cmd cd zsh)"      # Zoxide for directory navigation
