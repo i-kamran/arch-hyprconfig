@@ -39,8 +39,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y"]])          -- Yank entire line to syste
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d"]]) -- Delete without overwriting register
 
 -- Quickfix Navigation
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")     -- Next quickfix and center screen
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")     -- Previous quickfix and center screen
+vim.keymap.set("n", "<C-qk>", "<cmd>cnext<CR>zz")     -- Next quickfix and center screen
+vim.keymap.set("n", "<C-qj>", "<cmd>cprev<CR>zz")     -- Previous quickfix and center screen
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz") -- Next location list and center screen
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz") -- Previous location list and center screen
 
@@ -91,4 +91,4 @@ end, { desc = "Flash Treesitter" })
 
 -- Snippets
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>") -- Insert Go error handling snippet
-vim.api.nvim_set_keymap('n', '<leader>nt', ':lua InsertYAMLTemplate()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>nt", ":lua InsertYAMLTemplate()<CR>", { noremap = true, silent = true })
