@@ -30,7 +30,7 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 150
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
