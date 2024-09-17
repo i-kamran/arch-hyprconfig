@@ -14,7 +14,7 @@ return {
         --- KEYMAPS ---
         ---------------
 
-        vim.keymap.set("n", "<A-a>", function() harpoon:list():add() end, { desc = "[A]dd Harpoon" })
+        vim.keymap.set("n", "<A-a>", function() harpoon:list():add() end, { desc = "[a]dd harpoon" })
         vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
         vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end)

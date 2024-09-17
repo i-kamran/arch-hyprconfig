@@ -10,17 +10,17 @@
 --------------------------------------------
 
 -- General Keymaps
-vim.keymap.set("n", "<leader>src", function() vim.cmd("so") end, {desc = "[s]ou[rc]e"})
-vim.keymap.set("n", "<leader>nw", vim.cmd.Ex, {desc = "[n]etr[w]"})
-vim.keymap.set("n", "<leader>re", "<cmd>LspRestart<CR>", {desc = "[re]start LSP"})
+vim.keymap.set("n", "<leader>src", function() vim.cmd("so") end, { desc = "[s]ou[rc]e" })
+vim.keymap.set("n", "<leader>nw", vim.cmd.Ex, { desc = "[n]etr[w]" })
+vim.keymap.set("n", "<leader>re", "<cmd>LspRestart<CR>", { desc = "[re]start LSP" })
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {desc = "e[x]ecutable"})
-vim.keymap.set("n", "QQ", "<cmd>q!<CR>", {noremap=false})
-vim.keymap.set("n", "WW", "<cmd>w!<CR>", {noremap=false})
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "e[x]ecutable" })
+vim.keymap.set("n", "QQ", "<cmd>q!<CR>", { noremap = false })
+vim.keymap.set("n", "WW", "<cmd>w!<CR>", { noremap = false })
 
 -- Moving Lines in Visual Mode
-vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv", {desc = "move line down"})
-vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv", {desc = "move line up"})
+vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv", { desc = "move line down" })
+vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv", { desc = "move line up" })
 
 -- Cursor Positioning Enhancements
 vim.keymap.set("n", "J", "mzJ`z", { desc = "join lines, maintains cursor position" })
@@ -51,8 +51,8 @@ vim.keymap.set("n", "<C-k>", vim.cmd.NvimTmuxNavigateUp)
 vim.keymap.set("n", "<C-l>", vim.cmd.NvimTmuxNavigateRight)
 
 -- Search and Replace
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {desc= "replace under curson"})
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {desc = "[r]e[n]ame"})
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "replace under curson" })
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
 
 -- Undo Tree Toggle
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[u]ndo tree" })
@@ -74,20 +74,20 @@ vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "[g]o to [r]e
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[c]ode [a]ction" })
 
 -- Treesj
-vim.keymap.set("n", "<leader>tj", vim.cmd.TSJToggle, {desc = "[t]rees[j]"})
+vim.keymap.set("n", "<leader>tj", vim.cmd.TSJToggle, { desc = "[t]rees[j]" })
 
 -- Trouble
-vim.keymap.set("n", "<leader>tx", "<cmd>Trouble diagnostics toggle<CR>", {desc = "[t]rouble"})
+vim.keymap.set("n", "<leader>tx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "[t]rouble" })
 
 -- flash
 vim.keymap.set({ "n", "x", "o" }, "s", function()
-    require("flash").jump()
+	require("flash").jump()
 end, { desc = "Flash" })
 
 vim.keymap.set({ "n", "x", "o" }, "S", function()
-    require("flash").treesitter()
+	require("flash").treesitter()
 end, { desc = "Flash Treesitter" })
 
 -- Snippets
-vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", {desc = "[e]rror"}) -- Insert Go error handling snippet
+vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[e]rror" }) -- Insert Go error handling snippet
 vim.api.nvim_set_keymap("n", "<leader>nt", ":lua InsertYAMLTemplate()<CR>", { desc = "[n]ote [t]emplate" })
