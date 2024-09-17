@@ -1,5 +1,8 @@
 -- ~/.config/nvim/lua/set.lua
 
+-- Leader Key Configuration
+vim.g.mapleader = " "
+
 vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -46,3 +49,11 @@ vim.cmd([[
 
   augroup END
 ]])
+
+vim.cmd([[
+  augroup CommentColor
+    autocmd!
+    autocmd BufEnter * highlight Comment guifg=#9f9f9f
+  augroup END
+]])
+

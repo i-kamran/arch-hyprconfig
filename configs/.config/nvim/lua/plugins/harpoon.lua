@@ -6,7 +6,6 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         local harpoon = require("harpoon")
-
         -- REQUIRED
         harpoon:setup()
         -- REQUIRED
@@ -14,45 +13,22 @@ return {
         ---------------
         --- KEYMAPS ---
         ---------------
-        vim.keymap.set("n", "<leader>a", function()
-            harpoon:list():add()
-        end)
-        vim.keymap.set("n", "<C-e>", function()
-            harpoon.ui:toggle_quick_menu(harpoon:list())
-        end)
 
-        vim.keymap.set("n", "<C-q>", function()
-            harpoon:list():select(1)
-        end)
-        vim.keymap.set("n", "<C-t>", function()
-            harpoon:list():select(2)
-        end)
-        vim.keymap.set("n", "<C-n>", function()
-            harpoon:list():select(3)
-        end)
-        vim.keymap.set("n", "<C-s>", function()
-            harpoon:list():select(4)
-        end)
+        vim.keymap.set("n", "<A-a>", function() harpoon:list():add() end, { desc = "[A]dd Harpoon" })
+        vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
+        vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end)
+        vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end)
+        vim.keymap.set("n", "<A-3>", function() harpoon:list():select(3) end)
+        vim.keymap.set("n", "<A-4>", function() harpoon:list():select(4) end)
+        vim.keymap.set("n", "<A-5>", function() harpoon:list():select(5) end)
         -- Toggle previous & next buffers stored within Harpoon list
-        vim.keymap.set("n", "<C-S-P>", function()
-            harpoon:list():prev()
-        end)
-        vim.keymap.set("n", "<C-S-M>", function()
-            harpoon:list():next()
-        end)
-
-        vim.keymap.set("n", "<leader><C-q>", function()
-            harpoon:list():replace_at(1)
-        end)
-        vim.keymap.set("n", "<leader><C-t>", function()
-            harpoon:list():replace_at(2)
-        end)
-        vim.keymap.set("n", "<leader><C-n>", function()
-            harpoon:list():replace_at(3)
-        end)
-        vim.keymap.set("n", "<leader><C-s>", function()
-            harpoon:list():replace_at(4)
-        end)
+        vim.keymap.set("n", "<A-S-P>", function() harpoon:list():prev() end)
+        vim.keymap.set("n", "<A-S-N>", function() harpoon:list():prev() end)
+        vim.keymap.set("n", "<leader>A-1>", function() harpoon:list():replace_at(1) end)
+        vim.keymap.set("n", "<leader>A-2>", function() harpoon:list():replace_at(2) end)
+        vim.keymap.set("n", "<leader>A-3>", function() harpoon:list():replace_at(3) end)
+        vim.keymap.set("n", "<leader>A-4>", function() harpoon:list():replace_at(4) end)
+        vim.keymap.set("n", "<leader>A-5>", function() harpoon:list():replace_at(5) end)
     end,
 }

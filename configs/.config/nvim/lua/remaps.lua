@@ -9,9 +9,6 @@
 --- configuration files.                 ---
 --------------------------------------------
 
--- Leader Key Configuration
-vim.g.mapleader = " "
-
 -- General Keymaps
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
@@ -39,8 +36,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y"]])          -- Yank entire line to syste
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d"]]) -- Delete without overwriting register
 
 -- Quickfix Navigation
-vim.keymap.set("n", "<C-qk>", "<cmd>cnext<CR>zz")     -- Next quickfix and center screen
-vim.keymap.set("n", "<C-qj>", "<cmd>cprev<CR>zz")     -- Previous quickfix and center screen
+vim.keymap.set("n", "<C-qk>", "<cmd>cnext<CR>zz")    -- Next quickfix and center screen
+vim.keymap.set("n", "<C-qj>", "<cmd>cprev<CR>zz")    -- Previous quickfix and center screen
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz") -- Next location list and center screen
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz") -- Previous location list and center screen
 
@@ -68,7 +65,7 @@ vim.keymap.set("n", "<leader>gps", "<CMD>Git push<CR>")
 vim.keymap.set("n", "<leader>gpl", "<CMD>Git pull<CR>")
 
 -- LSP Keymaps
-vim.keymap.set("n", "<C-f>", vim.lsp.buf.format)
+vim.keymap.set("n", "<A-f>", vim.lsp.buf.format)
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
