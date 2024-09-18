@@ -10,7 +10,7 @@
 --------------------------------------------
 
 -- General Keymaps
-vim.keymap.set("n", "<leader>src", function() vim.cmd("so") end, { desc = "[s]ou[rc]e" })
+vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "source" })
 vim.keymap.set("n", "<leader>nw", vim.cmd.Ex, { desc = "[n]etr[w]" })
 vim.keymap.set("n", "<leader>re", "<cmd>LspRestart<CR>", { desc = "[re]start LSP" })
 vim.keymap.set("i", "<C-c>", "<Esc>")
