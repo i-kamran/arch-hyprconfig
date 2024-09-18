@@ -30,14 +30,15 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 150
+vim.opt.updatetime = 200
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
+vim.opt.conceallevel = 1 -- obsidian.nvim
 
 vim.cmd([[
   augroup ColorColumn
     autocmd!
-    autocmd BufEnter * if &filetype != 'gitcommit' && &filetype != 'netrw' && &filetype != '' && &modifiable == 1 | setlocal colorcolumn=80 | else | setlocal colorcolumn=0| endif
+    autocmd BufEnter * if &filetype != 'gitcommit' && &filetype != 'markdown' && &filetype != 'netrw' && &filetype != '' && &modifiable == 1 | setlocal colorcolumn=80 | else | setlocal colorcolumn=0| endif
   augroup END
 ]])
 
