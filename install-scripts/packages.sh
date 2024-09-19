@@ -128,6 +128,8 @@ PACKAGES=(
     "aspell"                          # Spell checker
     "aspell-en"                       # English dictionary for aspell
     "telegram-desktop"                # Telegram messaging app desktop client
+    "haruna"                          # kde media player
+    "ffmpegthumbs"                    # Thumbnails and video preview in dolphin
 
     ###########################
     ### Dev Tools & Editors ###
