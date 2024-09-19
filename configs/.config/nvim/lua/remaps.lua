@@ -38,8 +38,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank line to clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "[d]elete over" }) --  without overwriting register
 
 -- Quickfix Navigation
-vim.keymap.set("n", "<C-qk>", "<cmd>cnext<CR>zz", { desc = "next quickfix" })
-vim.keymap.set("n", "<C-qj>", "<cmd>cprev<CR>zz", { desc = "previous quickfix" })
+vim.keymap.set("n", "<A-k>", "<cmd>cnext<CR>zz", { desc = "next quickfix" })
+vim.keymap.set("n", "<A-j>", "<cmd>cprev<CR>zz", { desc = "previous quickfix" })
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "next location list" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "previous location list" })
 

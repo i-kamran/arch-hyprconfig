@@ -8,12 +8,12 @@ return {
 			defaults = {
 				layout_strategy = "horizontal",
 				layout_config = {
-					preview_width = 0.6,
 					horizontal = {
 						size = {
 							width = "95%",
 							height = "95%",
 						},
+						preview_width = 0.6,
 					},
 				},
 				pickers = {
@@ -34,6 +34,7 @@ return {
 
 		require("telescope").load_extension("git_worktree")
 		require("telescope").load_extension("harpoon")
+		require("telescope").load_extension("ui-select")
 		local builtin = require("telescope.builtin")
 
 		---------------
