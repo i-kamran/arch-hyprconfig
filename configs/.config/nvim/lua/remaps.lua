@@ -12,15 +12,16 @@
 -- General Keymaps
 vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "source" })
 vim.keymap.set("n", "<leader>nw", vim.cmd.Ex, { desc = "[n]etr[w]" })
-vim.keymap.set("n", "<leader>re", "<cmd>LspRestart<CR>", { desc = "[re]start LSP" })
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "e[x]ecutable" })
-vim.keymap.set("n", "QQ", "<cmd>q!<CR>", { noremap = false })
-vim.keymap.set("n", "WW", "<cmd>w!<CR>", { noremap = false })
+vim.keymap.set("n", "<leader>Q", "<cmd>q!<CR>", { noremap = false })
+vim.keymap.set("n", "<leader>W", "<cmd>w!<CR>", { noremap = false })
+vim.keymap.set('i', '<C-l>', '<C-o>dl')
+vim.keymap.set('i', '<C-q>', '<C-o>dw')
 
 -- Moving Lines in Visual Mode
-vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv", { desc = "move line down" })
-vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv", { desc = "move line up" })
+-- vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv", { desc = "move line down" })
+-- vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv", { desc = "move line up" })
 
 -- Cursor Positioning Enhancements
 vim.keymap.set("n", "J", "mzJ`z", { desc = "join lines, maintains cursor position" })
@@ -38,8 +39,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank line to clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "[d]elete over" }) --  without overwriting register
 
 -- Quickfix Navigation
-vim.keymap.set("n", "<A-k>", "<cmd>cnext<CR>zz", { desc = "next quickfix" })
-vim.keymap.set("n", "<A-j>", "<cmd>cprev<CR>zz", { desc = "previous quickfix" })
+vim.keymap.set("n", "<A-K>", "<cmd>cnext<CR>zz", { desc = "next quickfix" })
+vim.keymap.set("n", "<A-J>", "<cmd>cprev<CR>zz", { desc = "previous quickfix" })
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "next location list" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "previous location list" })
 
@@ -58,7 +59,7 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[u]ndo tree" })
 
 -- Git Integration Keymaps
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[g]it [s]tatus" })
+vim.keymap.set("n", "<leader>gs", vim.cmd.Neogit, { desc = "[g]it [s]tatus" })
 vim.keymap.set("n", "<leader>gC", "<cmd>Git commit<CR>", { desc = "[g]it [c]ommit" })
 vim.keymap.set("n", "<leader>gt", "<cmd>Telescope git_branches<CR>", { desc = "[g]it [t]elescope branches" })
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "[g]it [b]lame" })
@@ -71,7 +72,19 @@ vim.keymap.set("n", "<A-f>", vim.lsp.buf.format)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "[g]o to [d]efinition" })
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "[g]o to [r]eferences" })
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[c]ode [a]ction" })
+vim.keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, { desc = "[g]o code [a]ction" })
+vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "[g]o to [D]eclaration" })
+vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, { desc = "[g]o to [t]ype definition" })
+--
+vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", { desc = "[L]SP [r]estart" })
+vim.keymap.set("n", "<leader>li", vim.lsp.buf.signature_help, { desc = "[L]SP s[i]gnature" })
+vim.keymap.set("n", "<leader>ln", vim.lsp.buf.rename, { desc = "[c]ode [a]ction" })
+vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "[L]SP [d]iagnostics" })
+vim.keymap.set("n", "<leader>ls", vim.lsp.buf.document_symbol, { desc = "[L]SP [s]ymbols in document" })
+vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol, { desc = "[L]SP [w]orkspace symbols" })
+
+-- Markdown
+vim.keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", {desc = "[m]arkdown [t]oggle"})
 
 -- Treesj
 vim.keymap.set("n", "<leader>tj", vim.cmd.TSJToggle, { desc = "[t]rees[j]" })
