@@ -29,10 +29,11 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                -- "gopls",
-                -- "ts_ls",
+                "gopls",
+                "ts_ls",
                 "cssls",
                 "html",
+                "clangd",
                 "pyright",
                 "marksman",
                 "bashls",
@@ -47,7 +48,6 @@ return {
                 -- require("lspconfig").ts_ls.setup({
                 --     capabilities = capabilities,
                 -- }),
-
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup({
@@ -62,6 +62,18 @@ return {
                                 lint = {
                                     enabled = true,
                                     command = "shellcheck",
+                                },
+                            },
+                        },
+                    })
+                end,
+                ["pyright"] = function()
+                    require("lspconfig").pyright.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "strict",
                                 },
                             },
                         },
@@ -109,4 +121,3 @@ return {
         })
     end,
 }
-
