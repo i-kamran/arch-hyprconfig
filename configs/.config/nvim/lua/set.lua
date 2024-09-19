@@ -36,6 +36,13 @@ vim.opt.spell = true
 vim.opt.conceallevel = 1 -- obsidian.nvim
 
 vim.cmd([[
+  augroup ColorVisual
+    autocmd!
+    autocmd BufEnter * highlight Visual guibg=#26403D
+  augroup END
+]])
+
+vim.cmd([[
   augroup ColorColumn
     autocmd!
     autocmd BufEnter * if &filetype != 'gitcommit' && &filetype != 'markdown' && &filetype != 'netrw' && &filetype != '' && &modifiable == 1 | setlocal colorcolumn=80 | else | setlocal colorcolumn=0| endif
@@ -43,11 +50,10 @@ vim.cmd([[
 ]])
 
 vim.cmd([[
-  augroup Commit
+  augroup CommitSpell
     autocmd!
-    autocmd BufEnter * if &filetype == 'gitcommit' | setlocal colorcolumn=50 spell spelllang=en_us | endif
-    autocmd  Filetype NeogitCommitMessage setlocal colorcolumn=50 spell spelllang=en_us
-
+    autocmd Filetype NeogitCommitMessage,gitcommit set colorcolumn=50
+    autocmd Filetype NeogitCommitMessage,gitcommit set spell 
   augroup END
 ]])
 
