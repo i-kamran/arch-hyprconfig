@@ -14,6 +14,9 @@ return {
 			{
 				view = "notify",
 				filter = { event = "msg_showmode" },
+                opts = {
+						timeout = 10000,  -- Time in milliseconds; adjust as needed
+					},
 			},
 		},
 	})

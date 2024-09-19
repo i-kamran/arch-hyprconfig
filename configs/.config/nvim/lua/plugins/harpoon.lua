@@ -9,7 +9,6 @@ return {
         -- REQUIRED
         harpoon:setup()
         -- REQUIRED
-
         ---------------
         --- KEYMAPS ---
         ---------------
