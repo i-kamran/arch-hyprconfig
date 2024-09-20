@@ -64,8 +64,8 @@ vim.keymap.set("n", "<leader>gC", "<cmd>Git commit<CR>", { desc = "[g]it [c]ommi
 vim.keymap.set("n", "<leader>gt", "<cmd>Telescope git_branches<CR>", { desc = "[g]it [t]elescope branches" })
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "[g]it [b]lame" })
 vim.keymap.set("n", "<leader>gph", "<cmd>Gitsigns preview_hunk<CR>", { desc = "[g]it [p]review [h]unk" })
-vim.keymap.set("n", "<leader>gps", "<cmd>Neogit push<CR>", { desc = "[g]it [p]u[s]h" })
-vim.keymap.set("n", "<leader>gpl", "<cmd>Neogit pull<CR>", { desc = "[g]it [p]u[l]l" })
+vim.keymap.set("n", "<leader>gps", "<cmd>Neogit push<CR>", { desc = "neo[g]it [p]u[s]h" })
+vim.keymap.set("n", "<leader>gpl", "<cmd>Neogit pull<CR>", { desc = "neo[g]it [p]u[l]l" })
 
 -- LSP Keymaps
 vim.keymap.set("n", "<A-f>", vim.lsp.buf.format)
