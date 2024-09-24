@@ -130,7 +130,7 @@ PACKAGES=(
     "telegram-desktop"                # Telegram messaging app desktop client
     "haruna"                          # kde media player
     "ffmpegthumbs"                    # Thumbnails and video preview in dolphin
-
+    "kdialog"                         # Tool to show dialog boxes from shell scripts
     ###########################
     ### Dev Tools & Editors ###
     ###########################

@@ -4,10 +4,9 @@
 ### System Update Script ###
 ############################
 
-# This script updates an Arch or Arch-based system. It logs the update process, checks 
-# for the system's compatibility, identifies the AUR helper (paru or yay), counts 
+# This script updates an Arch or Arch-based system. It logs the update process, checks
+# for the system's compatibility, identifies the AUR helper (paru or yay), counts
 # available updates, performs the update, and notifies the user of the status.
-
 
 # Define the log file location and maximum size in bytes (e.g., 10 MB)
 log_file="$HOME/.config/system_update.log"
@@ -17,7 +16,7 @@ max_size=$((10 * 1024 * 1024))  # 10 MB
 if [ -f "$log_file" ]; then
     current_size=$(stat -c%s "$log_file")
     if [ "$current_size" -ge "$max_size" ]; then
-        > "$log_file"
+       : > "$log_file"
     fi
 fi
 
@@ -29,6 +28,15 @@ if ! grep -q -i "arch" /etc/os-release; then
     notify-send -t 5000 "System Update Canceled" "This system is not Arch or an Arch derivative."
     echo "System update canceled: Not an Arch-based system." >> "$log_file"
     exit 0
+fi
+
+# Prompt for sudo password
+password=$(kdialog --password "Enter sudo password:")
+
+if ! echo "$password" | sudo -S whoami &> /dev/null; then
+    kdialog --error "Incorrect password. Aborting."
+    echo "Incorrect password. Aborting." >> "$log_file"
+    exit 1
 fi
 
 # Notify the user that the system update is starting
@@ -46,7 +54,7 @@ else
     exit 1
 fi
 
-# Pause for a moment 
+# Pause for a moment
 sleep 1.5
 
 # Count available updates
@@ -63,10 +71,11 @@ sleep 3
 # Perform the system update using aur helper
 notify-send -t 2000 "System Update" "Updating system with $aur_helper..."
 echo "Updating system with $aur_helper..." >> "$log_file"
-{
-    $aur_helper -Syu --noconfirm 2>&1
-} >> "$log_file" 2>&1
+
+# Use the password with sudo for system update
+echo "$password" | sudo -S $aur_helper -Syu --noconfirm 2>&1 >> "$log_file" 2>&1
 
 # Notify the user that the update is complete
 notify-send -t 2000 "System Update Complete" "System has been updated."
 echo "System update completed successfully at $(date)" >> "$log_file"
+

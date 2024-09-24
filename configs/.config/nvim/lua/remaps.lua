@@ -53,8 +53,8 @@ vim.keymap.set("n", "<C-k>", vim.cmd.NvimTmuxNavigateUp)
 vim.keymap.set("n", "<C-l>", vim.cmd.NvimTmuxNavigateRight)
 
 -- Search and Replace
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "replace under curson" })
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "replace under curson" })
 
 -- Undo Tree Toggle
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[u]ndo tree" })
@@ -71,21 +71,22 @@ vim.keymap.set("n", "<leader>gpl", "<cmd>Neogit pull<CR>", { desc = "neo[g]it [p
 -- LSP Keymaps
 vim.keymap.set("n", "<A-f>", vim.lsp.buf.format)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "[g]o to [d]efinition" })
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "[g]o to [r]eferences" })
 vim.keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, { desc = "[g]o code [a]ction" })
 vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "[g]o to [D]eclaration" })
 vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, { desc = "[g]o to [t]ype definition" })
 --
+vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, { desc = "diagnostic [f]loat" })
+vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "diagnostics [l]ist" })
 vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", { desc = "[L]SP [r]estart" })
 vim.keymap.set("n", "<leader>li", vim.lsp.buf.signature_help, { desc = "[L]SP s[i]gnature" })
-vim.keymap.set("n", "<leader>ln", vim.lsp.buf.rename, { desc = "[c]ode [a]ction" })
-vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "[L]SP [d]iagnostics" })
 vim.keymap.set("n", "<leader>ls", vim.lsp.buf.document_symbol, { desc = "[L]SP [s]ymbols in document" })
 vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol, { desc = "[L]SP [w]orkspace symbols" })
 
 -- Markdown
-vim.keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", {desc = "[m]arkdown [t]oggle"})
+vim.keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", { desc = "[m]arkdown [t]oggle" })
 
 -- Treesj
 vim.keymap.set("n", "<leader>tj", vim.cmd.TSJToggle, { desc = "[t]rees[j]" })
