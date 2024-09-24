@@ -37,34 +37,13 @@ return {
                 "pyright",
                 "marksman",
                 "bashls",
+                "tailwindcss",
             },
             auto_install = true,
             handlers = {
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities,
-                    })
-                end,
-                -- require("lspconfig").ts_ls.setup({
-                --     capabilities = capabilities,
-                -- }),
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup({
-                        capabilities = capabilities,
-                    })
-                end,
-                ["bashls"] = function()
-                    require("lspconfig").bashls.setup({
-                        capabilities = capabilities,
-                        settings = {
-                            bash = {
-                                lint = {
-                                    enabled = true,
-                                    command = "shellcheck",
-                                },
-                            },
-                        },
                     })
                 end,
                 ["pyright"] = function()
