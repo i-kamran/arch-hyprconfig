@@ -9,25 +9,12 @@ function InsertYAMLTemplate()
   -- Define the template
   local template = string.format([[
 ---
-title: %s
 creation date: %s
-summary:
 tags:
   -
-aliases:
-  -
 ---
 
-## %s
-
-Table of Contents
-
-1. [%s](#Reference)
-
----
-
-### Reference
-]], file_name, date, file_name, file_name)
+## %s]], date, file_name)
 
   -- Insert the template into the current buffer
   vim.api.nvim_put(vim.split(template, '\n'), 'l', false, true)
