@@ -36,8 +36,8 @@ if [[ $response =~ ^[Yy]$ ]]; then
     "$HOME/.tmux/plugins/tpm/bin/install_plugins"
 
     # Check if the plugin directory and theme file exist
-    if [ -d "$HOME/.tmux/plugins/tmux/themes" ] && [ -f "$HOME/.config/tmux/mocha.tmuxtheme" ]; then
-        cp "$HOME/.config/tmux/mocha.tmuxtheme" "$HOME/.tmux/plugins/tmux/themes/catppuccin_mocha.tmuxtheme"
+    if [ -d "$HOME/.tmux/plugins/tmux/themes" ] && [ -f "$HOME/.config/tmux/catppuccin_mocha_tmux.conf" ]; then
+        cp "$HOME/.config/tmux/catppuccin_mocha_tmux.conf" "$HOME/.tmux/plugins/tmux/themes/"
         print_green "Theme file copied successfully."
     else
         print_red "The required directories or files do not exist yet. Ensure that TPM plugins are installed properly."
