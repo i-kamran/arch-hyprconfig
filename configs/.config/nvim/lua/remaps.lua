@@ -100,4 +100,5 @@ vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() 
 
 -- Snippets
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[e]rror" }) -- Insert Go error handling snippet
-vim.api.nvim_set_keymap("n", "<leader>nt", ":lua InsertYAMLTemplate()<CR>", { desc = "[n]ote [t]emplate" })
+vim.keymap.set("n", "<leader>nt", ":lua InsertYAMLTemplate()<CR>", { desc = "[n]ote [t]emplate" })
+vim.keymap.set("n", "<leader>nd", "<cmd>Nd<CR>", { desc = "[n]ote [d]aily" })
