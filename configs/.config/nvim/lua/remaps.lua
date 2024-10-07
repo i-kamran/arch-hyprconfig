@@ -10,9 +10,7 @@
 --------------------------------------------
 
 -- General Keymaps
-vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
-end, { desc = "source" })
+vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "source" })
 vim.keymap.set("n", "<leader>nw", vim.cmd.Ex, { desc = "[n]etr[w]" })
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("i", "<C-j>", "<Esc>")
@@ -41,13 +39,15 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "[y]ank to clipboard
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank line to clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "[d]elete over" }) --  without overwriting register
 
--- Quickfix Navigation
-vim.keymap.set("n", "<leader>lk", "<cmd>lnext<CR>zz", { desc = "next location list" })
-vim.keymap.set("n", "<leader>lj", "<cmd>lprev<CR>zz", { desc = "previous location list" })
-vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>qj", "<cmd>cnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>qk", "<cmd>cprev<CR>", { noremap = true, silent = true })
+-- Quickfix and Location lists Navigation
+vim.keymap.set("n", "<leader>lo", "<cmd>lopen<CR>zz", { desc = "[l]ocation [o]pen" })
+vim.keymap.set("n", "<leader>lc", "<cmd>lclose<CR>zz", { desc = "[l]ocation [c]lose" })
+vim.keymap.set("n", "<leader>lk", "<cmd>lnext<CR>zz", { desc = "[l]ocation next" })
+vim.keymap.set("n", "<leader>lj", "<cmd>lprev<CR>zz", { desc = "[l]ocation prev" })
+vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "[q]uickfix [o]pen" })
+vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "[q]uickfix [c]lose" })
+vim.keymap.set("n", "<leader>qk", "<cmd>cprev<CR>", { desc = "[q]uickfix prev" })
+vim.keymap.set("n", "<leader>qj", "<cmd>cnext<CR>", { desc = "[q]uickfix next" })
 
 -- Tmux Integration Keymaps
 vim.keymap.set("n", "<C-t>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -57,12 +57,7 @@ vim.keymap.set("n", "<C-k>", vim.cmd.NvimTmuxNavigateUp)
 vim.keymap.set("n", "<C-l>", vim.cmd.NvimTmuxNavigateRight)
 
 -- Search and Replace
-vim.keymap.set(
-	"n",
-	"<leader>s",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "replace under curson" }
-)
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "replace under curson" })
 
 -- Undo Tree Toggle
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[u]ndo tree" })
@@ -103,12 +98,8 @@ vim.keymap.set("n", "<leader>tj", vim.cmd.TSJToggle, { desc = "[t]rees[j]" })
 vim.keymap.set("n", "<leader>tx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "[t]rouble" })
 
 -- Flash
-vim.keymap.set({ "n", "x", "o" }, "s", function()
-	require("flash").jump()
-end, { desc = "Flash" })
-vim.keymap.set({ "n", "x", "o" }, "S", function()
-	require("flash").treesitter()
-end, { desc = "Flash Treesitter" })
+vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash" })
+vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
 
 -- Snippets
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[e]rror" }) -- Insert Go error handling snippet

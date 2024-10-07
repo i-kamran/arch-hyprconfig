@@ -72,14 +72,17 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = "*",
-    callback = function()
-        vim.cmd("highlight Comment guifg=#9f9f9f")
-    end,
+	pattern = "*",
+	callback = function()
+		vim.cmd("highlight Comment guifg=#9f9f9f")
+	end,
 })
 
 vim.api.nvim_create_autocmd("DiagnosticChanged", {
 	callback = function()
-		vim.diagnostic.setqflist({ open = false })
+		local current_bufnr = vim.api.nvim_get_current_buf()
+		local diagnostics = vim.diagnostic.get(current_bufnr)
+		local items = vim.diagnostic.toqflist(diagnostics)
+		vim.fn.setloclist(0, items, "r")
 	end,
 })
