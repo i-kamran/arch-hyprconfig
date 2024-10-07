@@ -35,32 +35,51 @@ vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 vim.opt.conceallevel = 1 -- obsidian.nvim
 
-vim.cmd([[
-  augroup ColorVisual
-    autocmd!
-    autocmd BufEnter * highlight Visual guibg=#26403D
-  augroup END
-]])
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("highlight Visual guibg=#26403D")
+	end,
+})
 
-vim.cmd([[
-  augroup ColorColumn
-    autocmd!
-    autocmd BufEnter * if &filetype != 'gitcommit' && &filetype != 'markdown' && &filetype != 'netrw' && &filetype != '' && &modifiable == 1 | setlocal colorcolumn=80 | else | setlocal colorcolumn=0| endif
-  augroup END
-]])
+local augroup_colorcolumn = vim.api.nvim_create_augroup("ColorColumn", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = augroup_colorcolumn,
+	pattern = "*",
+	callback = function()
+		if
+			vim.bo.filetype ~= "gitcommit"
+			and vim.bo.filetype ~= "markdown"
+			and vim.bo.filetype ~= "netrw"
+			and vim.bo.filetype ~= ""
+			and vim.bo.modifiable
+		then
+			vim.opt.colorcolumn = "80"
+		else
+			vim.opt.colorcolumn = "0"
+		end
+	end,
+})
 
-vim.cmd([[
-  augroup CommitSpell
-    autocmd!
-    autocmd Filetype NeogitCommitMessage,gitcommit set colorcolumn=50
-    autocmd Filetype NeogitCommitMessage,gitcommit set spell 
-  augroup END
-]])
+local augroup_commit_spell = vim.api.nvim_create_augroup("CommitSpell", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+	group = augroup_commit_spell,
+	pattern = { "NeogitCommitMessage", "gitcommit" },
+	callback = function()
+		vim.opt.colorcolumn = "50"
+		vim.opt.spell = true
+	end,
+})
 
-vim.cmd([[
-  augroup CommentColor
-    autocmd!
-    autocmd BufEnter * highlight Comment guifg=#9f9f9f
-  augroup END
-]])
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    callback = function()
+        vim.cmd("highlight Comment guifg=#9f9f9f")
+    end,
+})
 
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+	callback = function()
+		vim.diagnostic.setqflist({ open = false })
+	end,
+})
