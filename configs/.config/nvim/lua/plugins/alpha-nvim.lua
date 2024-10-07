@@ -25,6 +25,7 @@ return {
             dashboard.button("f", "  > Find file", ":cd $HOME | Telescope find_files<CR>"),
             dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
             dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+            dashboard.button("n", "  > Notes", ":Nd<CR>"),
         }
 
         alpha.setup(dashboard.opts)
