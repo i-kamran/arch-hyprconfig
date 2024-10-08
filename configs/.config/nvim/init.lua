@@ -3,4 +3,3 @@
 require("set")
 require("config.lazy")
 require("remaps")
-require("notes-template")
