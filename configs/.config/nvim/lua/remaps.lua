@@ -103,5 +103,6 @@ vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() 
 
 -- Snippets
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[e]rror" }) -- Insert Go error handling snippet
-vim.keymap.set("n", "<leader>nt", ":lua InsertYAMLTemplate()<CR>", { desc = "[n]ote [t]emplate" })
-vim.keymap.set("n", "<leader>nd", "<cmd>Nd<CR>", { desc = "[n]ote [d]aily" })
+vim.keymap.set("n", "<leader>og", "<cmd>ObsidianTemplate daily<CR>", { desc = "[o]bsidian [g]eneral" })
+vim.keymap.set("n", "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "[o]bsidian to[d]ay" })
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTomorrow<CR>", { desc = "[o]bsidian [t]omorrow" })
