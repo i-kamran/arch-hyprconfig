@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		if
 			vim.bo.filetype ~= "gitcommit"
 			and vim.bo.filetype ~= "markdown"
-			and vim.bo.filetype ~= "netrw"
+			and vim.bo.filetype ~= "oil"
 			and vim.bo.filetype ~= ""
 			and vim.bo.modifiable
 		then
