@@ -2,8 +2,9 @@
 
 return {
     "echasnovski/mini.nvim",
+    lazy = true,
+    event = "VeryLazy",
     config = function()
-        require("mini.move").setup({
-        })
+        require("mini.move").setup({})
     end,
 }

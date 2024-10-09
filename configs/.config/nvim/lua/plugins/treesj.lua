@@ -2,6 +2,8 @@
 
 return {
     "Wansmer/treesj",
+    lazy = true,
+    event = "VeryLazy",
     config = function()
         require("treesj").setup({
             use_default_keymaps = false,

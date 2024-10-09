@@ -2,6 +2,8 @@
 
 return {
     'mg979/vim-visual-multi',
+    lazy = true,
+    event = "VeryLazy",
     config = function()
         -- Disable specific key mappings for this plugin
         vim.g['VM_maps'] = {
