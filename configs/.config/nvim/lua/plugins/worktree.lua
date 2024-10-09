@@ -1,3 +1,5 @@
+-- ~/.config/nvim/lua/plugins/worktree.lua
+
 return {
     "ThePrimeagen/git-worktree.nvim",
     config = function()

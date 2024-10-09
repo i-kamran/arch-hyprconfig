@@ -1,3 +1,5 @@
+-- ~/.config/nvim/lua/plugins/markdown-preview.lua
+
 return {
   "iamcco/markdown-preview.nvim",
   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

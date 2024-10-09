@@ -1,3 +1,5 @@
+-- ~/.config/nvim/lua/plugins/nvim-tmux-navigator.lua
+
 return {
     "alexghergh/nvim-tmux-navigation",
     config = function()

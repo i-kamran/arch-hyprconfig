@@ -1,3 +1,5 @@
+-- ~/.config/nvim/lua/plugins/fzf.lua
+
 return {
   "ibhagwan/fzf-lua",
   -- optional for icon support

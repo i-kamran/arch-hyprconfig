@@ -1,3 +1,5 @@
+-- ~/.config/nvim/lua/plugins/obsidian.lua
+
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*",

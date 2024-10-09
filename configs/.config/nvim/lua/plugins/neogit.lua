@@ -1,3 +1,5 @@
+-- ~/.config/nvim/lua/plugins/neogit.lua
+
 return {
     {
         "NeogitOrg/neogit",
