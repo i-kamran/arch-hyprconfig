@@ -3,6 +3,8 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        lazy = true,
+        event = "VeryLazy",
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
@@ -139,9 +141,7 @@ return {
                     -- Other
                     null_ls.builtins.completion.spell,
                     null_ls.builtins.diagnostics.markdownlint.with({
-                        command = "markdownlint-cli2",
-                        args = { "--config", vim.fn.expand("~/.markdownlint.jsonc"), "$FILENAME" },
-                        format = "line",
+                        diagnostics_format = "#{m} (#{c})",
                     }),
                 },
                 on_attach = function(client, bufnr)
