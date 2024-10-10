@@ -1,3 +1,5 @@
+# {{date}} Note
+
 | Start   | Task | Status |
 | ------- | ---- | ------ |
 | 6am     |      |        |
