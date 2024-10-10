@@ -91,6 +91,10 @@ vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol, { desc = "[L]SP 
 
 -- Markdown
 vim.keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", { desc = "[m]arkdown [t]oggle" })
+vim.keymap.set("n", "<leader>mg", "<cmd>ObsidianTemplate daily<CR>", { desc = "[m]arkdown [g]eneral" })
+vim.keymap.set("n", "<leader>md", "<cmd>ObsidianToday<CR>", { desc = "[m]arkdown to[d]ay" })
+vim.keymap.set("n", "<leader>mr", "<cmd>ObsidianTomorrow<CR>", { desc = "[m]arkdown tomo[r]row" })
+vim.keymap.set('n', '<leader>mc', '<cmd>w<CR><cmd>!markdown-toc -i %<CR>', { desc = "[m]arkdown to[c]"})
 
 -- Treesj
 vim.keymap.set("n", "<leader>tj", vim.cmd.TSJToggle, { desc = "[t]rees[j]" })
@@ -104,6 +108,3 @@ vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() 
 
 -- Snippets
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[e]rror" }) -- Insert Go error handling snippet
-vim.keymap.set("n", "<leader>og", "<cmd>ObsidianTemplate daily<CR>", { desc = "[o]bsidian [g]eneral" })
-vim.keymap.set("n", "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "[o]bsidian to[d]ay" })
-vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTomorrow<CR>", { desc = "[o]bsidian [t]omorrow" })

@@ -86,3 +86,12 @@ vim.api.nvim_create_autocmd("DiagnosticChanged", {
 		vim.fn.setloclist(0, items, "r")
 	end,
 })
+vim.api.nvim_create_user_command("MarkdownTOC", function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local filename = vim.api.nvim_buf_get_name(bufnr)
+    -- Run markdown-toc on the current buffer
+    vim.fn.system(string.format("markdown-toc -i %s", filename))
+    -- Optionally, you can reload the buffer to see changes
+    vim.cmd("edit")
+end, {})
+
