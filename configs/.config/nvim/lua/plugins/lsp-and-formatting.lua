@@ -1,6 +1,7 @@
 -- ~/.config/nvim/lua/plugins/lsp-and-formatting.lua
 
 return {
+    -- lsp config
     {
         "neovim/nvim-lspconfig",
         lazy = true,
@@ -100,8 +101,12 @@ return {
             })
         end,
     },
+
+    -- none-ls config
     {
         "nvimtools/none-ls.nvim",
+        lazy = true,
+        event = "VeryLazy",
         dependencies = {
             "williamboman/mason.nvim",
             "jay-babu/mason-null-ls.nvim",
@@ -124,6 +129,8 @@ return {
                     "shellcheck",
                     "markdownlint-cli2",
                     "markdown-toc",
+                    -- DAP
+                    "debugpy"
                 },
                 automatic_installation = true,
             })
