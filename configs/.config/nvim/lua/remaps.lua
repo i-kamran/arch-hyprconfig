@@ -91,7 +91,7 @@ vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol, { desc = "[L]SP 
 
 -- Markdown
 vim.keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", { desc = "[m]arkdown [t]oggle" })
-vim.keymap.set("n", "<leader>mg", "<cmd>ObsidianTemplate daily<CR>", { desc = "[m]arkdown [g]eneral" })
+vim.keymap.set("n", "<leader>mg", "<cmd>ObsidianTemplate general<CR>", { desc = "[m]arkdown [g]eneral" })
 vim.keymap.set("n", "<leader>md", "<cmd>ObsidianToday<CR>", { desc = "[m]arkdown to[d]ay" })
 vim.keymap.set("n", "<leader>mr", "<cmd>ObsidianTomorrow<CR>", { desc = "[m]arkdown tomo[r]row" })
 vim.keymap.set('n', '<leader>mc', '<cmd>w<CR><cmd>!markdown-toc -i %<CR>', { desc = "[m]arkdown to[c]"})

@@ -6,6 +6,8 @@ tags:
     - 
 ---
 
-## {{title}}
+# {{title}}
 
-### References
+<!-- toc -->
+
+## References
