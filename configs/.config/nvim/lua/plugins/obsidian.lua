@@ -33,5 +33,6 @@ return {
 		attachments = {
 			img_folder = "imgs",
 		},
+        ui = { enable = false },
 	},
 }
