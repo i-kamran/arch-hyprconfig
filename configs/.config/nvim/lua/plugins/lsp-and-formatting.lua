@@ -130,7 +130,8 @@ return {
                     "markdownlint-cli2",
                     "markdown-toc",
                     -- DAP
-                    "debugpy"
+                    "debugpy",
+                    "codelldb"
                 },
                 automatic_installation = true,
             })
