@@ -14,6 +14,6 @@
 
 <!-- Use &check; and &cross; for status or simply + and - -->
 
-### Notes
+## Notes
 
-### Misc
+## Misc
