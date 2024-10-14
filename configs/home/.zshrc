@@ -36,7 +36,7 @@ copyfile copybuffer dirhistory history copypath)
 # This oh-my-zsh.sh source should be below plugins
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
-
+set -o vi
 bindkey '^Y' autosuggest-accept
 # Initialize additional tools
 eval "$(starship init zsh)"             # Starship prompt
