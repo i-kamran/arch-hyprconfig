@@ -1,4 +1,4 @@
--- ~/.config/nvim/lua/plugins/smart-edit.lua
+-- ~/.config/nvim/lua/plugins/edit.lua
 -- Plugins for automated text editing
 
 return {
@@ -19,6 +19,21 @@ return {
         event = "VeryLazy",
         config = function()
             require("nvim-ts-autotag").setup({})
+        end,
+    },
+
+    -- visual-multi
+    {
+        "mg979/vim-visual-multi",
+        lazy = true,
+        event = "VeryLazy",
+        config = function()
+            -- Disable specific key mappings for this plugin
+            vim.g["VM_maps"] = {
+                ["Goto Next"] = "",
+                ["Goto Prev"] = "",
+                ["Toggle Block"] = "",
+            }
         end,
     },
 
