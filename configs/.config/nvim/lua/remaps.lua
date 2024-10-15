@@ -82,9 +82,10 @@ vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, { desc = "[g]o to
 --
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, { desc = "diagnostic [f]loat" })
 vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "diagnostics [l]ist" })
-vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", { desc = "[L]SP [r]estart" })
+vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", { desc = "[l]sp [r]estart" })
+vim.keymap.set("n", "<leader>ls", "<cmd>LspStart<CR>", { desc = "[l]sp [s]tart" })
 vim.keymap.set("n", "<leader>li", vim.lsp.buf.signature_help, { desc = "[L]SP s[i]gnature" })
-vim.keymap.set("n", "<leader>ls", vim.lsp.buf.document_symbol, { desc = "[L]SP [s]ymbols in document" })
+vim.keymap.set("n", "<leader>lm", vim.lsp.buf.document_symbol, { desc = "[L]SP sy[m]bols in document" })
 vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol, { desc = "[L]SP [w]orkspace symbols" })
 
 -- Markdown
@@ -92,6 +93,7 @@ vim.keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", { desc = "[m
 vim.keymap.set("n", "<leader>mg", "<cmd>ObsidianTemplate general<CR>", { desc = "[m]arkdown [g]eneral" })
 vim.keymap.set("n", "<leader>md", "<cmd>ObsidianToday<CR>", { desc = "[m]arkdown to[d]ay" })
 vim.keymap.set("n", "<leader>mr", "<cmd>ObsidianTomorrow<CR>", { desc = "[m]arkdown tomo[r]row" })
+vim.keymap.set("n", "<leader>mi", "<cmd>ObsidianPasteImg<CR>", { desc = "[m]arkdown [i]mage" })
 vim.keymap.set('n', '<leader>mc', '<cmd>w<CR><cmd>!markdown-toc -i %<CR>', { desc = "[m]arkdown to[c]"})
 
 -- Treesj
@@ -107,10 +109,11 @@ vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() 
 -- Snippets
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[e]rror" }) -- Insert Go error handling snippet
 
-vim.keymap.set('n', '<F5>', require('dap').continue)
-vim.keymap.set('n', '<F10>', require('dap').step_over)
-vim.keymap.set('n', '<F11>', require('dap').step_into)
-vim.keymap.set('n', '<F12>', require('dap').step_out)
+-- DAP
+vim.keymap.set('n', '<F2>', require('dap').continue)
+vim.keymap.set('n', '<F3>', require('dap').step_over)
+vim.keymap.set('n', '<F4>', require('dap').step_into)
+vim.keymap.set('n', '<F5>', require('dap').step_out)
 vim.keymap.set('n', '<leader>b', require('dap').toggle_breakpoint)
 
 -- Telescope
@@ -130,13 +133,11 @@ vim.keymap.set("n", "<leader>fW", function() local word = vim.fn.expand("<cWORD>
 -- Harpoon
 vim.keymap.set("n", "<A-a>", function() require("harpoon"):list():add() end, { desc = "[a]dd harpoon" })
 vim.keymap.set("n", "<A-e>", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end)
-
 vim.keymap.set("n", "<A-1>", function() require("harpoon"):list():select(1) end)
 vim.keymap.set("n", "<A-2>", function() require("harpoon"):list():select(2) end)
 vim.keymap.set("n", "<A-3>", function() require("harpoon"):list():select(3) end)
 vim.keymap.set("n", "<A-4>", function() require("harpoon"):list():select(4) end)
 vim.keymap.set("n", "<A-5>", function() require("harpoon"):list():select(5) end)
-
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<A-S-P>", function() require("harpoon"):list():prev() end)
 vim.keymap.set("n", "<A-S-N>", function() require("harpoon"):list():prev() end)

@@ -74,6 +74,9 @@ return {
                         require("luasnip").lsp_expand(args.body)
                     end,
                 },
+                formatting = {
+                    format = require("nvim-highlight-colors").format
+                },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
                     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
@@ -129,9 +132,6 @@ return {
                     "shellcheck",
                     "markdownlint-cli2",
                     "markdown-toc",
-                    -- DAP
-                    "debugpy",
-                    "codelldb"
                 },
                 automatic_installation = true,
             })
