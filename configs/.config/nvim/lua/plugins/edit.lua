@@ -28,6 +28,7 @@ return {
         lazy = true,
         event = "VeryLazy",
         config = function()
+            vim.g.VM_show_warnings = 0
             -- Disable specific key mappings for this plugin
             vim.g["VM_maps"] = {
                 ["Goto Next"] = "",
