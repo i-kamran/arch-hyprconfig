@@ -1,9 +1,7 @@
 --------------------------------------------
 --- ALL GENERAL KEYMAPS ARE DEFINED HERE ---
 --- EXCEPTIONS:                          ---
---- 1. HARPOON                           ---
---- 2. TELESCOPE                         ---
---- 3. LSP (PARTIALLY DEFINED HERE)      ---
+--- 1. LSP (PARTIALLY DEFINED HERE)      ---
 --- Specific keymaps for these are       ---
 --- found in their respective            ---
 --- configuration files.                 ---
@@ -108,3 +106,42 @@ vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() 
 
 -- Snippets
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[e]rror" }) -- Insert Go error handling snippet
+
+vim.keymap.set('n', '<F5>', require('dap').continue)
+vim.keymap.set('n', '<F10>', require('dap').step_over)
+vim.keymap.set('n', '<F11>', require('dap').step_into)
+vim.keymap.set('n', '<F12>', require('dap').step_out)
+vim.keymap.set('n', '<leader>b', require('dap').toggle_breakpoint)
+
+-- Telescope
+vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[f]ind [f]iles" })
+vim.keymap.set("n", "<leader>fo", require("telescope.builtin").oldfiles, { desc = "[f]ind [o]ld" })
+vim.keymap.set("n", "<leader>fg", require("telescope.builtin").git_files, { desc = "[f]ind [g]it" })
+vim.keymap.set("n", "<leader>fG", require("telescope.builtin").live_grep, { desc = "[f]ind [g]rep" })
+vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, { desc = "[f]ind [b]uffers" })
+vim.keymap.set("n", "<leader>fm", ":Telescope harpoon marks<CR>", { desc = "harpoon [m]arks" })
+vim.keymap.set("n", "<leader>fst", require("telescope.builtin").git_status, { desc = "[f]ind [st]atus" })
+vim.keymap.set("n", "<Leader>ft", ":Telescope git_worktree git_worktrees<CR>", { desc = "[f]ind [t]ree" })
+vim.keymap.set("n", "<Leader>fT", ":Telescope git_worktree create_git_worktree<CR>", { desc = "Create [t]ree" })
+vim.keymap.set("n", "<leader>fsg", function() require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") }) end, { desc = "[f]ind [s]tring" })
+vim.keymap.set("n", "<leader>fw", function() local word = vim.fn.expand("<cword>") require("telescope.builtin").grep_string({ search = word }) end, { desc = "[f]ind [w]ord" })
+vim.keymap.set("n", "<leader>fW", function() local word = vim.fn.expand("<cWORD>") require("telescope.builtin").grep_string({ search = word }) end, { desc = "[f]ind [W]ORD" })
+
+-- Harpoon
+vim.keymap.set("n", "<A-a>", function() require("harpoon"):list():add() end, { desc = "[a]dd harpoon" })
+vim.keymap.set("n", "<A-e>", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end)
+
+vim.keymap.set("n", "<A-1>", function() require("harpoon"):list():select(1) end)
+vim.keymap.set("n", "<A-2>", function() require("harpoon"):list():select(2) end)
+vim.keymap.set("n", "<A-3>", function() require("harpoon"):list():select(3) end)
+vim.keymap.set("n", "<A-4>", function() require("harpoon"):list():select(4) end)
+vim.keymap.set("n", "<A-5>", function() require("harpoon"):list():select(5) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<A-S-P>", function() require("harpoon"):list():prev() end)
+vim.keymap.set("n", "<A-S-N>", function() require("harpoon"):list():prev() end)
+vim.keymap.set("n", "<leader>A-1>", function() require("harpoon"):list():replace_at(1) end)
+vim.keymap.set("n", "<leader>A-2>", function() require("harpoon"):list():replace_at(2) end)
+vim.keymap.set("n", "<leader>A-3>", function() require("harpoon"):list():replace_at(3) end)
+vim.keymap.set("n", "<leader>A-4>", function() require("harpoon"):list():replace_at(4) end)
+vim.keymap.set("n", "<leader>A-5>", function() require("harpoon"):list():replace_at(5) end)
