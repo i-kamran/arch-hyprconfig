@@ -16,6 +16,7 @@ return {
 	-- bullets.vim
 	{
 		"bullets-vim/bullets.vim",
+        lazy = true,
 		event = "VeryLazy",
 		config = function()
 			-- Enable the plugin for specific file types
@@ -45,7 +46,8 @@ return {
 	{
 		"epwalsh/obsidian.nvim",
 		version = "*",
-		lazy = false,
+		lazy = true,
+        event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
