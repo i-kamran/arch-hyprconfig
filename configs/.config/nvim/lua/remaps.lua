@@ -10,6 +10,7 @@
 -- General Keymaps
 vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "source" })
 vim.keymap.set("n", "<leader>oi", "<cmd>Oil<CR>", { desc = "[oi]l" })
+vim.keymap.set("n", "<leader>mm", "<cmd>lua MiniFiles.open()<CR>", {desc = "[m]ini"})
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("i", "<C-j>", "<Esc>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "e[x]ecutable" })
