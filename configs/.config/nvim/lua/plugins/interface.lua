@@ -52,7 +52,7 @@ return {
                         view = "notify",
                         filter = { event = "msg_showmode" },
                         opts = {
-                            timeout = 1000, -- Time in milliseconds; adjust as needed
+                            timeout = 3000, -- Time in milliseconds; adjust as needed
                         },
                     },
                 },
