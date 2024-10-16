@@ -27,6 +27,16 @@ return {
                     -- Show files and directories that start with "."
                     show_hidden = true,
                 },
+                win_options = {
+                    wrap = false,
+                    signcolumn = "no",
+                    cursorcolumn = false,
+                    foldcolumn = "0",
+                    spell = false,
+                    list = false,
+                    conceallevel = 0,
+                    concealcursor = "nvic",
+                },
             })
         end,
     },
