@@ -25,6 +25,8 @@ return {
     {
         -- Add indentation guides even on blank lines
         "lukas-reineke/indent-blankline.nvim",
+        lazy = true,
+        event = "VeryLazy",
         -- Enable `lukas-reineke/indent-blankline.nvim`
         -- See `:help ibl`
         main = "ibl",
@@ -37,6 +39,8 @@ return {
     -- highlight-colors
     {
         "brenoprata10/nvim-highlight-colors",
+        lazy = true,
+        event = "VeryLazy",
         config = function()
             require('nvim-highlight-colors').setup({})
         end,
