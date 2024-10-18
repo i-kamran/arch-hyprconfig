@@ -16,7 +16,7 @@ return {
         -- Initialize mason and mason-nvim-dap
         require("mason").setup()
         require("mason-nvim-dap").setup({
-            ensure_installed = { "codelldb", "debugpy", "delve" },
+            ensure_installed = { "codelldb", "delve" },
             automatic_installation = true,
             handlers = {
                 function(config)
