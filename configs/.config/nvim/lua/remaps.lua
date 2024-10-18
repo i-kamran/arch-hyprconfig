@@ -14,9 +14,11 @@ vim.keymap.set("n", "<leader>mm", "<cmd>lua MiniFiles.open()<CR>", {desc = "[m]i
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("i", "<C-j>", "<Esc>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "e[x]ecutable" })
-vim.keymap.set("n", "<leader>we", "<cmd>q!<CR>", { noremap = false })
-vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { noremap = false })
-vim.keymap.set("n", "<leader>wq", "<cmd>wq<CR>", { noremap = false })
+vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { noremap = false, desc = "[w]rite" })
+vim.keymap.set("n", "<leader>wq", "<cmd>wq<CR>", { noremap = false, desc = "[w]rite [q]uit" })
+vim.keymap.set("n", "<leader>wa", "<cmd>wa<CR>", { noremap = false , desc = "[w]rite [a]ll" })
+vim.keymap.set("n", "<leader>ee", "<cmd>q!<CR>", { noremap = false , desc = "[e]xit" })
+vim.keymap.set("n", "<leader>ea", "<cmd>qa!<CR>", { noremap = false, desc = "[e]xit [a]ll" })
 vim.keymap.set("i", "<C-l>", "<C-o>dl")
 vim.keymap.set("i", "<C-q>", "<C-o>dw")
 
@@ -108,7 +110,7 @@ vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, {
 vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
 
 -- Snippets
-vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[e]rror" }) -- Insert Go error handling snippet
+vim.keymap.set("n", "<leader>er", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[er]ror" }) -- Insert Go error handling snippet
 
 -- DAP
 vim.keymap.set('n', '<F2>', require('dap').continue)
