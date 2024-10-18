@@ -23,16 +23,15 @@ install_aur_helper() {
         mkdir "$cloneDir"
         echo "$HOME/Clone directory created..."
     else
-        rm -rf "$cloneDir/${aurhlpr}"
+        rm -rf "${cloneDir/}${aurhlpr}"
     fi
 
     # Clone and build the AUR helper
     git clone "https://aur.archlinux.org/${aurhlpr}.git" "$cloneDir/${aurhlpr}"
     cd "$cloneDir/${aurhlpr}" || { echo "Failed to change directory"; exit 1; }
-    makepkg -si --noconfirm
 
     # Check the result of the makepkg command
-    if [ $? -eq 0 ]; then
+    if makepkg -si; then
         print_green "${aurhlpr} AUR helper installed..."
         echo "$aurhlpr" > /tmp/selected_aur_helper
     else
