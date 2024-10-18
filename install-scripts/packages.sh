@@ -4,7 +4,7 @@
 ### Global Packages  ###
 ########################
 
-# This configuration file defines which AUR helpers,
+# This configuration file defines which AUR helpers,packa
 # code editors, and other tools will be installed.
 # It is sourced by the installation script to determine
 # what to install.
@@ -47,6 +47,7 @@ PACKAGES=(
     "mpv"                             # Media player for the command line
     "wget"                            # Utility for downloading files from the web
     "fzf"                             # Command-line fuzzy finder
+    "fd"                              # File searching
     "pamixer"                         # PulseAudio mixer command-line interface
     "pavucontrol"                     # PulseAudio Volume Control GUI
     "gvfs"                            # Virtual filesystem implementation for GIO
@@ -77,7 +78,7 @@ PACKAGES=(
     ####################
     ### File Manager ###
     ####################
-    "dolphin"                         # KDE file manager
+    # "dolphin"                         # KDE file manager
     # "thunar"                          # Xfce file manager
     # "tumbler"                         # Generates thumbnails for thunar
 
@@ -107,7 +108,8 @@ PACKAGES=(
     "grim"                            # Screenshot utility for Wayland
     "slurp"                           # Select an area of the screen interactively (used with grim)
     "cliphist"                        # Clipboard history manager
-
+    "wl-clipboard"                    # Command-line copy/paste utilities for Wayland 
+    
     #########################
     ### Bluetooth & Wi-Fi ###
     #########################
@@ -129,8 +131,13 @@ PACKAGES=(
     "aspell-en"                       # English dictionary for aspell
     "telegram-desktop"                # Telegram messaging app desktop client
     "haruna"                          # kde media player
-    "ffmpegthumbs"                    # Thumbnails and video preview in dolphin
+    "imagemagick"                     # Preview SVG, fonts, HEIC
+    # "ffmpegthumbs"                    # Thumbnails and video preview in dolphin
+    "ffmpegthumbnailer"               # For video thumbnails
+    "p7zip"                           # Archive extraction and preview
+    "poppler"                         # PDF preview
     "kdialog"                         # Tool to show dialog boxes from shell scripts
+
     ###########################
     ### Dev Tools & Editors ###
     ###########################
@@ -138,12 +145,14 @@ PACKAGES=(
     "nodejs"                          # Server-side JavaScript platform
     "npm"                             # JavaScript and Node.js package manager
     "shellcheck"                      # Shell script static analysis tool
+    "go"                              # Open source programming language developed by Google
+    "jq"                              # JSON preview
 
     #################
     ### Intel GPU ###
     #################
-    "mesa-utils"       # OpenGL utilities
-    "vulkan-intel"     # Vulkan drivers for Intel GPUs
+    "mesa-utils"                      # OpenGL utilities
+    "vulkan-intel"                    # Vulkan drivers for Intel GPUs
 )
 
 
