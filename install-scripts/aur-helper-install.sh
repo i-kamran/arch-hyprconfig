@@ -31,7 +31,7 @@ install_aur_helper() {
     cd "$cloneDir/${aurhlpr}" || { echo "Failed to change directory"; exit 1; }
 
     # Check the result of the makepkg command
-    if makepkg -si; then
+    if makepkg -si --noconfirm; then
         print_green "${aurhlpr} AUR helper installed..."
         echo "$aurhlpr" > /tmp/selected_aur_helper
     else
