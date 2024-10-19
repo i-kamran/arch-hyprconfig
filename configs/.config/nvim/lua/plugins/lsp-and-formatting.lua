@@ -130,8 +130,12 @@ return {
                     "eslint_d",
                     "flake8",
                     "shellcheck",
-                    "markdownlint-cli2",
+                    "markdownlint",
                     "markdown-toc",
+                    -- DAP
+                    "debugpy" -- add it here as it won't be installed automatically 
+
+                    -- with mason from in DAP config
                 },
                 automatic_installation = true,
             })
