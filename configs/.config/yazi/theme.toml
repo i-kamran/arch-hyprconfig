@@ -1,7 +1,8 @@
+[manager]
 cwd = { fg = "#7accc1" }
 
 # Hovered
-hovered = { fg = "#e0def4", bg = "#1c1c19" }
+hovered = { fg = "#1c1c19", bg = "#8dace2" }
 preview_hovered = { underline = true }
 
 # Find
@@ -9,14 +10,19 @@ find_keyword = { fg = "#dcb8e6", italic = true }
 find_position = { fg = "#ed9797", bg = "reset", italic = true }
 
 # Marker
-marker_selected = { fg = "#ff0000", bg = "#ff0000" }
-marker_copied = { fg = "#edd282", bg = "#edd282" }
+marker_selected = { fg = "#8dace2", bg = "#8dace2" }
+marker_copied = { fg = "#a1cc85", bg = "#a1cc85" }
 marker_cut = { fg = "#e67373", bg = "#e67373" }
 
 # Tab
-tab_active   = { reversed = true }
-tab_inactive = {}
+tab_active   = { fg = "#1c1c19", bg = "#e0def4" }
+tab_inactive = { fg = "#e0def4", bg = "#525367" }
 tab_width    = 1
+
+# Count
+count_copied   = { fg = "#1c1c19", bg = "#a1cc85" }
+count_cut      = { fg = "#1c1c19", bg = "#e67373" }
+count_selected = { fg = "#1c1c19", bg = "#8dace2" }
 
 # Border
 border_symbol = "│"
@@ -36,8 +42,8 @@ separator_close = ""
 separator_style = { fg = "#383b41", bg = "#383b41" }
 
 # Mode
-mode_normal = { fg = "#1f1f1e", bg = "#CA8DD9", bold = true }
-mode_select = { fg = "#1f1f1e", bg = "#F2DEA6", bold = true }
+mode_normal = { fg = "#1f1f1e", bg = "#abede4", bold = true }
+mode_select = { fg = "#1f1f1e", bg = "#a1cc85", bold = true }
 mode_unset = { fg = "#e0def4", bg = "#e67373", bold = true }
 
 # Progress
