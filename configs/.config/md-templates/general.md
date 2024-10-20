@@ -1,9 +1,11 @@
 ---
 id: {{title}}
-creation date: {{date}}
-summary: 
+aliases:
+    -
 tags: 
     - 
+creation date: {{date}}
+summary: 
 ---
 
 # {{title}}
