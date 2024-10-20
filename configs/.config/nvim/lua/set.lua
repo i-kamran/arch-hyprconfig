@@ -51,6 +51,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "FileType"}, {
       gitcommit = true,
       markdown = true,
       oil = true,
+      harpoon = true,
       netrw = true,
       [""] = true,
     }
