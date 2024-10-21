@@ -79,7 +79,7 @@ PACKAGES=(
     ### File Manager ###
     ####################
     "yazi"                            # Blazing fast terminal file manager written in Rust
-    # "dolphin"                         # KDE file manager
+    "dolphin"                         # KDE file manager
     # "thunar"                          # Xfce file manager
     # "tumbler"                         # Generates thumbnails for thunar
 
