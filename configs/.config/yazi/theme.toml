@@ -1,5 +1,5 @@
 [manager]
-cwd = { fg = "#7accc1" }
+cwd = { fg = "#8dace2" }
 
 # Hovered
 hovered = { fg = "#1c1c19", bg = "#8dace2" }
@@ -10,19 +10,20 @@ find_keyword = { fg = "#dcb8e6", italic = true }
 find_position = { fg = "#ed9797", bg = "reset", italic = true }
 
 # Marker
-marker_selected = { fg = "#8dace2", bg = "#8dace2" }
+marker_selected = { fg = "#e2c38d", bg = "#e2c38d" }
+marker_marked   = { fg = "#f29668",   bg = "#f29668" }
 marker_copied = { fg = "#a1cc85", bg = "#a1cc85" }
 marker_cut = { fg = "#e67373", bg = "#e67373" }
 
 # Tab
 tab_active   = { fg = "#1c1c19", bg = "#e0def4" }
-tab_inactive = { fg = "#e0def4", bg = "#525367" }
+tab_inactive = { fg = "#e0def4", bg = "#525357" }
 tab_width    = 1
 
 # Count
 count_copied   = { fg = "#1c1c19", bg = "#a1cc85" }
 count_cut      = { fg = "#1c1c19", bg = "#e67373" }
-count_selected = { fg = "#1c1c19", bg = "#8dace2" }
+count_selected = { fg = "#1c1c19", bg = "#e2c38d" }
 
 # Border
 border_symbol = "│"
@@ -42,8 +43,8 @@ separator_close = ""
 separator_style = { fg = "#383b41", bg = "#383b41" }
 
 # Mode
-mode_normal = { fg = "#1f1f1e", bg = "#abede4", bold = true }
-mode_select = { fg = "#1f1f1e", bg = "#a1cc85", bold = true }
+mode_normal = { fg = "#1f1f1e", bg = "#e2c38d", bold = true }
+mode_select = { fg = "#1f1f1e", bg = "#f29668", bold = true }
 mode_unset = { fg = "#e0def4", bg = "#e67373", bold = true }
 
 # Progress
@@ -98,7 +99,7 @@ hovered = { underline = true }
 mask = { bg = "#302F2C" }
 cand = { fg = "#7accc1" }
 rest = { fg = "#383b41" }
-desc = { fg = "#ed9797" }
+desc = { fg = "#dcb8e6" }
 separator = "  "
 separator_style = { fg = "#889b90" }
 
@@ -123,10 +124,10 @@ footer = { fg = "#302F2C", bg = "#e0def4" }
 
 rules = [
     # Images
-    { mime = "image/*", fg = "#dcb8e6" },  
+    { mime = "image/*", fg = "#ca8dd9" },  
     # Videos
-    { mime = "video/*", fg = "#abede4" },
-    { mime = "audio/*", fg = "#abede4" },
+    { mime = "video/*", fg = "#ca8dd9" },
+    { mime = "audio/*", fg = "#ca8dd9" },
 
     # Archives
     { mime = "application/zip", fg = "#ed9797" },
