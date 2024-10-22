@@ -63,7 +63,7 @@ return {
 				},
 			},
 			templates = {
-				folder = "~/personal/arch-hyprconfig/configs/.config/md-templates",
+				folder = "~/.config/md-templates",
 				date_format = "%y-%m-%d",
 				time_format = "%h:%m",
 			},
