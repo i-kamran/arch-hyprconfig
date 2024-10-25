@@ -9,6 +9,13 @@
     ci = commit
     br = branch
     lg = log --oneline --graph --all
+    ; lg = log --pretty=format:'%an committed %h'
 
 [init]
     defaultBranch = main
+
+[diff]
+    tool = nvim
+
+[difftool "nvim"]
+    cmd = "nvim -d $LOCAL $REMOTE"
