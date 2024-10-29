@@ -14,5 +14,6 @@ play = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 open = [
+    { run = 'xdg-open "$@"', desc = "Open in browser", for = "unix", mime = "application/pdf" },
 	{ run = 'gwenview "$@"', desc = "Open with Gwenview", for = "unix", mime = "image/*" },
 ]
