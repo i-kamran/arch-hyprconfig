@@ -36,9 +36,11 @@ copyfile copybuffer dirhistory history copypath)
 # This oh-my-zsh.sh source should be below plugins
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
-set -o vi
+bindkey -v
 bindkey '^Y' autosuggest-accept
+bindkey '^j' vi-cmd-mode
 # Initialize additional tools
+export FUNCNEST=100
 eval "$(starship init zsh)"             # Starship prompt
 eval "$(zoxide init --cmd cd zsh)"      # Zoxide for directory navigation
 
