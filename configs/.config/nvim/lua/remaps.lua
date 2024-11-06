@@ -17,9 +17,7 @@ vim.keymap.set("i", "<C-j>", "<Esc>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "e[x]ecutable" })
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { noremap = false, desc = "[w]rite" })
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd>w<CR>")
-vim.keymap.set("n", "<leader>wq", "<cmd>wq<CR>", { noremap = false, desc = "[w]rite [q]uit" })
 vim.keymap.set("n", "<leader>wa", "<cmd>wa<CR>", { noremap = false , desc = "[w]rite [a]ll" })
-vim.keymap.set("n", "<leader>ee", "<cmd>q!<CR>", { noremap = false , desc = "[e]xit" })
 vim.keymap.set("n", "<leader>ea", "<cmd>qa!<CR>", { noremap = false, desc = "[e]xit [a]ll" })
 vim.keymap.set("i", "<C-l>", "<C-o>dl")
 vim.keymap.set("i", "<C-q>", "<C-o>dw")
@@ -76,7 +74,7 @@ vim.keymap.set("n", "<leader>gps", "<cmd>Neogit push<CR>", { desc = "neo[g]it [p
 vim.keymap.set("n", "<leader>gpl", "<cmd>Neogit pull<CR>", { desc = "neo[g]it [p]u[l]l" })
 
 -- LSP Keymaps
-vim.keymap.set("n", "<A-f>", vim.lsp.buf.format)
+vim.keymap.set("n", "<A-f>",function() require("conform").format() end)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "[g]o to [d]efinition" })
