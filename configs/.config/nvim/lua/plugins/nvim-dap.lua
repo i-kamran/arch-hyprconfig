@@ -29,24 +29,14 @@ return {
         dapui.setup()
 
         -- Listeners to auto-open/close dap-ui
-        dap.listeners.before.attach.dapui_config = function()
-            dapui.open()
-        end
-        dap.listeners.before.launch.dapui_config = function()
-            dapui.open()
-        end
-        dap.listeners.before.event_terminated.dapui_config = function()
-            dapui.close()
-        end
-        dap.listeners.before.event_exited.dapui_config = function()
-            dapui.close()
-        end
+        dap.listeners.before.attach.dapui_config = function() dapui.open() end
+        dap.listeners.before.launch.dapui_config = function() dapui.open() end
+        dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+        dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
 
         -- Python setup
         dap.configurations.python = {
-            {
-                type = "python",
-                request = "launch",
+            { type = "python", request = "launch",
                 name = "Launch file",
                 program = "${file}",
                 pythonPath = function()

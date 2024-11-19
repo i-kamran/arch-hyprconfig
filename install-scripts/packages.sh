@@ -148,6 +148,7 @@ PACKAGES=(
     "shellcheck"                      # Shell script static analysis tool
     "go"                              # Open source programming language developed by Google
     "jq"                              # JSON preview
+    "luarocks"                        # Lua package manager
 
     #################
     ### Intel GPU ###
