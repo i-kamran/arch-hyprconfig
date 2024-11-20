@@ -76,6 +76,8 @@ vim.keymap.set("n", "<leader>gpl", "<cmd>Neogit pull<CR>", { desc = "neo[g]it [p
 -- LSP Keymaps
 vim.keymap.set("n", "<A-f>",function() require("conform").format() end)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
+
+vim.keymap.set("n", "<leader>ln", function() require("lint").try_lint() end, { desc = "[l]i[n]t" })
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "[g]o to [d]efinition" })
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "[g]o to [r]eferences" })
