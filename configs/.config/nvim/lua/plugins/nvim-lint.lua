@@ -1,6 +1,6 @@
 return {
   "mfussenegger/nvim-lint",
-  event = "VeryLazy",  -- Load nvim-lint and mason on VeryLazy event
+  event = "VeryLazy", -- Load nvim-lint and mason on VeryLazy event
   dependencies = {
     "williamboman/mason.nvim", -- Ensure mason is installed
   },
@@ -16,28 +16,29 @@ return {
 
     -- Linter configuration for nvim-lint
     local lint = require("lint")
-
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       svelte = { "eslint_d" },
-      python = {"pylint"},
+      python = { "pylint", "mypy" }, -- mypy for type checking
+      lua = { "luacheck" }, -- Lua linter
+      go = { "golangcilint" },
+      bash = { "bash-language-server", "shellcheck" },
+      markdown = { "markdownlint" },
+      json = { "jsonlint" },
+      dockerfile = { "dockerls" },
+      html = { "htmlhint" },
+      c = { "cpplint", "cppcheck" },
+      cpp = { "cpplint", "cppcheck" },
+      -- rust = { "clippy" },
     }
-
-    -- Autocommand to trigger linting on specific events
-    local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-      group = lint_augroup,
-      callback = function()
-        lint.try_lint()
-      end,
-    })
-
-    -- Keymap to trigger linting manually
-    vim.keymap.set("n", "<leader>ll", function()
-      lint.try_lint()
-    end, { desc = "Trigger linting for current file" })
+    -- lint.linters.cppcheck.args = {
+    --   "--enable=all", -- Enable all checks (style, performance, unused, etc.)
+    -- }
+    lint.linters.cpplint.args = {
+      "--filter=-legal/copyright,-build/include", -- Suppress copyright and include warnings
+    }
   end,
 }
