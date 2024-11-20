@@ -20,7 +20,10 @@ return {
       markdown = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
       rust = { "rustfmt", lsp_format = "fallback" },
-      go = { "gofmt" },
+      c = { "clang-format" },
+      cpp = { "clang-format" },
+      go = { "gofumpt", "golangci-lint" },
+      bash = { "beautysh" },
     },
 
     formatters = {
@@ -30,10 +33,12 @@ return {
       prettier = {
         prepend_args = { "--print-width", "80" },
       },
+      clang_format = {
+        prepend_args = { "--style", "{IndentWidth: 2}" },
+      },
     },
 
     -- Optional: Set notify to false to disable notifications
     notify_on_error = true,
   },
 }
-
