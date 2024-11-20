@@ -1,5 +1,6 @@
 # PATH to include custom directories and oh-my-zsh
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/share/nvim/mason/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 
 ###############
