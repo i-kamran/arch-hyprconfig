@@ -73,7 +73,6 @@ return {
         "markdownlint",
         "jsonlint",
         "htmlhint",
-        "misspell",
         "cpplint",
 
         -- Language Servers
@@ -89,7 +88,9 @@ return {
         "marksman",
         "rust-analyzer",
         "clangd",
+        "cssls",
 
+        -- DAP
         "debugpy",
         "codelldb",
         "delve",
