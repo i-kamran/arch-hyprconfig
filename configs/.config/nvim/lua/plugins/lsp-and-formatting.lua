@@ -74,6 +74,7 @@ return {
         "jsonlint",
         "htmlhint",
         "cpplint",
+        "cspell",
 
         -- Language Servers
         "lua-language-server",
