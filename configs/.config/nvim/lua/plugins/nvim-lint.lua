@@ -33,12 +33,17 @@ return {
       c = { "cpplint", "cppcheck" },
       cpp = { "cpplint", "cppcheck" },
       -- rust = { "clippy" },
+      ["*"] = { "cspell" },
     }
     -- lint.linters.cppcheck.args = {
     --   "--enable=all", -- Enable all checks (style, performance, unused, etc.)
     -- }
     lint.linters.cpplint.args = {
       "--filter=-legal/copyright,-build/include", -- Suppress copyright and include warnings
+    }
+    lint.linters.cspell.args = {
+      "--config",
+      "~/.config/cspell/cspell.json",
     }
   end,
 }
