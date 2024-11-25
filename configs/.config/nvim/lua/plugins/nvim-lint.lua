@@ -17,21 +17,22 @@ return {
     -- Linter configuration for nvim-lint
     local lint = require("lint")
     lint.linters_by_ft = {
-      javascript = { "eslint_d" },
-      typescript = { "eslint_d" },
-      javascriptreact = { "eslint_d" },
-      typescriptreact = { "eslint_d" },
-      svelte = { "eslint_d" },
-      python = { "pylint", "mypy" }, -- mypy for type checking
-      lua = { "luacheck" }, -- Lua linter
-      go = { "golangcilint" },
-      bash = { "bash-language-server", "shellcheck" },
-      markdown = { "markdownlint" },
-      json = { "jsonlint" },
-      dockerfile = { "dockerls" },
-      html = { "htmlhint" },
-      c = { "cpplint", "cppcheck" },
-      cpp = { "cpplint", "cppcheck" },
+      javascript = { "eslint_d", "cspell" },
+      typescript = { "eslint_d", "cspell" },
+      javascriptreact = { "eslint_d", "cspell" },
+      typescriptreact = { "eslint_d", "cspell" },
+      svelte = { "eslint_d", "cspell" },
+      python = { "pylint", "mypy", "cspell" }, -- mypy for type checking
+      lua = { "luacheck", "cspell" }, -- Lua linter
+      go = { "golangcilint", "cspell" },
+      bash = { "bash-language-server", "shellcheck", "cspell" },
+      markdown = { "markdownlint", "cspell" },
+      json = { "jsonlint", "cspell" },
+      dockerfile = { "dockerls", "cspell" },
+      html = { "htmlhint", "cspell" },
+      c = { "cpplint", "cppcheck", "cspell" },
+      cpp = { "cpplint", "cppcheck", "cspell" },
+      rust = { "cspell" },
       -- rust = { "clippy" },
     }
     -- lint.linters.cppcheck.args = {
