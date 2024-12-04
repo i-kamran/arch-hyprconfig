@@ -33,7 +33,7 @@ return {
             vim.g["VM_maps"] = {
                 ["Goto Next"] = "",
                 ["Goto Prev"] = "",
-                ["Toggle Block"] = "",
+                -- ["Toggle Block"] = "",
             }
         end,
     },

@@ -22,6 +22,7 @@ vim.keymap.set("n", "<leader>ee", "<cmd>q!<cr>", { noremap = false , desc = "[e]
 vim.keymap.set("n", "<leader>ea", "<cmd>qa!<CR>", { noremap = false, desc = "[e]xit [a]ll" })
 vim.keymap.set("i", "<C-l>", "<C-o>dl")
 vim.keymap.set("i", "<C-q>", "<C-o>dw")
+vim.keymap.set("n", "<leader>p", "<cmd>put _<CR>", {desc = "[p]ut"})
 
 -- Moving Lines in Visual Mode
 -- vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv", { desc = "move line down" })
