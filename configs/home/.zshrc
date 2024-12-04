@@ -39,10 +39,12 @@ source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 bindkey -v
 bindkey '^Y' autosuggest-accept
-bindkey '^j' vi-cmd-mode
+bindkey '^[^I' autosuggest-accept
+bindkey 'a-j' vi-cmd-mode
 # Initialize additional tools
 export FUNCNEST=100
 eval "$(starship init zsh)"             # Starship prompt
 eval "$(zoxide init --cmd cd zsh)"      # Zoxide for directory navigation
 
-PATH=~/.console-ninja/.bin:$PATH
+# PATH=~/.console-ninja/.bin:$PATH
+# export PATH=~/.npm-global/bin:$PATH
