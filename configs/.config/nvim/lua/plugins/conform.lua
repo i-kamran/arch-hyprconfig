@@ -22,6 +22,7 @@ return {
       rust = { "rustfmt", lsp_format = "fallback" },
       c = { "clang-format" },
       cpp = { "clang-format" },
+      java = {"google-java-format"},
       go = { "gofumpt", "golangci-lint" },
       bash = { "beautysh" },
     },

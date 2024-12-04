@@ -149,6 +149,7 @@ PACKAGES=(
     "go"                              # Open source programming language developed by Google
     "jq"                              # JSON preview
     "luarocks"                        # Lua package manager
+    "jdk-openjdk"                     # Open-source Java
 
     #################
     ### Intel GPU ###

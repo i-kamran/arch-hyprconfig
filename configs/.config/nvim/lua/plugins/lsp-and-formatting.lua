@@ -63,6 +63,7 @@ return {
         "beautysh",
         "clang-format",
         "rustfmt",
+        "google-java-format",
 
         -- Linters
         "pylint",
@@ -75,6 +76,7 @@ return {
         "cpplint",
         "markdownlint",
         "cspell",
+        "checkstyle",
 
         -- Language Servers
         "pylsp",
@@ -91,6 +93,7 @@ return {
         "marksman",
         "rust-analyzer",
         "clangd",
+        "jdtls",
 
         -- DAP
         "debugpy",
@@ -111,6 +114,23 @@ return {
               Lua = {
                 diagnostics = {
                   globals = { "vim" },
+                },
+              },
+            },
+          })
+        end,
+        ["jdtls"] = function()
+          require("lspconfig").jdtls.setup({
+            capabilities = capabilities,
+            cmd = { "jdtls" },
+            root_dir = require("lspconfig").util.root_pattern(".git", "mvnw", "gradlew"),
+            settings = {
+              java = {
+                format = {
+                  enabled = true,
+                  settings = {
+                    profile = "GoogleStyle", -- Change to your desired profile.
+                  },
                 },
               },
             },

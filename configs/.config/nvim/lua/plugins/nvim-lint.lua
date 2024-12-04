@@ -32,6 +32,7 @@ return {
       html = { "htmlhint", "cspell" },
       c = { "cpplint", "cppcheck", "cspell" },
       cpp = { "cpplint", "cppcheck", "cspell" },
+      java = {"checkstyle"},
       rust = { "cspell" },
       -- rust = { "clippy" },
     }
