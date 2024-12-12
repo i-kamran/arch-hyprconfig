@@ -109,3 +109,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
   end,
 })
 
+-- For Lua-based Neovim configurations (init.lua)
+vim.cmd [[
+  augroup JavaTabSettings
+    autocmd!
+    autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab
+  augroup END
+]]
+

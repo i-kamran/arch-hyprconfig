@@ -1,0 +1,25 @@
+[General]
+Version=202
+ViewPropsTimestamp=2024,10,21,13,6,49.379
+
+[Icons]
+Theme=Papirus-Dark
+
+[UiSettings] 
+ColorScheme=Papirus-Dark
+
+[IconsMode]
+IconSize=64
+MaximumTextLines=2
+UseSystemFont=false
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,directorythumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,opendocumentthumbnail,svgthumbnail,windowsexethumbnail,windowsimagethumbnail,ffmpegthumbnailer,gdk-pixbuf-thumbnailer,jxl
