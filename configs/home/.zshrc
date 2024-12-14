@@ -40,7 +40,7 @@ source <(fzf --zsh)
 bindkey -v
 bindkey '^Y' autosuggest-accept
 bindkey '^[^I' autosuggest-accept
-bindkey 'a-j' vi-cmd-mode
+bindkey '^[j' vi-cmd-mode
 # Initialize additional tools
 export FUNCNEST=100
 eval "$(starship init zsh)"             # Starship prompt
