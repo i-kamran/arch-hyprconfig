@@ -11,6 +11,7 @@ NPM_PACKAGES=(
 "eslint_d"              # JS static analysis tool
 "async"                 # Module to work with async JS
 "lodash"
+"markdown-toc"
 )
 
 response_timer 10 "Do you want to install npm packages? (Y/n) " response
