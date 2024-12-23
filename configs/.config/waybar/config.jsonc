@@ -8,6 +8,7 @@
     "pulseaudio",
     "backlight",
     "battery",
+    "hyprland/language",
     "custom/wallpaper"
   ],
   "workspaces": {
@@ -17,7 +18,13 @@
     "format": "{:%Y-%m-%d | %H:%M}",
     "tooltip": false
   },
-  "battery": {
+"hyprland/language": {
+        "format": "⌨ {short}",
+        // "format-en": "QW",
+        // "format-en-dvp": "DV",
+        "tooltip": false
+    },
+    "battery": {
     "states": {
       "warning": 30,
       "critical": 15
