@@ -19,7 +19,7 @@
     "tooltip": false
   },
 "hyprland/language": {
-        "format": "⌨ {short}",
+        "format": "⌨ {short} {variant}",
         // "format-en": "QW",
         // "format-en-dvp": "DV",
         "tooltip": false
