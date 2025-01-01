@@ -146,6 +146,7 @@ PACKAGES=(
     "nodejs"                          # Server-side JavaScript platform
     "npm"                             # JavaScript and Node.js package manager
     "shellcheck"                      # Shell script static analysis tool
+    "cppcheck"                        # Cppcheck is a static analysis tool for C/C++ code 
     "go"                              # Open source programming language developed by Google
     "jq"                              # JSON preview
     "luarocks"                        # Lua package manager
