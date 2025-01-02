@@ -23,7 +23,7 @@ return {
       c = { "clang-format" },
       cpp = { "clang-format" },
       java = {"google-java-format"},
-      go = { "gofumpt", "golangci-lint" },
+      go = { "gofumpt" },
       bash = { "beautysh" },
     },
 
