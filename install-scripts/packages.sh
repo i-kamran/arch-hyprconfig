@@ -170,6 +170,7 @@ AUR_PACKAGES=(
     ###########################
     "visual-studio-code-bin"          # Binary release of Visual Studio Code
     "noi-desktop-bin"                 # Noi desktop environment installer
+    "google-chrome"                   # Chrome browser
 
     #############
     ### Fonts ###
