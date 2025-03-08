@@ -19,7 +19,7 @@ vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd>w<CR>")
 vim.keymap.set("n", "<leader>wa", "<cmd>wa<cr>", { noremap = false , desc = "[w]rite [a]ll" })
 vim.keymap.set("n", "<leader>ee", "<cmd>q!<cr>", { noremap = false , desc = "[e]xit" })
 vim.keymap.set("n", "<leader>ea", "<cmd>qa!<CR>", { noremap = false, desc = "[e]xit [a]ll" })
-vim.keymap.set("i", "<C-l>", "<C-o>dl")
+vim.keymap.set("i", "<C-l>", "<del>")
 vim.keymap.set("i", "<C-q>", "<C-o>dw")
 vim.keymap.set("n", "<leader>p", "<cmd>put _<CR>", {desc = "[p]ut"})
 
