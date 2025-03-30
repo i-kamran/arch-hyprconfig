@@ -6,6 +6,7 @@ alias vim="nvim"                                                              # 
 alias c="code"                                                                # Open VS Code
 alias t="touch"                                                               # Create a new file
 alias cx="clear"                                                              # Clear terminal
+alias cpf="copyfile"                                                          # copyfile zsh plugin
 alias sht="shutdown now"                                                      # Shutdown
 alias re="reboot"                                                             # Reboot
 alias de="dolphinenable"                                                      # Execute script to fix dolphin
