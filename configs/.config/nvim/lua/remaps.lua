@@ -11,7 +11,6 @@
 vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "source" })
 vim.keymap.set("n", "<leader>oi", "<cmd>Oil<CR>", { desc = "[oi]l" })
 vim.keymap.set("n", "<leader>mm", "<cmd>lua MiniFiles.open()<CR>", {desc = "[m]ini"})
-vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("i", "<A-j>", "<Esc>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "e[x]ecutable" })
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { noremap = false, desc = "[w]rite" })
@@ -60,7 +59,7 @@ vim.keymap.set("n", "<C-k>", vim.cmd.NvimTmuxNavigateUp)
 vim.keymap.set("n", "<C-l>", vim.cmd.NvimTmuxNavigateRight)
 
 -- Search and Replace
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "replace under curson" })
+vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "replace under curson" })
 
 -- Undo Tree Toggle
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[u]ndo tree" })
@@ -113,13 +112,14 @@ vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, {
 vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
 
 -- Snippets
-vim.keymap.set("n", "<leader>er", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[er]ror" }) -- Insert Go error handling snippet
+vim.keymap.set("n", "<leader>sr", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[s]nippet e[r]ror" }) -- Insert Go error handling snippet
+vim.keymap.set("n", "<leader>sm", "iif __name__ == \"__main__\":<CR>main()<Esc>", { desc = "[s]nippet [er]ror" }) -- Insert Go error handling snippet
 
 -- DAP
-vim.keymap.set('n', '<F2>', require('dap').continue)
-vim.keymap.set('n', '<F3>', require('dap').step_over)
-vim.keymap.set('n', '<F4>', require('dap').step_into)
-vim.keymap.set('n', '<F5>', require('dap').step_out)
+vim.keymap.set('n', '2', require('dap').continue)
+vim.keymap.set('n', '3', require('dap').step_over)
+vim.keymap.set('n', '4', require('dap').step_into)
+vim.keymap.set('n', '5', require('dap').step_out)
 vim.keymap.set('n', '<leader>b', require('dap').toggle_breakpoint)
 
 -- Telescope
