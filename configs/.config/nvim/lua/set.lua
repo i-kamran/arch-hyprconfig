@@ -36,10 +36,33 @@ vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 vim.opt.conceallevel = 1 -- obsidian.nvim
 
+vim.diagnostic.config({
+  underline = true,
+  virtual_text = true,
+  signs = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
   callback = function()
     vim.cmd("highlight Visual guibg=#26403D")
+  end,
+})
+
+-- Terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+    group = vim.api.nvim_create_augroup('custom-term-open', {clear = true}),
+    callback = function()
+        vim.opt.number = false
+        vim.opt.relativenumber = false
+    end,
+})
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    vim.opt_local.spell = false
   end,
 })
 
@@ -51,6 +74,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
     local excluded_filetypes = {
       gitcommit = true,
       markdown = true,
+      terminal = true,
       oil = true,
       harpoon = true,
       netrw = true,
@@ -86,9 +110,15 @@ vim.api.nvim_create_autocmd("DiagnosticChanged", {
     local current_bufnr = vim.api.nvim_get_current_buf()
     local diagnostics = vim.diagnostic.get(current_bufnr)
     local items = vim.diagnostic.toqflist(diagnostics)
+    for i, item in ipairs(items) do
+      if diagnostics[i].source then
+        item.text = "[" .. diagnostics[i].source .. "] " .. item.text
+      end
+    end
     vim.fn.setloclist(0, items, "r")
   end,
 })
+
 vim.api.nvim_create_user_command("MarkdownTOC", function()
   local bufnr = vim.api.nvim_get_current_buf()
   local filename = vim.api.nvim_buf_get_name(bufnr)
@@ -105,15 +135,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
   group = lint_augroup,
   callback = function()
     require("lint").try_lint()
-    -- require("lint").try_lint("cspell")
   end,
 })
 
 -- For Lua-based Neovim configurations (init.lua)
-vim.cmd [[
+vim.cmd([[
   augroup JavaTabSettings
     autocmd!
     autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab
   augroup END
-]]
-
+]])
