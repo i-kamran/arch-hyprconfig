@@ -35,41 +35,6 @@ return {
     },
   },
 
-  -- noice
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      cmdline = {
-        enabled = true,
-      },
-      messages = {
-        enabled = false,
-      },
-      notify = {
-        enabled = false,
-      },
-      -- lsp = {
-      --   progress = { enabled = false },
-      --   override = {
-      --     ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-      --     ["vim.lsp.util.stylize_markdown"] = ,
-      --     ["cmp.entry.get_documentation"] = true,
-      --   },
-      -- },
-      presets = {
-        bottom_search = false, -- Disable bottom search
-        command_palette = true, -- Enable floating command line
-        long_message_to_split = false, -- Do not split long messages
-      },
-    },
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      -- "rcarriga/nvim-notify",
-    },
-  },
-
   -- lualine
   {
     "nvim-lualine/lualine.nvim",
