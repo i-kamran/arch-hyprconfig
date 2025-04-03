@@ -80,6 +80,7 @@ return {
 
         -- Language Servers
         "pylsp",
+        "pyright",
         "lua-language-server",
         "lua_ls",
         "gopls",
@@ -119,21 +120,44 @@ return {
             },
           })
         end,
-        ["jdtls"] = function()
-          require("lspconfig").jdtls.setup({
+        ["pyright"] = function()
+          lspconfig.pyright.setup({
             capabilities = capabilities,
-            cmd = { "jdtls" },
-            root_dir = require("lspconfig").util.root_pattern(".git", "mvnw", "gradlew"),
             settings = {
-              java = {
-                format = {
-                  enabled = true,
-                  settings = {
-                    profile = "GoogleStyle", -- Change to your desired profile.
-                  },
+              python = {
+                analysis = {
+                  autoSearchPaths = true,
+                  diagnosticMode = "workspace",
+                  useLibraryCodeForTypes = true,
+                  typeCheckingMode = "strict",
                 },
               },
             },
+          })
+        end,
+        ["pylsp"] = function()
+          lspconfig.pylsp.setup({
+            capabilities = capabilities,
+            settings = {
+              pylsp = {
+                plugins = {
+                  jedi_completion = {
+                    enabled = true,
+                    include_params = true,
+                    include_class_objects = true,
+                    include_function_objects = true,
+                  },
+                  -- jedi_signature_help = { enabled = true }, -- Enable signature help
+                },
+              },
+            },
+          })
+        end,
+        ["jdtls"] = function()
+          lspconfig.jdtls.setup({
+            capabilities = capabilities,
+            cmd = { "jdtls" },
+            root_dir = require("lspconfig").util.root_pattern(".git", "mvnw", "gradlew"),
           })
         end,
       },
@@ -166,6 +190,22 @@ return {
         ["<C-y>"] = cmp.mapping.confirm({ select = true }),
         ["<A-Tab>"] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
+        -- Add these new mappings for snippet navigation
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       }),
     })
     -- `/` cmdline setup.
