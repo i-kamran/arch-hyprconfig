@@ -36,6 +36,9 @@ vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 vim.opt.conceallevel = 1 -- obsidian.nvim
 
+-- Python env
+vim.g.python3_host_prog = vim.fn.expand("~/.venv/bin/python")
+
 vim.diagnostic.config({
   underline = true,
   virtual_text = true,
@@ -65,6 +68,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt_local.spell = false
   end,
 })
+
 
 local augroup_colorcolumn = vim.api.nvim_create_augroup("ColorColumn", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
