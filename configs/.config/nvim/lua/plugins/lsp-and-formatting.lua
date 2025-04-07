@@ -131,6 +131,7 @@ return {
                   useLibraryCodeForTypes = true,
                   typeCheckingMode = "strict",
                 },
+                -- pythonPath = vim.g.python3_host_prog,
               },
             },
           })
