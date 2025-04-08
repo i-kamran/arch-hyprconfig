@@ -67,7 +67,7 @@ PACKAGES=(
     #######################
     ### Display Manager ###
     #######################
-    "sddm"                            # Simple Desktop Display Manager (login manager)
+    "ly"                              # Display Manager with console UI(login manager)
     
     ########################
     ### Terminal & Shell ###
@@ -80,8 +80,6 @@ PACKAGES=(
     ####################
     "yazi"                            # Blazing fast terminal file manager written in Rust
     "dolphin"                         # KDE file manager
-    # "thunar"                          # Xfce file manager
-    # "tumbler"                         # Generates thumbnails for thunar
 
     #######################
     ### KDE Integration ###
