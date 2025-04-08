@@ -5,7 +5,7 @@
 ################################
 
 # This script enables essential system services, including Pipewire, Bluetooth, 
-# and SDDM. It also changes power key behavior to suspend and adjusts related settings.
+# and LY. It also changes power key behavior to suspend and adjusts related settings.
 
 # Determine the directory containing this script and the main directory
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
