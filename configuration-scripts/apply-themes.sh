@@ -5,8 +5,8 @@
 ###########################
 
 # This script applies various themes and configurations to the system.
-# It sets the Papirus-Dark theme for folder icons, applies the sddm-astronaut-theme
-# to SDDM, updates the SDDM configuration, and sets Kitty as the default terminal in Dolphin.
+# It sets the Papirus-Dark theme for folder icons, adjusts Ly configuration,
+# and sets Kitty as the default terminal in Dolphin.
 
 # Get the script directory and main directory
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -26,20 +26,17 @@ else
     success=false
 fi
 
-# Apply sddm-astronaut-theme
-THEME="/usr/share/sddm/themes/sddm-astronaut-theme"
+# Apply ly
+ly="/etc/ly"
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if sudo git clone https://github.com/keyitdev/sddm-astronaut-theme.git "$THEME" &&
-  sudo cp /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/ &&
-  sudo cp -r "$main_dir/configs/.config/wallpapers" "$THEME/wallpapers/" &&
-  printf "[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee /etc/sddm.conf &&
-  sudo sed -i 's/FormPosition="center"/FormPosition="right"/' "$THEME/Themes/theme1.conf" &&
-  sudo sed -i 's|^Background=.*|Background="wallpapers/oxxaca-TNdTGcexUNY-unsplash.jpg"|' "$THEME/Themes/theme1.conf"; then
+if 
+  sudo sed -i 's/clear_password = false/clear_password = true/' "$ly/config.ini" &&
+  sudo sed -i 's/default_input = login/default_input = password/' "$ly/config.ini"; then
   echo
-    print_green "sddm-astronaut-theme applied successfully."
+    print_green "ly config applied successfully."
 else
-    print_red "Failed to apply sddm-astronaut-theme."
+    print_red "Failed to apply ly config."
     success=false
 fi
 
@@ -69,4 +66,3 @@ else
     print_red "########################################"
     print_red "Some themes failed to apply."
 fi
-
