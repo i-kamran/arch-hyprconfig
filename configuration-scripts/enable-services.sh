@@ -34,11 +34,11 @@ else
     success=false
 fi
 
-# Enable SDDM (Simple Desktop Display Manager) service system-wide
-if sudo systemctl enable sddm.service; then
-    print_green "SDDM service enabled successfully."
+# Enable ly service system-wide
+if sudo systemctl enable ly.service; then
+    print_green "LY service enabled successfully."
 else
-    print_red "Failed to enable SDDM service."
+    print_red "Failed to enable LY service."
     success=false
 fi
 
