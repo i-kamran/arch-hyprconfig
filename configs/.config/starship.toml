@@ -1,5 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+[python]
+symbol = " "
+format = "via [$symbol$version]($style) "
+style = "bold yellow"
+
 # format = """
 # [](color_orange)\
 # $os\
