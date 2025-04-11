@@ -15,6 +15,8 @@ alias cs="~/.config/auto-commit.sh"                                           # 
 alias chwp="~/.config/change-wallpaper.sh"                                    # Script to change wallpaper
 alias addw="~/.config/aspell-add-word.sh"                                     # Script to add words into personal aspell dict
 alias dolphinenable="systemctl --user start kbuildsycoca.service"             # Enable dolphin default apps
+alias python="~/.venv/bin/python"
+alias pip="~/.venv/bin/pip"
 
 
 
