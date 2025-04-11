@@ -39,11 +39,6 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "[y]ank to clipboard
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank line to clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "[d]elete over" }) --  without overwriting register
 
-
--- QuickFix, Tag match-list, Argument list,  Buffer list
-vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "[q]uickfix [o]pen" })
-
-
 -- Tmux Integration Keymaps
 vim.keymap.set("n", "<C-t>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<C-h>", vim.cmd.NvimTmuxNavigateLeft)
@@ -69,20 +64,20 @@ vim.keymap.set("n", "<leader>gpl", "<cmd>Neogit pull<CR>", { desc = "neo[g]it [p
 -- LSP Keymaps
 vim.keymap.set("n", "<A-f>", function() require("conform").format() end)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
-
-vim.keymap.set("n", "<leader>ln", function() require("lint").try_lint() end, { desc = "[l]i[n]t" })
 vim.keymap.set("n", "grd", vim.lsp.buf.definition, { desc = "[g]o to [d]efinition" })
 vim.keymap.set("n", "grD", vim.lsp.buf.declaration, { desc = "[g]o to [D]eclaration" })
 vim.keymap.set("n", "grt", vim.lsp.buf.type_definition, { desc = "[g]o to [t]ype definition" })
---
-vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, { desc = "diagnostic [f]loat" })
-vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "[q]uickfix [o]pen" })
-vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "diagnostics [l]ist" })
+vim.keymap.set("n", "<leader>ln", function() require("lint").try_lint() end, { desc = "[l]i[n]t" })
+vim.keymap.set("n", "<leader>li", vim.lsp.buf.signature_help, { desc = "[L]SP s[i]gnature" })
+vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol, { desc = "[L]SP [w]orkspace symbols" })
+vim.keymap.set("n", "<leader>lm", vim.lsp.buf.document_symbol, { desc = "[L]SP sy[m]bols in document" })
 vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", { desc = "[l]sp [r]estart" })
 vim.keymap.set("n", "<leader>ls", "<cmd>LspStart<CR>", { desc = "[l]sp [s]tart" })
-vim.keymap.set("n", "<leader>li", vim.lsp.buf.signature_help, { desc = "[L]SP s[i]gnature" })
-vim.keymap.set("n", "<leader>lm", vim.lsp.buf.document_symbol, { desc = "[L]SP sy[m]bols in document" })
-vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol, { desc = "[L]SP [w]orkspace symbols" })
+
+-- QuickFix, Location list, etc.
+vim.keymap.set("n", "<leader>lf", vim.diagnostic.open_float, { desc = "diagnostic [f]loat" })
+vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "[q]uickfix [o]pen" })
+vim.keymap.set("n", "<leader>ll", "<cmd>lopen<CR>zz", { desc = "[l]ocation [l]ist" })
 
 -- Markdown
 vim.keymap.set("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", { desc = "[m]arkdown [t]oggle" })
