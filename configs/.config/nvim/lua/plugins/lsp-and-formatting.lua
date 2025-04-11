@@ -131,7 +131,7 @@ return {
                   useLibraryCodeForTypes = true,
                   typeCheckingMode = "strict",
                 },
-                -- pythonPath = vim.g.python3_host_prog,
+                pythonPath = vim.g.python3_host_prog,
               },
             },
           })
@@ -152,6 +152,7 @@ return {
                 },
               },
             },
+            pythonPath = vim.g.python3_host_prog,
           })
         end,
         ["jdtls"] = function()
