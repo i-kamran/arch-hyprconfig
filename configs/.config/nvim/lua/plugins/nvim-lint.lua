@@ -9,10 +9,10 @@ return {
     require("mason").setup()
 
     -- Check if eslint_d is installed and install if missing
-    local mason_registry = require("mason-registry")
-    if not mason_registry.is_installed("eslint_d") then
-      mason_registry.get_package("eslint_d"):install()
-    end
+    -- local mason_registry = require("mason-registry")
+    --  if not mason_registry.is_installed("eslint_d") then
+    --   mason_registry.get_package("eslint_d"):install()
+    -- end
 
     -- Linter configuration for nvim-lint
     local lint = require("lint")
@@ -43,8 +43,9 @@ return {
       "--filter=-legal/copyright,-build/include", -- Suppress copyright and include warnings
     }
     lint.linters.cspell.args = {
-      "--config",
-      "~/.config/cspell/cspell.json",
+        "--show-suggestions"
+      -- "--config",
+      -- "~/.config/cspell/cspell.json",
     }
   end,
 }
