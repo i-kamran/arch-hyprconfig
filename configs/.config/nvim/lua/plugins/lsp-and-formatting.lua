@@ -66,8 +66,6 @@ return {
         "google-java-format",
 
         -- Linters
-        "pylint",
-        "mypy",
         "luacheck",
         "golangci-lint",
         "eslint_d",
