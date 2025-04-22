@@ -36,8 +36,15 @@ vim.opt.spelllang = "en_us"
 -- vim.opt.spell = true
 vim.opt.conceallevel = 1 -- obsidian.nvim
 
--- Python env
-vim.g.python3_host_prog = vim.fn.expand("~/.venv/bin/python")
+-- Set python3_host_prog to project venv if it exists, else fallback to global
+local venv_path = vim.fn.getcwd() .. "/.venv/bin/python"
+local global_python = vim.fn.expand("~/.venv/bin/python") -- or your preferred global path
+
+if vim.fn.filereadable(venv_path) == 1 then
+  vim.g.python3_host_prog = venv_path
+else
+  vim.g.python3_host_prog = global_python
+end
 
 vim.diagnostic.config({
   underline = true,
@@ -56,11 +63,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- Terminal
 vim.api.nvim_create_autocmd("TermOpen", {
-    group = vim.api.nvim_create_augroup('custom-term-open', {clear = true}),
-    callback = function()
-        vim.opt.number = false
-        vim.opt.relativenumber = false
-    end,
+  group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
 })
 
 vim.api.nvim_create_autocmd("TermOpen", {
@@ -68,7 +75,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt_local.spell = false
   end,
 })
-
 
 local augroup_colorcolumn = vim.api.nvim_create_augroup("ColorColumn", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
