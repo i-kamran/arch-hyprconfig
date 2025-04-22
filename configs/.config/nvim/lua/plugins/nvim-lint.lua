@@ -16,9 +16,9 @@ return {
 
     -- Linter configuration for nvim-lint
     local lint = require("lint")
-    lint.linters.pylint.cmd = "/home/i-kamran/.venv/bin/pylint"
-    lint.linters.mypy.cmd = "/home/i-kamran/.venv/bin/mypy"
-
+    local home = vim.fn.expand("~")
+    lint.linters.pylint.cmd = home .. "/.venv/bin/pylint"
+    lint.linters.mypy.cmd = home .. "/.venv/bin/mypy"
 
     lint.linters_by_ft = {
       javascript = { "eslint_d", "cspell" },
