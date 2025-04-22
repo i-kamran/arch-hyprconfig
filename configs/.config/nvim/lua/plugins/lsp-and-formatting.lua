@@ -120,22 +120,6 @@ return {
             },
           })
         end,
-        ["pyright"] = function()
-          lspconfig.pyright.setup({
-            capabilities = capabilities,
-            settings = {
-              python = {
-                analysis = {
-                  autoSearchPaths = true,
-                  diagnosticMode = "workspace",
-                  useLibraryCodeForTypes = true,
-                  typeCheckingMode = "strict",
-                },
-                pythonPath = vim.g.python3_host_prog,
-              },
-            },
-          })
-        end,
         ["pylsp"] = function()
           lspconfig.pylsp.setup({
             capabilities = capabilities,
@@ -148,7 +132,13 @@ return {
                     include_class_objects = true,
                     include_function_objects = true,
                   },
-                  -- jedi_signature_help = { enabled = true }, -- Enable signature help
+                  jedi_signature_help = { enabled = true }, -- Enabled signature help
+                  -- Disable other plugins
+                  pyflakes = { enabled = false },
+                  pycodestyle = { enabled = false },
+                  pylint = { enabled = false },
+                  mypy = { enabled = false },
+                  black = { enabled = false },
                 },
               },
             },
