@@ -16,6 +16,10 @@ return {
 
     -- Linter configuration for nvim-lint
     local lint = require("lint")
+    lint.linters.pylint.cmd = "/home/i-kamran/.venv/bin/pylint"
+    lint.linters.mypy.cmd = "/home/i-kamran/.venv/bin/mypy"
+
+
     lint.linters_by_ft = {
       javascript = { "eslint_d", "cspell" },
       typescript = { "eslint_d", "cspell" },
@@ -32,7 +36,7 @@ return {
       html = { "htmlhint", "cspell" },
       c = { "cpplint", "cppcheck", "cspell" },
       cpp = { "cpplint", "cppcheck", "cspell" },
-      java = {"checkstyle", "cspell"},
+      java = { "checkstyle", "cspell" },
       rust = { "cspell" },
       -- rust = { "clippy" },
     }
@@ -42,10 +46,10 @@ return {
     lint.linters.cpplint.args = {
       "--filter=-legal/copyright,-build/include", -- Suppress copyright and include warnings
     }
-    lint.linters.cspell.args = {
-        "--show-suggestions"
-      -- "--config",
-      -- "~/.config/cspell/cspell.json",
-    }
+    -- lint.linters.cspell.args = {
+    --   "--show-suggestions",
+    --   -- "--config",
+    --   -- "~/.config/cspell/cspell.json",
+    -- }
   end,
 }
