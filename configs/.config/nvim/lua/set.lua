@@ -148,10 +148,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
   end,
 })
 
--- For Lua-based Neovim configurations (init.lua)
-vim.cmd([[
-  augroup JavaTabSettings
-    autocmd!
-    autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab
-  augroup END
-]])
+-- 2-space indentation
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "java", "html", "css", "javascript", "typescript", "lua", "json" },
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
