@@ -150,6 +150,26 @@ return {
             root_dir = require("lspconfig").util.root_pattern(".git", "mvnw", "gradlew"),
           })
         end,
+        ["emmet_ls"] = function()
+          lspconfig.emmet_ls.setup({
+            capabilities = capabilities,
+            filetypes = {
+              "html",
+              "css",
+              "javascriptreact",
+              "typescriptreact",
+              "svelte",
+              "vue",
+            },
+            init_options = {
+              html = {
+                options = {
+                  -- ["bem.enabled"] = true, -- optional
+                },
+              },
+            },
+          })
+        end,
       },
     })
     local cmp = require("cmp")
