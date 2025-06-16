@@ -30,19 +30,20 @@ return {
 	},
 
 	-- markdown-preview
-	-- {
-	-- 	"iamcco/markdown-preview.nvim",
-	-- 	lazy = true,
-	-- 	event = "VeryLazy",
-	-- 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-	-- 	build = "cd app && npm install",
-	-- 	init = function()
-	-- 		vim.g.mkdp_filetypes = { "markdown" }
-	-- 	end,
-	-- 	ft = { "markdown" },
-	-- },
+	{
+		"iamcco/markdown-preview.nvim",
+		lazy = true,
+		event = "VeryLazy",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && npm install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
 
 	-- obsidian.nvim
+  -- 
 	{
 		"epwalsh/obsidian.nvim",
 		version = "*",
