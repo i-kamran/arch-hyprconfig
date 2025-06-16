@@ -93,6 +93,7 @@ return {
         "rust-analyzer",
         "clangd",
         "jdtls",
+        "emmet_ls",
 
         -- DAP
         "debugpy",
