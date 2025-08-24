@@ -99,7 +99,7 @@ vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() 
 
 -- Snippets
 vim.keymap.set("n", "<leader>sr", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "[s]nippet e[r]ror" }) -- Insert Go error handling snippet
-vim.keymap.set("n", "<leader>sm", 'iif __name__ == "__main__":<CR>main()<Esc>', { desc = "[s]nippet [er]ror" }) -- Insert Go error handling snippet
+vim.keymap.set("n", "<leader>sm", 'iif __name__ == "__main__":<CR>main()<Esc>', { desc = "[s]nippet [m]ain" }) -- Insert python main check 
 
 -- Terminal
 vim.keymap.set("n", "<leader>st", function()
