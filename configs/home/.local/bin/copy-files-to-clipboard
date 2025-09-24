@@ -1,0 +1,93 @@
+#!/bin/bash
+
+# A simplified script to copy files to the Wayland clipboard.
+# This version focuses on reliable functionality.
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <file1> [file2] [file3] ..."
+    exit 1
+fi
+
+# Function to URL encode special characters.
+url_encode() {
+    local string="$1"
+    string="${string// /%20}"
+    string="${string//\#/%23}"
+    string="${string//\?/%3F}"
+    echo "$string"
+}
+
+# Build the URI list string
+URI_LIST=""
+for file in "$@"; do
+    if [ ! -e "$file" ]; then
+        echo "Warning: File not found, skipping: $file" >&2
+        continue
+    fi
+
+    abs_path=$(realpath "$file")
+    encoded_path=$(url_encode "$abs_path")
+
+    if [ -n "$URI_LIST" ]; then
+        URI_LIST="${URI_LIST}\r\n"
+    fi
+    URI_LIST="${URI_LIST}file://${encoded_path}"
+done
+
+if [ -z "$URI_LIST" ]; then
+    echo "No valid files to copy."
+    exit 1
+fi
+
+# Copy the URI list to the clipboard and wait for a paste.
+# The `printf %b` handles the \r\n newline characters.
+printf "%b\n" "$URI_LIST" | wl-copy --type "text/uri-list" --foreground
+
+echo "Copied file(s) to clipboard. You can now paste (Ctrl+V) in another app."
+#!/bin/bash
+
+# A simplified script to copy files to the Wayland clipboard.
+# This version focuses on reliable functionality.
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <file1> [file2] [file3] ..."
+    exit 1
+fi
+
+# Function to URL encode special characters.
+url_encode() {
+    local string="$1"
+    string="${string// /%20}"
+    string="${string//\#/%23}"
+    string="${string//\?/%3F}"
+    echo "$string"
+}
+
+# Build the URI list string
+URI_LIST=""
+for file in "$@"; do
+    if [ ! -e "$file" ]; then
+        echo "Warning: File not found, skipping: $file" >&2
+        continue
+    fi
+
+    abs_path=$(realpath "$file")
+    encoded_path=$(url_encode "$abs_path")
+
+    if [ -n "$URI_LIST" ]; then
+        URI_LIST="${URI_LIST}\r\n"
+    fi
+    URI_LIST="${URI_LIST}file://${encoded_path}"
+done
+
+if [ -z "$URI_LIST" ]; then
+    echo "No valid files to copy."
+    exit 1
+fi
+
+# Copy the URI list to the clipboard and wait for a paste.
+# The `printf %b` handles the \r\n newline characters.
+printf "%b\n" "$URI_LIST" | wl-copy --type "text/uri-list" --foreground
+
+echo "Copied file(s) to clipboard. You can now paste (Ctrl+V) in another app."
+echo "This script will exit after you paste."
