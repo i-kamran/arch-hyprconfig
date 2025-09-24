@@ -187,4 +187,9 @@ AUR_PACKAGES=(
     "plasma6-themes-layan-git"        # Layan theme for Plasma 6
     "papirus-folders-catppuccin-git"  # Papirus folders Catppuccin theme
     "layan-gtk-theme-git"             # Layan theme for gtk
+
+    ############
+    ### Misc ###
+    ############
+    "r-quick-share"                   # Quick share for Linux
 )
