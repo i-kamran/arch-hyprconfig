@@ -1,24 +1,22 @@
+
+# : Manager {{{
+
 [mgr]
 cwd = { fg = "#8dace2" }
 
 # Hovered
-hovered = { fg = "#1c1c19", bg = "#8dace2" }
+hovered         = { fg = "#1c1c19", bg = "#8dace2" }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword = { fg = "#dcb8e6", italic = true }
+find_keyword  = { fg = "#dcb8e6", italic = true }
 find_position = { fg = "#ed9797", bg = "reset", italic = true }
 
 # Marker
 marker_selected = { fg = "#e2c38d", bg = "#e2c38d" }
 marker_marked   = { fg = "#f29668",   bg = "#f29668" }
-marker_copied = { fg = "#a1cc85", bg = "#a1cc85" }
-marker_cut = { fg = "#e67373", bg = "#e67373" }
-
-# Tab
-tab_active   = { fg = "#1c1c19", bg = "#e0def4" }
-tab_inactive = { fg = "#e0def4", bg = "#525357" }
-tab_width    = 1
+marker_copied   = { fg = "#a1cc85", bg = "#a1cc85" }
+marker_cut      = { fg = "#e67373", bg = "#e67373" }
 
 # Count
 count_copied   = { fg = "#1c1c19", bg = "#a1cc85" }
@@ -27,7 +25,7 @@ count_selected = { fg = "#1c1c19", bg = "#e2c38d" }
 
 # Border
 border_symbol = "│"
-border_style = { fg = "#282a2e" }
+border_style  = { fg = "#282a2e" }
 
 # Highlighting
 syntect_theme = ""
@@ -35,50 +33,66 @@ syntect_theme = ""
 # : }}}
 
 
-# : Status {{{
+# : Tabs {{{
 
-[status]
-separator_open = ""
-separator_close = ""
-separator_style = { fg = "#383b41", bg = "#383b41" }
+[tabs]
+active   = { fg = "#1c1c19", bg = "#e0def4" }
+inactive = { fg = "#e0def4", bg = "#525357" }
+
+# : }}}
+
+
+# : Mode {{{
 
 # Mode
-mode_normal = { fg = "#1f1f1e", bg = "#e2c38d", bold = true }
-mode_select = { fg = "#1f1f1e", bg = "#f29668", bold = true }
-mode_unset = { fg = "#e0def4", bg = "#e67373", bold = true }
+[mode]
+normal_main = { fg = "#1f1f1e", bg = "#e2c38d", bold = true }
+normal_alt  = { fg = "#e2c38d", bg = "#383b41" }
+select_main = { fg = "#1f1f1e", bg = "#f29668", bold = true }
+select_alt  = { fg = "#f29668", bg = "#383b41" }
+unset_main  = { fg = "#e0def4", bg = "#e67373", bold = true }
+unset_alt   = { fg = "#e67373", bg = "#383b41" }
+
+# : }}}
+
+
+# : Status bar {{{
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#383b41", bg = "#383b41" }
 
 # Progress
 progress_label = { fg = "#e0def4", bold = true }
 progress_normal = { fg = "#191724", bg = "#383b41" }
-progress_error = { fg = "#e67373", bg = "#383b41" }
+progress_error  = { fg = "#e67373", bg = "#383b41" }
 
 # Permissios 
 # permissions_t = { fg = "#31748f" } # Interesting color, keep for reference
-permissions_t = { fg = "#8dace2" }
-permissions_r = { fg = "#edd282" }
-permissions_w = { fg = "#ed9797" }
-permissions_x = { fg = "#abede4" }
-permissions_s = { fg = "#525367" }
+perm_type  = { fg = "#8dace2" }
+perm_read  = { fg = "#edd282" }
+perm_write = { fg = "#ed9797" }
+perm_sep   = { fg = "#525367" }
+perm_exec  = { fg = "#abede4" }
 
 # : }}}
-  
-# : Input {{ 
+
+
+# : Input {{{
 
 [input]
-border = { fg = "#525367" }
-title = {}
-value = {}
+border   = { fg = "#525367" }
+title    = {}
+value    = {}
 selected = { reversed = true }
 
 # : }}}
 
+# : Completion {{{
 
-# : Select {{{
-
-[select]
-border = { fg = "#525367" }
-active = { fg = "#ed9797" }
-inactive = {}
+[cmp]
+border = { fg = "#bd93f9" }
 
 # : }}}
 
@@ -114,6 +128,16 @@ exec = { fg = "#7accc1" }
 desc = { fg = "#9399b2" }
 hovered = { bg = "#585b70", bold = true }
 footer = { fg = "#302F2C", bg = "#e0def4" }
+
+# : }}}
+
+
+# : Notify {{{
+
+[notify]
+title_info  = { fg = "#a1cc85" }
+title_warn  = { fg = "#e2c38d" }
+title_error = { fg = "#e67373" }
 
 # : }}}
 
