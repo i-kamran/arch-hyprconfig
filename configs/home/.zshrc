@@ -8,7 +8,6 @@ export ZSH="$HOME/.oh-my-zsh"
 ###############
 
 source $HOME/.config/zsh/env.zsh
-source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/functions.zsh
 source $HOME/.config/zsh/history.zsh
 
@@ -37,6 +36,10 @@ copyfile copybuffer dirhistory history copypath)
 # This oh-my-zsh.sh source should be below plugins
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
+
+# Source aliases below oh-my-zsh, otherwise ls will be overriden
+source $HOME/.config/zsh/aliases.zsh
+
 bindkey -v
 bindkey '^Y' autosuggest-accept
 bindkey '^[^I' autosuggest-accept
