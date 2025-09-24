@@ -37,6 +37,9 @@ return {
       clang_format = {
         prepend_args = { "--style", "{IndentWidth: 2}" },
       },
+      black = {
+        prepend_args = { "--line-length", "79" },
+      },
     },
 
     -- Optional: Set notify to false to disable notifications
