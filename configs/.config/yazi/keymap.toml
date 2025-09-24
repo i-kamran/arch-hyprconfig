@@ -1,3 +1,14 @@
 [[mgr.prepend_keymap]]
-on  = "M"
+on = ["M"]
 run = "plugin mount"
+desc = "Mount plugin"
+
+[[mgr.prepend_keymap]]
+on = ["g", "s"]
+run = "cd /mnt/sda/"
+desc = "Go /mnt/sda"
+
+[[mgr.prepend_keymap]]
+on = ["c", "b"]
+run = 'shell "WAYLAND_DISPLAY=$WAYLAND_DISPLAY nohup /$HOME/.local/bin/copy-files-to-clipboard \"$@\" > /dev/null 2>&1 &" --confirm'
+desc = "Copy to clipboard"
