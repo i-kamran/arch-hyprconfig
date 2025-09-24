@@ -24,6 +24,7 @@ PACKAGES=(
     ### Browsers ###
     ################
     "firefox"                         # Web browser
+    "zen"                             # Better firefox-based browser
     
     ############################
     ### Wayland & Compositor ###
@@ -167,7 +168,6 @@ AUR_PACKAGES=(
     ### Dev Tools & Editors ###
     ###########################
     "visual-studio-code-bin"          # Binary release of Visual Studio Code
-    "noi-desktop-bin"                 # Noi desktop environment installer
     "google-chrome"                   # Chrome browser
     "p4merge"                         # P4Merge  is a three-way merging and file comparison tool
 
