@@ -1,29 +1,52 @@
 [opener]
 edit = [
-	{ run = '${EDITOR:-nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+  { run = '${EDITOR:-nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
 ]
+
 reveal = [
-	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
-	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+  { run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
 ]
+
 extract = [
-	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
+  { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
 ]
+
 play = [
-	{ run = 'haruna "$@"', orphan = true, for = "unix" },
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+  { run = 'haruna "$@"', orphan = true, for = "unix" },
+  { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
-open = [
-    { run = 'xdg-open "$@"', desc = "Open in browser", for = "unix", mime = "application/pdf" },
-	{ run = 'gwenview "$@"', desc = "Open with Gwenview", for = "unix", mime = "image/*" },
+
+exec = [
+  { run = 'sh "$1"', desc = "Run script", block = true, for = "unix" },
+]
+
+pdf = [
+  { run = 'zathura "$@"', desc = "Open with Zathura", for = "unix" },
+]
+
+image = [
+  { run = 'gwenview "$@"', desc = "Open with Gwenview", for = "unix" },
+]
+
+[open]
+rules = [
+  { name = "*.sh", use = ["edit", "exec", "reveal"] },
+  { mime = "application/x-executable", use = ["exec", "reveal"] },
+  { mime = "application/pdf", use = ["pdf", "reveal"] },
+  { mime = "image/*", use = ["image", "reveal"] },
+  { mime = "video/*", use = ["play", "reveal"] },
+  { mime = "audio/*", use = ["play", "reveal"] },
+  { mime = "inode/directory", use = "reveal" },
+  { mime = "application/zip", use = ["extract", "reveal"] },
+  { mime = "application/x-tar", use = ["extract", "reveal"] },
+  { mime = "application/x-rar", use = ["extract", "reveal"] },
+  { mime = "application/x-7z-compressed", use = ["extract", "reveal"] },
+  { mime = "text/*", use = ["edit", "reveal", "exec"] },
+  { mime = "*", use = ["edit", "reveal", "exec"] },  # Fallback: open everything else with editor
 ]
 
 [[plugin.prepend_fetchers]]
-id   = "git"
-name = "*"
-run  = "git"
-
-[[plugin.prepend_fetchers]]
-id   = "git"
-name = "*/"
-run  = "git"
+id = "git"
+url = "*"
+run = "git"

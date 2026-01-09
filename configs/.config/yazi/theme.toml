@@ -4,9 +4,7 @@
 [mgr]
 cwd = { fg = "#8dace2" }
 
-# Hovered
-hovered         = { fg = "#1c1c19", bg = "#8dace2" }
-preview_hovered = { underline = true }
+
 
 # Find
 find_keyword  = { fg = "#dcb8e6", italic = true }
@@ -32,6 +30,10 @@ syntect_theme = ""
 
 # : }}}
 
+[indicator]
+# Hovered
+current = { fg = "#1c1c19", bg = "#8dace2" }
+preview = { underline = true }
 
 # : Tabs {{{
 
