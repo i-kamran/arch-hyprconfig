@@ -5,10 +5,11 @@ return {
   event = "VeryLazy",
   cmd = { "ConformInfo" },
   opts = {
-
     formatters_by_ft = {
       lua = { "stylua" },
-      python = { "isort", "black" },
+
+      python = { "ruff_format", "ruff_organize_imports" },
+
       javascript = { "prettierd", "prettier", stop_after_first = true },
       typescript = { "prettierd", "prettier", stop_after_first = true },
       javascriptreact = { "prettierd", "prettier", stop_after_first = true },
@@ -19,10 +20,11 @@ return {
       scss = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
+
       rust = { "rustfmt", lsp_format = "fallback" },
       c = { "clang-format" },
       cpp = { "clang-format" },
-      java = {"google-java-format"},
+      java = { "google-java-format" },
       go = { "gofumpt" },
       bash = { "beautysh" },
     },
@@ -31,18 +33,17 @@ return {
       stylua = {
         prepend_args = { "--indent-type", "spaces", "--indent-width", "2" },
       },
+
       prettier = {
         prepend_args = { "--print-width", "80" },
       },
+
       clang_format = {
         prepend_args = { "--style", "{IndentWidth: 2}" },
       },
-      black = {
-        prepend_args = { "--line-length", "79" },
-      },
+
     },
 
-    -- Optional: Set notify to false to disable notifications
     notify_on_error = true,
   },
 }
