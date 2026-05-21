@@ -64,18 +64,11 @@ return {
       require("nvim-surround").setup({ version = "*", event = "VeryLazy", opts = {} })
     end,
   },
-
-  -- refactoring
   {
     "ThePrimeagen/refactoring.nvim",
-    lazy = true,
-    event = "VeryLazy",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      "lewis6991/async.nvim",
     },
-    config = function()
-      require("refactoring").setup()
-    end,
+    lazy = false,
   },
 }
