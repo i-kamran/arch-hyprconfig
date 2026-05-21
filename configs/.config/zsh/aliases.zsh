@@ -15,8 +15,6 @@ alias ts="tmux-sessionizer"                                                   # 
 alias cs="~/.config/auto-commit.sh"                                           # Auto commit script
 alias chwp="~/.config/change-wallpaper.sh"                                    # Script to change wallpaper
 alias addw="~/.config/aspell-add-word.sh"                                     # Script to add words into personal aspell dict
-alias python="~/.venv/bin/python"
-alias pip="~/.venv/bin/pip"
 
 
 # Eza
