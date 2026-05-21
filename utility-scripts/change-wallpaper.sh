@@ -42,12 +42,12 @@ fi
 WALLPAPER="${WALLPAPERS[$NEXT_INDEX]}"
 
 # Check if swww daemon is running, if not start it
-if ! pgrep -x "swww-daemon" > /dev/null; then
-    swww-daemon
+if ! pgrep -x "awww-daemon" > /dev/null; then
+    awww-daemon
 fi
 
 # Set the wallpaper
-swww img "$WALLPAPER" --transition-fps 30 --transition-type any --transition-duration 3
+awww img "$WALLPAPER" --transition-fps 30 --transition-type any --transition-duration 3
 
 # Save the next index to the file
 echo "$NEXT_INDEX" > "$INDEX_FILE"
