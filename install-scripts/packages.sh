@@ -64,6 +64,7 @@ PACKAGES=(
     "zip"                             # Package and compress (archive) files into a Zip archive
     "unzip"                           # Extract files/directories from Zip archives
     "less"                            # Utility to read file contents
+    "direnv"                          # Auromatic environment variable manager
 
     #######################
     ### Display Manager ###
@@ -150,6 +151,7 @@ PACKAGES=(
     "jq"                              # JSON preview
     "luarocks"                        # Lua package manager
     "jdk-openjdk"                     # Open-source Java
+    "bun"                             # JS runtime
 
     #################
     ### Intel GPU ###
