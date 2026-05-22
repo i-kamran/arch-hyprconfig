@@ -98,16 +98,16 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
   end,
 })
 
-local augroup_commit_spell = vim.api.nvim_create_augroup("CommitSpell", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup_commit_spell,
-  pattern = { "NeogitCommitMessage", "gitcommit" },
+local group = vim.api.nvim_create_augroup("CommitSpell", { clear = true })
+
+vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
+  group = group,
+  pattern = { "COMMIT_EDITMSG" },
   callback = function()
-    vim.opt.colorcolumn = "50"
-    vim.opt.spell = true
+    vim.opt_local.colorcolumn = "50"
+    vim.opt_local.spell = true
   end,
 })
-
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
   callback = function()
@@ -139,12 +139,18 @@ vim.api.nvim_create_user_command("MarkdownTOC", function()
 end, {})
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-
--- Add additional events to trigger linting dynamically
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
   group = lint_augroup,
   callback = function()
-    require("lint").try_lint()
+    local lint_status, lint = pcall(require, "lint")
+    if not lint_status then
+      return
+    end
+
+    local names = lint.linters_by_ft[vim.bo.filetype]
+    if names and #names > 0 then
+      pcall(lint.try_lint, names)
+    end
   end,
 })
 
@@ -157,4 +163,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
-
