@@ -22,8 +22,7 @@ return {
 
     local lspconfig = require("lspconfig")
     local lspconfig_defaults = lspconfig.util.default_config
-    lspconfig_defaults.capabilities =
-      vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, capabilities)
+    lspconfig_defaults.capabilities = vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, capabilities)
 
     -- Mason setup
     require("mason").setup({
@@ -47,7 +46,7 @@ return {
         "prettier",
         "beautysh",
         "clang-format",
-        "rustfmt",
+        -- "rustfmt",
         "google-java-format",
 
         -- Linters
@@ -62,7 +61,8 @@ return {
         "checkstyle",
 
         -- Language Servers
-        "pylsp",
+        -- "pylsp",
+        "jedi-language-server",
         "pyright",
         "lua-language-server",
         "lua_ls",
@@ -91,56 +91,50 @@ return {
 
     require("mason-lspconfig").setup({
       handlers = {
+        -- Default handler
         function(server_name)
-          lspconfig[server_name].setup({
+          lspconfig[server_name].setup({ capabilities = capabilities })
+        end,
+
+        ["lua_ls"] = function()
+          lspconfig.lua_ls.setup({
             capabilities = capabilities,
-            settings = {
-              Lua = {
-                diagnostics = {
-                  globals = { "vim" },
-                },
+            settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+          })
+        end,
+
+        -- JEDI: This is your primary Python completion engine
+        ["jedi_language_server"] = function()
+          lspconfig.jedi_language_server.setup({
+            capabilities = capabilities,
+            init_options = {
+              completion = {
+                disableSnippets = false,
+                resolveEagerly = true,
               },
             },
           })
         end,
 
-        -- Pylsp: keep for linting/formatting, disable completions
-        ["pylsp"] = function()
-          lspconfig.pylsp.setup({
-            capabilities = capabilities,
-            settings = {
-              pylsp = {
-                plugins = {
-                  jedi_completion = { enabled = false },
-                  jedi_signature_help = { enabled = false },
-                  pyflakes = { enabled = true },
-                  pycodestyle = { enabled = true },
-                  pylint = { enabled = false },
-                  mypy = { enabled = false },
-                  black = { enabled = false },
-                },
-              },
-            },
-            pythonPath = vim.g.python3_host_prog,
-          })
-        end,
-
-        -- Pyright: main Python LSP for completions/snippets
+        -- PYRIGHT: Keep for static analysis, but disable its completion
+        -- to prevent duplicate/messy results with Jedi
         ["pyright"] = function()
           lspconfig.pyright.setup({
             capabilities = capabilities,
             settings = {
               python = {
                 analysis = {
-                  autoSearchPaths = true,
-                  useLibraryCodeForTypes = true,
-                  diagnosticMode = "workspace",
+                  diagnosticMode = "openFilesOnly",
+                  typeCheckingMode = "basic",
                 },
               },
             },
+            -- Disable completion results from Pyright
+            on_attach = function(client, _)
+              client.server_capabilities.completionProvider = false
+            end,
           })
         end,
-
         -- JDTLS
         ["jdtls"] = function()
           lspconfig.jdtls.setup({
