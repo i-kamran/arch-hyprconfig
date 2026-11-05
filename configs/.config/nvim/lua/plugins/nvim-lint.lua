@@ -1,55 +1,49 @@
 return {
   "mfussenegger/nvim-lint",
-  event = "VeryLazy", -- Load nvim-lint and mason on VeryLazy event
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "williamboman/mason.nvim", -- Ensure mason is installed
+    "williamboman/mason.nvim",
   },
   config = function()
-    -- Set up mason to install eslint_d if not present
     require("mason").setup()
 
-    -- Check if eslint_d is installed and install if missing
-    -- local mason_registry = require("mason-registry")
-    --  if not mason_registry.is_installed("eslint_d") then
-    --   mason_registry.get_package("eslint_d"):install()
-    -- end
-
-    -- Linter configuration for nvim-lint
     local lint = require("lint")
-    local home = vim.fn.expand("~")
-    lint.linters.pylint.cmd = home .. "/.venv/bin/pylint"
-    lint.linters.mypy.cmd = home .. "/.venv/bin/mypy"
 
+    -- =========================
+    -- Linters per filetype
+    -- =========================
     lint.linters_by_ft = {
+      python = { "ruff", "mypy", "cspell" },
+      lua = { "luacheck", "cspell" },
       javascript = { "eslint_d", "cspell" },
       typescript = { "eslint_d", "cspell" },
       javascriptreact = { "eslint_d", "cspell" },
       typescriptreact = { "eslint_d", "cspell" },
-      svelte = { "eslint_d", "cspell" },
-      python = { "pylint", "mypy", "cspell" }, -- mypy for type checking
-      lua = { "luacheck", "cspell" }, -- Lua linter
-      go = { "golangcilint", "cspell" },
-      bash = { "bash-language-server", "shellcheck", "cspell" },
-      markdown = { "markdownlint", "cspell" },
       json = { "jsonlint", "cspell" },
-      dockerfile = { "dockerls", "cspell" },
       html = { "htmlhint", "cspell" },
-      c = { "cpplint", "cppcheck", "cspell" },
-      cpp = { "cpplint", "cppcheck", "cspell" },
-      java = { "checkstyle", "cspell" },
+      css = { "stylelint", "cspell" },
+      scss = { "stylelint", "cspell" },
+      markdown = { "markdownlint", "cspell" },
+      yaml = { "yamllint", "cspell" },
+      c = { "cpplint", "cspell" },
+      cpp = { "cpplint", "cspell" },
+      go = { "golangci_lint", "cspell" },
       rust = { "cspell" },
-      -- rust = { "clippy" },
+      bash = { "shellcheck", "cspell" },
+      java = { "checkstyle", "cspell" },
     }
-    -- lint.linters.cppcheck.args = {
-    --   "--enable=all", -- Enable all checks (style, performance, unused, etc.)
-    -- }
+
+    -- =========================
+    -- Use direnv-activated executables
+    -- =========================
+    lint.linters.ruff.cmd = vim.fn.exepath("ruff")
+    lint.linters.mypy.cmd = vim.fn.exepath("mypy")
+
+    -- =========================
+    -- cpplint extra args
+    -- =========================
     lint.linters.cpplint.args = {
-      "--filter=-legal/copyright,-build/include", -- Suppress copyright and include warnings
+      "--filter=-legal/copyright,-build/include", -- suppress warnings
     }
-    -- lint.linters.cspell.args = {
-    --   "--show-suggestions",
-    --   -- "--config",
-    --   -- "~/.config/cspell/cspell.json",
-    -- }
   end,
 }
