@@ -31,7 +31,7 @@ image = [
 
 [open]
 rules = [
-  { name = "*.sh", use = ["edit", "exec", "reveal"] },
+  { url = "*.sh", use = ["edit", "exec", "reveal"] },
   { mime = "application/x-executable", use = ["exec", "reveal"] },
   { mime = "application/pdf", use = ["pdf", "reveal"] },
   { mime = "image/*", use = ["image", "reveal"] },
@@ -47,6 +47,11 @@ rules = [
 ]
 
 [[plugin.prepend_fetchers]]
-id = "git"
+group = "git"
 url = "*"
+run = "git"
+
+[[plugin.prepend_fetchers]]
+group = "git"
+url = "*/"
 run = "git"
